@@ -4,7 +4,7 @@ import glob, os, struct, sys
 sys.path.insert(0, r"E:\python\ea-fc26-tool")
 from parse_t3db import Database
 
-WATCH = {158023: "Messi", 192505: "Lukaku", 200145: "Casemiro"}
+WATCH = {158023: "Messi", 192505: "Lukaku", 200145: "Casemiro", 264652: "Barcola", 253163: "Araujo"}
 DB_MAGIC = b"DB\x00\x08"
 
 LOCATIONS = [

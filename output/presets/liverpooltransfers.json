@@ -14,6 +14,32 @@
       "pace": 80,
       "stamina": 72,
       "notes": ""
+    },
+    {
+      "player_id": 264652,
+      "name": "Bradley Barcola",
+      "overall": 84,
+      "position": "LW",
+      "from_team": null,
+      "jersey_stored": null,
+      "wage_eur": 110000.0,
+      "value_eur": 61500000.0,
+      "pace": 90,
+      "stamina": 74,
+      "notes": ""
+    },
+    {
+      "player_id": 278903,
+      "name": "J\u00e9r\u00e9my Jacquet",
+      "overall": 75,
+      "position": "CB",
+      "from_team": null,
+      "jersey_stored": null,
+      "wage_eur": 16000.0,
+      "value_eur": 11500000.0,
+      "pace": 64,
+      "stamina": 64,
+      "notes": ""
     }
   ]
 }
