@@ -206,3 +206,76 @@ def save_json(sl: Shortlist, path: Path) -> None:
 def load_json(path: Path) -> Shortlist:
     with open(path, encoding="utf-8") as f:
         return Shortlist.from_dict(json.load(f))
+
+
+PRESETS_DIR = SCRIPT_DIR / "output" / "presets"
+
+
+def sanitize_preset_filename(name: str) -> str:
+    s = name.strip().lower()
+    s = "".join(c if c.isalnum() or c in ("-", "_") else "_" for c in s)
+    while "__" in s:
+        s = s.replace("__", "_")
+    s = s.strip("_")
+    return s or "preset"
+
+
+def list_presets(presets_dir: Path | None = None) -> list[dict]:
+    """Scan presets directory and return list of preset info dicts."""
+    p_dir = presets_dir or PRESETS_DIR
+    if not p_dir.exists():
+        return []
+    res = []
+    for p in sorted(p_dir.glob("*.json")):
+        try:
+            sl = load_json(p)
+            res.append({
+                "filename": p.name,
+                "path": str(p),
+                "preset_name": p.stem.replace("_", " ").title(),
+                "target_team": sl.target_team,
+                "target_name": sl.target_name,
+                "player_count": len(sl.players),
+            })
+        except Exception:
+            continue
+    return res
+
+
+def save_preset(sl: Shortlist, name: str, presets_dir: Path | None = None) -> Path:
+    p_dir = presets_dir or PRESETS_DIR
+    fname = sanitize_preset_filename(name) + ".json"
+    target_path = p_dir / fname
+    save_json(sl, target_path)
+    return target_path
+
+
+def load_preset(name_or_path: str | Path, presets_dir: Path | None = None) -> Shortlist:
+    p_dir = presets_dir or PRESETS_DIR
+    p = Path(name_or_path)
+    if not p.is_file():
+        # try as name in presets_dir
+        fname = sanitize_preset_filename(str(name_or_path)) + ".json"
+        p = p_dir / fname
+        if not p.is_file():
+            matches = list(p_dir.glob(f"*{sanitize_preset_filename(str(name_or_path))}*.json"))
+            if matches:
+                p = matches[0]
+            else:
+                raise FileNotFoundError(f"Preset '{name_or_path}' not found at {p}")
+    return load_json(p)
+
+
+def delete_preset(name_or_path: str | Path, presets_dir: Path | None = None) -> bool:
+    try:
+        p_dir = presets_dir or PRESETS_DIR
+        p = Path(name_or_path)
+        if not p.is_file():
+            fname = sanitize_preset_filename(str(name_or_path)) + ".json"
+            p = p_dir / fname
+        if p.is_file():
+            p.unlink()
+            return True
+        return False
+    except Exception:
+        return False

@@ -95,16 +95,33 @@ def main():
     ap.add_argument("--from-team", type=int, default=47)
     ap.add_argument("--to-team", type=int, default=8)
     ap.add_argument("--jersey", type=int, default=90, help="stored value; in-game shirt = value+1")
-    ap.add_argument("--swap", action="append", metavar="PLAYER,FROM,TO,JERSEY",
-                    help="repeatable; overrides the single-swap args. "
-                         "JERSEY is the stored value (in-game shirt = value+1)")
+    ap.add_argument("--preset", type=str,
+                    help="Name or path of a squad preset JSON file (e.g. 'Liverpool New Signings' or 'output/presets/big_guys.json')")
     ap.add_argument("--include-caches", action="store_true",
                     help="ALSO patch MatchDay*/SquadOnline* caches. DANGEROUS: "
                          "online modes (Seasons) and 'live form' read the caches, "
                          "so patched caches leak modded players into online play. "
                          "Kick Off (live form off) only needs the Squads saves.")
     args = ap.parse_args()
-    if args.swap:
+    if args.preset:
+        from pathlib import Path
+        from shortlist import load_preset, load_db, resolve_from_teams, assign_jerseys
+        try:
+            sl = load_preset(args.preset)
+        except Exception as e:
+            raise SystemExit(f"Error loading preset '{args.preset}': {e}")
+        db_ref = load_db()
+        resolve_from_teams(sl, db_ref)
+        assign_jerseys(sl, db_ref)
+        swaps = []
+        for p in sl.players:
+            if p.from_team is not None and p.jersey_stored is not None and p.from_team != sl.target_team:
+                swaps.append((p.player_id, p.from_team, sl.target_team, p.jersey_stored))
+        if not swaps:
+            print(f"Preset '{sl.target_name}' loaded, but no valid player swaps needed.")
+        else:
+            print(f"Loaded preset '{sl.target_name}' (target {sl.target_team}): {len(swaps)} swaps queued.")
+    elif args.swap:
         swaps = [tuple(int(x) for x in s.split(",")) for s in args.swap]
         for s in swaps:
             if len(s) != 4:

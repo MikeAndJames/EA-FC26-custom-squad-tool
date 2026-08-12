@@ -104,16 +104,77 @@ if errorlevel 1 echo          (no patched saves -- run patch_squads.py first)
 echo(
 echo  --------------------------------------------------------------
 echo(
-echo   1. Deploy moneyball files              [E: output -^> C: settings]
-echo   2. Restore original EA squad files     [undo everything]
-echo   3. Quit
+echo   1. Deploy currently patched files     [E: output -> C: settings]
+echo   2. Pick & Patch a squad PRESET        [e.g. Liverpool, Big Guys]
+echo   3. Restore original EA squad files     [undo everything]
+echo   4. Quit
 echo(
 set "CHOICE="
-set /p CHOICE="  Pick 1, 2 or 3: "
+set /p CHOICE="  Pick 1, 2, 3 or 4: "
 if "!CHOICE:~0,1!"=="1" goto :deploy
-if "!CHOICE:~0,1!"=="2" goto :restore
-if "!CHOICE:~0,1!"=="3" exit /b 0
+if "!CHOICE:~0,1!"=="2" goto :preset_menu
+if "!CHOICE:~0,1!"=="3" goto :restore
+if "!CHOICE:~0,1!"=="4" exit /b 0
 goto :menu
+
+rem ============================================================
+:preset_menu
+set "PRESET_DIR=%OUTPUT%\presets"
+if not exist "%PRESET_DIR%" mkdir "%PRESET_DIR%" 2>nul
+
+cls
+echo  ==========================================
+echo   SELECT A SQUAD PRESET TO PATCH ^& DEPLOY
+echo  ==========================================
+echo(
+
+set count=0
+for /f "delims=" %%F in ('dir /b "%PRESET_DIR%\*.json" 2^>nul') do (
+    set /a count+=1
+    set "preset[!count!]=%%F"
+    echo   !count!. %%~nF
+)
+
+if %count%==0 (
+    echo  No saved presets found in %PRESET_DIR%.
+    echo  Build a squad and click 'Save Preset' in app.py first!
+    echo(
+    pause
+    goto :menu
+)
+
+echo(
+set "PCHOICE="
+set /p PCHOICE="  Select preset number (1-%count%) or press Enter to cancel: "
+if not defined PCHOICE goto :menu
+
+for /f "delims=0123456789" %%i in ("%PCHOICE%") do goto :preset_invalid
+
+if %PCHOICE% LSS 1 goto :preset_invalid
+if %PCHOICE% GTR %count% goto :preset_invalid
+
+set "CHOSEN_PRESET=!preset[%PCHOICE%]!"
+echo(
+echo  Selected Preset: %CHOSEN_PRESET%
+echo  Patching squad files with: python patch_squads.py --preset "%PRESET_DIR%\%CHOSEN_PRESET%"
+echo(
+
+python "%~dp0patch_squads.py" --preset "%PRESET_DIR%\%CHOSEN_PRESET%"
+if errorlevel 1 (
+    echo(
+    echo  ERROR: patch_squads.py failed for %CHOSEN_PRESET%.
+    pause
+    goto :menu
+)
+
+echo(
+echo  Patch complete! Proceeding to deploy...
+goto :deploy_confirmed
+
+:preset_invalid
+echo  Invalid selection.
+pause
+goto :preset_menu
 
 rem ============================================================
 :deploy
@@ -161,6 +222,7 @@ if /i not "!CONFIRM:~0,1!"=="y" (
     goto :menu
 )
 
+:deploy_confirmed
 if defined HAVEPATCHED (
     for /f "delims=" %%F in ('dir /b "%PATCHED%\Squads*" 2^>nul') do (
         copy /y "%PATCHED%\%%F" "%SETTINGS%\" >nul

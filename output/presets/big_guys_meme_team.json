@@ -1,0 +1,32 @@
+{
+  "target_team": 7,
+  "target_name": "Leeds United",
+  "players": [
+    {
+      "player_id": 239085,
+      "name": "Erling Haaland",
+      "overall": 91,
+      "position": "ST",
+      "from_team": null,
+      "jersey_stored": null,
+      "wage_eur": null,
+      "value_eur": null,
+      "pace": null,
+      "stamina": null,
+      "notes": ""
+    },
+    {
+      "player_id": 203376,
+      "name": "Virgil van Dijk",
+      "overall": 89,
+      "position": "CB",
+      "from_team": null,
+      "jersey_stored": null,
+      "wage_eur": null,
+      "value_eur": null,
+      "pace": null,
+      "stamina": null,
+      "notes": ""
+    }
+  ]
+}

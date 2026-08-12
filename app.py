@@ -29,10 +29,14 @@ from shortlist import (
     Shortlist,
     ShortlistPlayer,
     assign_jerseys,
+    delete_preset,
     export_cli_command,
+    list_presets,
     load_db,
+    load_preset,
     resolve_from_teams,
     save_json,
+    save_preset,
 )
 from nl_query import ask_nl, run_filter_code, run_nl_query
 
@@ -108,7 +112,73 @@ extra_cols_sel = None
 nl_in = provider_sel = model_sel = None
 export_cmd_area = export_warn_area = None
 target_team_sel = None
+preset_name_in = preset_sel = None
 nl_display_cols: list[str] | None = None
+
+
+def do_save_preset() -> None:
+    name = (preset_name_in.value or "").strip()
+    if not name:
+        ui.notify("Type a preset name first (e.g. Liverpool New Signings)", type="warning")
+        return
+    if not shortlist.players:
+        ui.notify("Squad is empty — add some players first", type="warning")
+        return
+    path = save_preset(shortlist, name)
+    render_preset_selector.refresh()
+    ui.notify(f"Saved preset '{name}' → {path.name}", type="positive")
+
+
+def do_load_preset() -> None:
+    global shortlist
+    val = preset_sel.value if preset_sel else None
+    if not val:
+        ui.notify("Select a preset from the dropdown first", type="warning")
+        return
+    try:
+        sl = load_preset(val)
+        shortlist.target_team = sl.target_team
+        shortlist.target_name = sl.target_name
+        shortlist.players = sl.players
+        if target_team_sel:
+            target_team_sel.value = shortlist.target_team
+        render_basket.refresh()
+        render_results.refresh()
+        render_export_info.refresh()
+        ui.notify(f"Loaded preset '{sl.target_name}' ({len(sl.players)} players)", type="positive")
+    except Exception as e:
+        ui.notify(f"Error loading preset: {e}", type="negative")
+
+
+def do_delete_preset() -> None:
+    val = preset_sel.value if preset_sel else None
+    if not val:
+        ui.notify("Select a preset from the dropdown first", type="warning")
+        return
+    if delete_preset(val):
+        render_preset_selector.refresh()
+        ui.notify("Preset deleted", type="info")
+    else:
+        ui.notify("Failed to delete preset", type="negative")
+
+
+@ui.refreshable
+def render_preset_selector() -> None:
+    global preset_name_in, preset_sel
+    presets = list_presets()
+    opts = {p["path"]: f"{p['preset_name']} ({p['target_name']}, {p['player_count']} p)" for p in presets}
+
+    with ui.column().classes("w-full gap-2"):
+        ui.label("Squad Presets").classes("text-xs font-bold text-gray-500 uppercase tracking-wider")
+        with ui.row().classes("w-full gap-1 items-center"):
+            preset_name_in = ui.input(placeholder="Preset name (e.g. Big Guys)").classes("flex-grow")
+            ui.button("Save", on_click=do_save_preset, icon="save").props("dense unelevated color=secondary")
+
+        if opts:
+            with ui.row().classes("w-full gap-1 items-center"):
+                preset_sel = ui.select(options=opts, label="Load saved preset").classes("flex-grow")
+                ui.button(icon="folder_open", on_click=do_load_preset).props("dense unelevated color=primary").tooltip("Load selected preset")
+                ui.button(icon="delete", on_click=do_delete_preset).props("dense flat color=negative").tooltip("Delete selected preset")
 
 
 def _fmt_money(v) -> str:
@@ -612,6 +682,8 @@ def build_ui() -> None:
         # RIGHT: basket
         with ui.column().classes("gap-2").style("flex: 1; min-width: 280px"):
             with ui.card().classes("w-full"):
+                render_preset_selector()
+                ui.separator().classes("my-2")
                 ui.label("Preferred Target Team").classes("text-xs font-bold text-gray-500 uppercase tracking-wider")
                 target_team_sel = ui.select(
                     options=PRESET_TARGET_TEAMS,

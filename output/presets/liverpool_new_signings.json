@@ -1,0 +1,32 @@
+{
+  "target_team": 8,
+  "target_name": "Liverpool",
+  "players": [
+    {
+      "player_id": 158023,
+      "name": "Lionel Messi",
+      "overall": 88,
+      "position": "RW",
+      "from_team": null,
+      "jersey_stored": null,
+      "wage_eur": null,
+      "value_eur": null,
+      "pace": null,
+      "stamina": null,
+      "notes": ""
+    },
+    {
+      "player_id": 192505,
+      "name": "Romelu Lukaku",
+      "overall": 82,
+      "position": "ST",
+      "from_team": null,
+      "jersey_stored": null,
+      "wage_eur": null,
+      "value_eur": null,
+      "pace": null,
+      "stamina": null,
+      "notes": ""
+    }
+  ]
+}
