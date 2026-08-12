@@ -141,9 +141,14 @@ def do_load_preset() -> None:
         shortlist.players = sl.players
         if target_team_sel:
             target_team_sel.value = shortlist.target_team
+        
+        # Auto-fill the input box with the loaded preset's name so hitting Save will overwrite it
+        from pathlib import Path
+        if preset_name_in:
+            preset_name_in.value = Path(val).stem.replace("_", " ").title()
+
         render_basket.refresh()
         render_results.refresh()
-        render_export_info.refresh()
         ui.notify(f"Loaded preset '{sl.target_name}' ({len(sl.players)} players)", type="positive")
     except Exception as e:
         ui.notify(f"Error loading preset: {e}", type="negative")
@@ -544,7 +549,6 @@ def on_target_team_change(e) -> None:
     shortlist.target_team = tid
     shortlist.target_name = name
     render_basket.refresh()
-    render_export_info.refresh()
     ui.notify(f"Target team set to {name} (id {tid})", type="info")
 
 @ui.refreshable
