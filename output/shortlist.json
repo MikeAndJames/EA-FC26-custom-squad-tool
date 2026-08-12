@@ -1,0 +1,19 @@
+{
+  "target_team": 7,
+  "target_name": "Leeds United",
+  "players": [
+    {
+      "player_id": 76042,
+      "name": "V\u00edctor Mu\u00f1oz",
+      "overall": 65,
+      "position": "LW",
+      "from_team": 478,
+      "jersey_stored": 69,
+      "wage_eur": 7000.0,
+      "value_eur": 1800000.0,
+      "pace": 72,
+      "stamina": 47,
+      "notes": ""
+    }
+  ]
+}

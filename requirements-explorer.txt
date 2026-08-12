@@ -1,0 +1,4 @@
+# Player browser + NL filters (optional layer on top of stdlib patch tools)
+pandas>=2.0.0
+nicegui>=2.0.0
+requests>=2.31.0

@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.kilo/
+.vscode/
+.idea/
+output/settings_patched/
+nul
