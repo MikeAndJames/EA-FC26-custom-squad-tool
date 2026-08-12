@@ -110,7 +110,6 @@ name_in = position_in = playstyle_in = None
 min_ovr = max_ovr = max_wage = min_playstyles = None
 extra_cols_sel = None
 nl_in = provider_sel = model_sel = None
-export_cmd_area = export_warn_area = None
 target_team_sel = None
 preset_name_in = preset_sel = None
 nl_display_cols: list[str] | None = None
@@ -352,25 +351,6 @@ def clear_nl_chat() -> None:
     ui.notify("NL chat cleared")
 
 
-def do_export() -> None:
-    global status_msg
-    try:
-        db = load_db()
-    except Exception as e:
-        ui.notify(f"Cannot load T3DB: {e}", type="negative")
-        return
-    warns = resolve_from_teams(shortlist, db)
-    assign_jerseys(shortlist, db)
-    save_json(shortlist, EXPORT_PATH)
-    cmd = export_cli_command(shortlist)
-    export_cmd_area.value = cmd
-    export_warn_area.value = "\n".join(warns) if warns else "(no warnings)"
-    status_msg = f"Exported {len(shortlist.players)} players → {EXPORT_PATH.name}"
-    status_label.refresh()
-    render_basket.refresh()
-    ui.notify("Export ready — copy the command below", type="positive")
-
-
 @ui.refreshable
 def status_label() -> None:
     ui.label(status_msg or "Ready").classes("text-sm text-gray-500")
@@ -567,15 +547,6 @@ def on_target_team_change(e) -> None:
     render_export_info.refresh()
     ui.notify(f"Target team set to {name} (id {tid})", type="info")
 
-
-@ui.refreshable
-def render_export_info() -> None:
-    ui.label(
-        f"FC 26 closed → run this → deploy_squads.bat option 1 → "
-        f"offline Kick Off → pick {shortlist.target_name}"
-    ).classes("text-xs text-gray-500")
-
-
 @ui.refreshable
 def render_basket() -> None:
     ui.label(f"Your squad ({len(shortlist.players)})").classes("text-lg font-bold")
@@ -602,7 +573,7 @@ def render_basket() -> None:
 def build_ui() -> None:
     global name_in, position_in, playstyle_in, min_ovr, max_ovr
     global max_wage, min_playstyles, extra_cols_sel, nl_in, provider_sel, model_sel
-    global export_cmd_area, export_warn_area, target_team_sel
+    global target_team_sel
 
     ui.page_title("FC 26 Team Builder")
     ui.colors(primary="#FFCD00")  # Leeds gold-ish
@@ -696,31 +667,6 @@ def build_ui() -> None:
                     ui.button("Clear", on_click=clear_basket, icon="delete").props(
                         "flat"
                     )
-                    ui.button(
-                        "Export swaps", on_click=do_export, icon="download"
-                    ).props("unelevated color=primary")
-
-            with ui.card().classes("w-full"):
-                ui.label("Export command").classes("font-medium")
-                render_export_info()
-                export_cmd_area = (
-                    ui.textarea(value="").classes("w-full").props("readonly rows=4")
-                )
-                export_warn_area = (
-                    ui.textarea(label="Warnings", value="")
-                    .classes("w-full")
-                    .props("readonly rows=2")
-                )
-                ui.label(f"Also saved to {EXPORT_PATH}").classes(
-                    "text-xs text-gray-400"
-                )
-
-            with ui.card().classes("w-full"):
-                ui.markdown(
-                    "**Safety:** offline Kick Off only. "
-                    "Never go online with modded squads. "
-                    "Restore via `deploy_squads.bat` option 2 before online play."
-                ).classes("text-sm")
 
 
 def main() -> None:
