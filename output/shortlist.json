@@ -14,6 +14,19 @@
       "pace": 80,
       "stamina": 72,
       "notes": ""
+    },
+    {
+      "player_id": 264652,
+      "name": "Bradley Barcola",
+      "overall": 84,
+      "position": "LW",
+      "from_team": 72,
+      "jersey_stored": 70,
+      "wage_eur": 110000.0,
+      "value_eur": 61500000.0,
+      "pace": 90,
+      "stamina": 74,
+      "notes": ""
     }
   ]
 }

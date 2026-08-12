@@ -725,10 +725,7 @@ def build_ui() -> None:
 
 def main() -> None:
     global df, results_df, status_msg
-    print("Loading players…")
     df = load_players()
-    print(f"  {len(df)} players loaded")
-    print(f"  Sandbox target: {DEFAULT_TARGET_NAME} (id {DEFAULT_TARGET})")
     results_df = df.head(0)
     status_msg = f"Loaded {len(df)} players — try a search"
     build_ui()
