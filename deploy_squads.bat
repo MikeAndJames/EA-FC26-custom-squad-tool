@@ -104,7 +104,7 @@ if errorlevel 1 echo          (no patched saves -- run patch_squads.py first)
 echo(
 echo  --------------------------------------------------------------
 echo(
-echo   1. Deploy currently patched files     [E: output -> C: settings]
+echo   1. Deploy currently patched files     [E: output -^> C: settings]
 echo   2. Pick ^& Patch a squad PRESET        [e.g. Liverpool, Big Guys]
 echo   3. Restore original EA squad files     [undo everything]
 echo   4. Quit
