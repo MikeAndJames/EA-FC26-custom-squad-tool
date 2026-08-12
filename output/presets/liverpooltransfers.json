@@ -1,0 +1,19 @@
+{
+  "target_team": 8,
+  "target_name": "Liverpool",
+  "players": [
+    {
+      "player_id": 253163,
+      "name": "Ronald Araujo",
+      "overall": 83,
+      "position": "CB",
+      "from_team": null,
+      "jersey_stored": null,
+      "wage_eur": 110000.0,
+      "value_eur": 42000000.0,
+      "pace": 80,
+      "stamina": 72,
+      "notes": ""
+    }
+  ]
+}

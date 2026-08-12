@@ -228,6 +228,9 @@ del /q "%SETTINGS%\MatchDay*" 2>nul
 del /q "%SETTINGS%\SquadOnline*" 2>nul
 echo  Cleared live caches (MatchDay/SquadOnline) from game folder.
 
+set "HAVEPATCHED="
+for /f "delims=" %%F in ('dir /b "%PATCHED%\Squads*" 2^>nul') do set "HAVEPATCHED=1"
+
 if defined HAVEPATCHED (
     for /f "delims=" %%F in ('dir /b "%PATCHED%\Squads*" 2^>nul') do (
         copy /y "%PATCHED%\%%F" "%SETTINGS%\" >nul
