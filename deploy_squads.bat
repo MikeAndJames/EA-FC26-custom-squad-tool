@@ -223,6 +223,11 @@ if /i not "!CONFIRM:~0,1!"=="y" (
 )
 
 :deploy_confirmed
+rem Delete live caches so the game is forced to load our patched offline Squads saves
+del /q "%SETTINGS%\MatchDay*" 2>nul
+del /q "%SETTINGS%\SquadOnline*" 2>nul
+echo  Cleared live caches (MatchDay/SquadOnline) from game folder.
+
 if defined HAVEPATCHED (
     for /f "delims=" %%F in ('dir /b "%PATCHED%\Squads*" 2^>nul') do (
         copy /y "%PATCHED%\%%F" "%SETTINGS%\" >nul
