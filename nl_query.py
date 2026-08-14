@@ -83,7 +83,7 @@ markdown code fences or explanations.
 {_data_preview(df)}
 
 Key columns and units:
-- Identity (strings): `name`, `name_norm` (accent-free lowercased name for matching e.g. "munoz" or "nunez"), `short_name`, `team`, `league`, `nation`
+- Identity (strings): `name`, `name_norm` (accent-free lowercased name), `short_name`, `team` (club name, also `team_norm`), `league` (league name, also `league_norm`), `nation` (nationality/country, also `nation_norm`)
 - Core stats (0-99): `overall`, `pace`, `shooting`, `passing`, `dribbling`, `defending`, `physical`
 - Physical: `age` (years), `height` (cm), `weight` (kg)
 - Roles (strings): `position` (e.g. "ST", "CM"), `alt_positions`

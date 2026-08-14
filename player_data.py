@@ -220,8 +220,121 @@ def save_merged(merged: pd.DataFrame, csv_path: Path = MERGED_CSV, json_path: Pa
     print(f"wrote {json_path} ({json_path.stat().st_size} bytes)")
 
 
+ICON_NAMES_JSON = DATA_DIR / "icon_names.json"
+ICON_POSITIONS = {
+    1088: "RM", 1075: "LW", 1397: "CAM", 1380: "CAM", 28130: "LW", 190042: "ST",
+    190045: "ST", 190048: "CAM", 237067: "CF", 37576: "GK", 1625: "ST", 54050: "ST",
+    488: "RW", 1179: "CAM", 5003: "RB", 1114: "CB", 166906: "CDM", 10535: "LB",
+    238380: "GK", 168473: "ST", 156616: "LM", 166691: "ST", 254642: "ST", 238439: "ST",
+    230025: "CF", 238382: "ST", 214100: "CM", 7763: "CB", 161840: "CDM", 167680: "CAM",
+    5589: "CB", 204963: "ST", 1668: "ST", 182521: "RW", 45661: "ST", 259780: "ST",
+    76145: "CM", 253602: "CM", 213311: "CM", 265446: "CM", 223842: "GK", 261970: "ST",
+    256184: "CB", 241189: "RB", 232514: "RB", 215356: "CM", 232517: "CF", 254184: "CAM",
+    253874: "CM", 254185: "LM", 259944: "CM", 224161: "CB", 225590: "CB", 276044: "CB",
+    279075: "CM", 83068: "CDM", 75412: "LM", 71876: "CB", 278788: "ST", 570: "RM",
+    1201: "CAM", 27: "ST", 246: "CAM",
+}
+
+ICON_SIGNATURE_PLAYSTYLES = {
+    1088: "Whipped Pass+|Dead Ball|Incisive Pass|Finesse Shot|Long Ball",
+    37576: "Far Reach+|Cross Claim|Deflector|Footwork|Rush Out",
+    238380: "Cross Claim+|Far Reach|Deflector|Footwork|Rush Out",
+    223842: "Deflector+|Far Reach|Cross Claim|Footwork|Rush Out",
+    190042: "Finesse Shot+|Technical|Rapid|First Touch|Gamechanger",
+    1397: "Incisive Pass+|Technical|First Touch|Tiki Taka|Finesse Shot",
+    28130: "Trickster+|Technical|Finesse Shot|Rapid|First Touch",
+    1625: "Rapid+|Finesse Shot|Quick Step|First Touch|Technical",
+    214100: "Incisive Pass+|Intercept|Power Shot|Relentless|Aerial",
+    1114: "Anticipate+|Intercept|Jockey|Bruiser|Aerial",
+    10535: "Power Shot+|Whipped Pass|Rapid|Relentless|Trivela",
+    161840: "Intercept+|Bruiser|Press Proven|Relentless|Aerial",
+    54050: "Power Shot+|Bruiser|Relentless|First Touch|Finesse Shot",
+    76145: "Power Shot+|Long Ball|Incisive Pass|Relentless|Bruiser",
+    253602: "Power Shot+|Incisive Pass|First Touch|Relentless|Finesse Shot",
+    570: "Relentless+|Whipped Pass|Finesse Shot|Press Proven|Rapid",
+    1201: "Power Header+|First Touch|Relentless|Finesse Shot|Jockey",
+    276044: "Bruiser+|Anticipate|Intercept|Jockey|Aerial",
+    279075: "Power Shot+|Press Proven|Incisive Pass|Relentless|Bruiser",
+    83068: "Intercept+|Bruiser|Relentless|Jockey|Press Proven",
+    246: "Relentless+|Press Proven|High Energy|Tiki Taka|Intercept",
+}
+
+
+def _get_icon_playstyles(pid: int, name: str, pos: str) -> str:
+    if pid in ICON_SIGNATURE_PLAYSTYLES:
+        return ICON_SIGNATURE_PLAYSTYLES[pid]
+    if pos in ("ST", "CF"):
+        return "Power Shot+|Finesse Shot|Rapid|First Touch|Aerial"
+    elif pos in ("CAM", "CM"):
+        return "Incisive Pass+|Tiki Taka|First Touch|Technical|Relentless"
+    elif pos in ("CB", "SW"):
+        return "Anticipate+|Bruiser|Intercept|Aerial|Block"
+    elif pos in ("RB", "LB", "RWB", "LWB"):
+        return "Whipped Pass+|Relentless|Rapid|Intercept|Anticipate"
+    elif pos in ("CDM", "RDM", "LDM"):
+        return "Intercept+|Bruiser|Relentless|Anticipate|Tiki Taka"
+    elif pos in ("LW", "RW", "LM", "RM"):
+        return "Trickster+|Technical|Rapid|Quick Step|Finesse Shot"
+    elif pos == "GK":
+        return "Cross Claim+|Far Reach|Deflector|Footwork|Rush Out"
+    return "Relentless+|Technical|First Touch"
+
+
+def load_icon_players() -> pd.DataFrame:
+    import json
+    from icon_database import build_icon_database, ICON_DB_JSON
+
+    records = []
+    if ICON_DB_JSON.exists():
+        try:
+            with open(ICON_DB_JSON, encoding="utf-8") as f:
+                raw_records = json.load(f)
+        except Exception:
+            raw_records = build_icon_database()
+    else:
+        raw_records = build_icon_database()
+
+    for r in raw_records:
+        pid = r["player_id"]
+        name = r["name"]
+        ovr = r["overall"]
+        pos = r["position"]
+        cat = r.get("category", "Prime Icon / Hero")
+        team = r.get("team_names", ["Icons Pool"])[0] if r.get("team_names") else "Icons Pool"
+        ps = _get_icon_playstyles(pid, name, pos)
+
+        # Realistic attributes based on position & rating
+        pace = 88 if pos in ("ST", "LW", "RW", "RM", "LM", "RB", "LB") else (45 if pos == "GK" else 82)
+        stamina = 85 if cat != "Soccer Aid" else 68
+
+        alt_pos = r.get("alt_positions", "")
+
+        records.append({
+            "player_id": pid,
+            "name": name,
+            "overall": ovr,
+            "position": pos,
+            "alt_positions": alt_pos,
+            "team": team,
+            "league": "Legends",
+            "nation": "Legend",
+            "gender": "M",
+            "is_icon": True,
+            "pace": pace,
+            "stamina": stamina,
+            "play_styles": ps,
+        })
+
+    df_icons = (
+        pd.DataFrame(records)
+        .sort_values("overall", ascending=False)
+        .drop_duplicates(subset=["name"], keep="first")
+    )
+    return df_icons
+
+
 def load_players(path: Path | None = None) -> pd.DataFrame:
-    """Load merged CSV if present, else merge from raw on the fly."""
+    """Load merged CSV if present, else merge from raw on the fly, plus local Icons."""
     path = path or MERGED_CSV
     if path.exists():
         df = pd.read_csv(path, low_memory=False)
@@ -229,10 +342,24 @@ def load_players(path: Path | None = None) -> pd.DataFrame:
     else:
         df = merge_players()
         save_merged(df)
+
+    icons_df = load_icon_players()
+    if not icons_df.empty:
+        icons_df = icons_df[~icons_df["player_id"].isin(df["player_id"])]
+        df = pd.concat([df, icons_df], ignore_index=True)
+
+    df["is_icon"] = df["team"].astype(str).str.contains("Icons|Soccer Aid|Heroes", case=False, na=False) | df["league"].astype(str).str.contains("Legends", case=False, na=False)
+
     if "name" in df.columns and "name_norm" not in df.columns:
         df["name_norm"] = df["name"].astype(str).apply(strip_accents).str.lower()
     if "short_name" in df.columns and "short_name_norm" not in df.columns:
         df["short_name_norm"] = df["short_name"].astype(str).apply(strip_accents).str.lower()
+    if "team" in df.columns and "team_norm" not in df.columns:
+        df["team_norm"] = df["team"].astype(str).apply(strip_accents).str.lower()
+    if "league" in df.columns and "league_norm" not in df.columns:
+        df["league_norm"] = df["league"].astype(str).apply(strip_accents).str.lower()
+    if "nation" in df.columns and "nation_norm" not in df.columns:
+        df["nation_norm"] = df["nation"].astype(str).apply(strip_accents).str.lower()
     return df
 
 
@@ -256,11 +383,59 @@ def search_by_name(df: pd.DataFrame, query: str, limit: int = 50) -> pd.DataFram
     return out.head(limit)
 
 
+def search_by_team(df: pd.DataFrame, query: str, limit: int = 50) -> pd.DataFrame:
+    if not query or not str(query).strip():
+        return df.head(0)
+    q = strip_accents(str(query).strip()).lower()
+    if "team_norm" in df.columns:
+        mask = df["team_norm"].astype(str).str.contains(q, na=False)
+    else:
+        mask = df["team"].astype(str).apply(strip_accents).str.lower().str.contains(q, na=False)
+    out = df.loc[mask]
+    if "overall" in out.columns:
+        out = out.sort_values("overall", ascending=False)
+    return out.head(limit)
+
+
+def search_by_league(df: pd.DataFrame, query: str, limit: int = 50) -> pd.DataFrame:
+    if not query or not str(query).strip():
+        return df.head(0)
+    q = strip_accents(str(query).strip()).lower()
+    if "league_norm" in df.columns:
+        mask = df["league_norm"].astype(str).str.contains(q, na=False)
+    else:
+        mask = df["league"].astype(str).apply(strip_accents).str.lower().str.contains(q, na=False)
+    out = df.loc[mask]
+    if "overall" in out.columns:
+        out = out.sort_values("overall", ascending=False)
+    return out.head(limit)
+
+
+def search_by_nation(df: pd.DataFrame, query: str, limit: int = 50) -> pd.DataFrame:
+    if not query or not str(query).strip():
+        return df.head(0)
+    q = strip_accents(str(query).strip()).lower()
+    if "nation_norm" in df.columns:
+        mask = df["nation_norm"].astype(str).str.contains(q, na=False)
+    else:
+        mask = df["nation"].astype(str).apply(strip_accents).str.lower().str.contains(q, na=False)
+    out = df.loc[mask]
+    if "overall" in out.columns:
+        out = out.sort_values("overall", ascending=False)
+    return out.head(limit)
+
+
 def filter_players(
     df: pd.DataFrame,
     *,
     name: str | None = None,
     position: str | None = None,
+    club: str | None = None,
+    team: str | None = None,
+    league: str | None = None,
+    nationality: str | None = None,
+    nation: str | None = None,
+    icons_only: bool = False,
     min_ovr: int | None = None,
     max_ovr: int | None = None,
     min_pace: int | None = None,
@@ -277,8 +452,40 @@ def filter_players(
     out = df
     if gender and "gender" in out.columns:
         out = out[out["gender"].astype(str).str.upper().str.startswith(gender.upper())]
+    if icons_only:
+        mask_icon = (
+            (out["is_icon"].fillna(False).astype(bool))
+            if "is_icon" in out.columns
+            else False
+        ) | out["team"].astype(str).str.contains("Icons|Soccer Aid|Heroes", case=False, na=False) | out["league"].astype(str).str.contains("Legends", case=False, na=False)
+        out = out[mask_icon]
     if name:
         out = search_by_name(out, name, limit=10_000)
+
+    club_q = (club or team or "").strip()
+    if club_q and "team" in out.columns:
+        cq = strip_accents(club_q).lower()
+        if "team_norm" in out.columns:
+            out = out[out["team_norm"].astype(str).str.contains(cq, na=False)]
+        else:
+            out = out[out["team"].astype(str).apply(strip_accents).str.lower().str.contains(cq, na=False)]
+
+    league_q = (league or "").strip()
+    if league_q and "league" in out.columns:
+        lq = strip_accents(league_q).lower()
+        if "league_norm" in out.columns:
+            out = out[out["league_norm"].astype(str).str.contains(lq, na=False)]
+        else:
+            out = out[out["league"].astype(str).apply(strip_accents).str.lower().str.contains(lq, na=False)]
+
+    nation_q = (nationality or nation or "").strip()
+    if nation_q and "nation" in out.columns:
+        nq = strip_accents(nation_q).lower()
+        if "nation_norm" in out.columns:
+            out = out[out["nation_norm"].astype(str).str.contains(nq, na=False)]
+        else:
+            out = out[out["nation"].astype(str).apply(strip_accents).str.lower().str.contains(nq, na=False)]
+
     if position and "position" in out.columns:
         p = position.strip().upper()
         pos = out["position"].astype(str).str.upper()

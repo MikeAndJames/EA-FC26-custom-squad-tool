@@ -106,13 +106,31 @@ status_msg: str = ""
 nl_chat_history: list[dict[str, str]] = []
 
 # widget refs filled in build_ui()
-name_in = position_in = playstyle_in = None
+name_in = position_in = club_in = league_in = nation_in = playstyle_in = icons_only_in = None
 min_ovr = max_ovr = max_wage = min_playstyles = None
 extra_cols_sel = None
 nl_in = provider_sel = model_sel = None
 target_team_sel = None
 preset_name_in = preset_sel = None
 nl_display_cols: list[str] | None = None
+
+EXTRA_COL_OPTIONS: dict[str, str] = {
+    "alt_positions": "Alt Positions",
+    "team": "Club",
+    "league": "League",
+    "nation": "Nationality",
+    "pace": "Pace",
+    "shooting": "Shooting",
+    "passing": "Passing",
+    "dribbling": "Dribbling",
+    "defending": "Defending",
+    "physical": "Physical",
+    "vision": "Vision",
+    "wage_eur": "Wage €",
+    "value_eur": "Value €",
+    "age": "Age",
+    "height": "Height",
+}
 
 
 def do_save_preset() -> None:
@@ -199,6 +217,52 @@ def _fmt_money(v) -> str:
     return f"€{n:.0f}"
 
 
+def _get_pos_display(row) -> tuple[str, str, str]:
+    def _val(key):
+        if hasattr(row, "get"):
+            v = row.get(key)
+        else:
+            v = getattr(row, key, None)
+        if v is None or (isinstance(v, float) and pd.isna(v)):
+            return ""
+        return str(v).strip()
+
+    pos = _val("position")
+    alt = _val("alt_positions")
+    if alt.lower() == "nan":
+        alt = ""
+
+    if "," in pos or " " in pos:
+        parts = [p.strip() for p in pos.replace(",", " ").split() if p.strip()]
+        if parts:
+            pos = parts[0]
+            if not alt and len(parts) > 1:
+                alt = " ".join(parts[1:])
+
+    alt_list = []
+    if alt:
+        for p in alt.replace(",", " ").split():
+            p_c = p.strip()
+            if p_c and p_c != pos and p_c not in alt_list:
+                alt_list.append(p_c)
+
+    alt_str = ", ".join(alt_list)
+    if alt_str:
+        return pos, f"({alt_str})", f"{pos} ({alt_str})"
+    return pos, "", pos
+
+
+def _render_pos(row) -> None:
+    p_main, p_alt, p_full = _get_pos_display(row)
+    alt_text = p_alt.strip("()") if p_alt else ""
+    with ui.column().classes("w-28 gap-0 leading-tight shrink-0 justify-center"):
+        ui.label(p_main or "-").classes("font-extrabold text-xs text-blue-600 dark:text-blue-400")
+        if alt_text:
+            ui.label(alt_text).classes("text-[10px] text-gray-500 dark:text-gray-400 font-medium truncate max-w-full").tooltip(
+                f"Primary: {p_main} | Alternate: {alt_text}"
+            )
+
+
 def _row_to_player(row) -> ShortlistPlayer:
     def _get(key):
         if hasattr(row, "get"):
@@ -223,11 +287,12 @@ def _row_to_player(row) -> ShortlistPlayer:
         except (TypeError, ValueError):
             return None
 
+    p_main, p_alt, p_full = _get_pos_display(row)
     return ShortlistPlayer(
         player_id=int(_get("player_id")),
         name=str(_get("name") or ""),
         overall=_i("overall"),
-        position=str(_get("position") or ""),
+        position=p_full,
         wage_eur=_f("wage_eur"),
         value_eur=_f("value_eur"),
         pace=_i("pace"),
@@ -238,9 +303,12 @@ def _row_to_player(row) -> ShortlistPlayer:
 def do_search() -> None:
     global results_df, status_msg, nl_display_cols
     nl_display_cols = None
-    name = (name_in.value or "").strip()
-    pos = position_in.value if position_in.value and position_in.value != "Any" else None
-    ps = (playstyle_in.value or "").strip() or None
+    name = (name_in.value or "").strip() if name_in else None
+    pos = position_in.value if position_in and position_in.value and position_in.value != "Any" else None
+    club = (club_in.value or "").strip() if club_in else None
+    league = (league_in.value or "").strip() if league_in else None
+    nation = (nation_in.value or "").strip() if nation_in else None
+    ps = (playstyle_in.value or "").strip() if playstyle_in else None
 
     def _num(w):
         try:
@@ -252,33 +320,39 @@ def do_search() -> None:
             return None
 
     try:
-        min_o = int(min_ovr.value) if min_ovr.value not in (None, "") else None
+        min_o = int(min_ovr.value) if min_ovr and min_ovr.value not in (None, "") else None
     except (TypeError, ValueError):
         min_o = None
     try:
-        max_o = int(max_ovr.value) if max_ovr.value not in (None, "") else None
+        max_o = int(max_ovr.value) if max_ovr and max_ovr.value not in (None, "") else None
     except (TypeError, ValueError):
         max_o = None
     try:
-        max_w = float(max_wage.value) if max_wage.value not in (None, "") else None
+        max_w = float(max_wage.value) if max_wage and max_wage.value not in (None, "") else None
     except (TypeError, ValueError):
         max_w = None
     try:
-        min_ps = int(min_playstyles.value) if min_playstyles.value not in (None, "") else None
+        min_ps = int(min_playstyles.value) if min_playstyles and min_playstyles.value not in (None, "") else None
     except (TypeError, ValueError):
         min_ps = None
+
+    icons_only = bool(icons_only_in.value) if icons_only_in else False
 
     results_df = filter_players(
         df,
         name=name or None,
         position=pos,
+        club=club or None,
+        league=league or None,
+        nationality=nation or None,
+        icons_only=icons_only,
         min_ovr=min_o,
         max_ovr=max_o,
-        playstyle=ps,
+        playstyle=ps or None,
         min_playstyles=min_ps,
         max_wage=max_w,
         gender="M",
-        limit=60,
+        limit=200,
     )
     status_msg = f"{len(results_df)} players"
     render_results.refresh()
@@ -429,7 +503,7 @@ def _abbrev_play_style(ps: str) -> tuple[str, bool]:
 def _render_play_styles(row) -> None:
     play_styles = str(row.get("play_styles", ""))
     ps_list = [p.strip() for p in play_styles.split("|") if p and p.strip().lower() not in ("nan", "none")]
-    with ui.row().classes("w-96 items-center no-wrap overflow-x-auto gap-1"):
+    with ui.row().classes("w-60 items-center no-wrap overflow-x-auto gap-1 shrink-0"):
         ui.badge(str(len(ps_list)), color="gray").classes("mr-1 text-xs shrink-0")
         for ps in ps_list:
             label, is_plus = _abbrev_play_style(ps)
@@ -437,24 +511,66 @@ def _render_play_styles(row) -> None:
             ui.badge(label, color=color).classes("text-xs whitespace-nowrap font-medium")
 
 
+def _col_header_info(col: str) -> tuple[str, str]:
+    c = str(col).lower()
+    if c in ("team", "club"):
+        return "CLUB", "w-32"
+    if c == "league":
+        return "LEAGUE", "w-32"
+    if c in ("nation", "nationality"):
+        return "NATIONALITY", "w-24"
+    if c == "name":
+        return "NAME", "w-36"
+    if c == "play_styles":
+        return "PLAY STYLES", "w-60"
+    if c == "position":
+        return "POS", "w-28"
+    if c == "alt_positions":
+        return "ALT POS", "w-24"
+    if c == "overall":
+        return "OVR", "w-8"
+    if c == "pace":
+        return "PAC", "w-8"
+    if c == "stamina":
+        return "STA", "w-8"
+    if c in ("wage_eur", "value_eur"):
+        return c.replace("_eur", "").upper(), "w-20"
+    if c in ("age", "height", "weight"):
+        return c.upper(), "w-12"
+    return c[:6].upper(), "w-20"
+
+
 def _render_col(col: str, row) -> None:
     val = row.get(col, "")
-    if col == "play_styles":
+    c = str(col).lower()
+    if c == "play_styles":
         _render_play_styles(row)
-    elif col in ("wage_eur", "value_eur"):
-        ui.label(_fmt_money(val)).classes("w-20 text-xs text-gray-500")
-    elif col == "name":
-        ui.label(str(val)).classes("font-medium w-44 truncate")
-    elif col == "position":
-        ui.label(str(val)).classes("w-10 text-sm font-bold")
-    elif col == "overall":
-        ui.label(str(val) if pd.notna(val) else "-").classes("w-8 text-sm font-bold text-blue-600")
-    elif col == "pace":
+    elif c in ("wage_eur", "value_eur"):
+        ui.label(_fmt_money(val)).classes("w-20 text-xs text-gray-500 shrink-0")
+    elif c == "name":
+        ui.label(str(val)).classes("font-medium w-36 truncate shrink-0").tooltip(str(val))
+    elif c == "position":
+        _render_pos(row)
+    elif c == "alt_positions":
+        alt_val = str(val) if (pd.notna(val) and val != "" and str(val).lower() != "nan") else "-"
+        ui.label(alt_val).classes("w-24 text-xs text-gray-500 truncate shrink-0").tooltip(alt_val)
+    elif c == "overall":
+        ui.label(str(val) if pd.notna(val) else "-").classes("w-8 text-sm font-bold text-blue-600 shrink-0")
+    elif c == "pace":
         v_str = str(int(val)) if (pd.notna(val) and str(val) != "") else "-"
-        ui.label(v_str).classes("w-10 text-xs font-bold text-amber-700 dark:text-amber-400")
-    elif col == "stamina":
+        ui.label(v_str).classes("w-8 text-xs font-bold text-amber-700 dark:text-amber-400 shrink-0")
+    elif c == "stamina":
         v_str = str(int(val)) if (pd.notna(val) and str(val) != "") else "-"
-        ui.label(v_str).classes("w-10 text-xs font-bold text-emerald-700 dark:text-emerald-400")
+        ui.label(v_str).classes("w-8 text-xs font-bold text-emerald-700 dark:text-emerald-400 shrink-0")
+    elif c in ("team", "club"):
+        ui.label(str(val) if (pd.notna(val) and val != "") else "-").classes("w-32 text-xs text-gray-700 dark:text-gray-300 font-medium truncate")
+    elif c == "league":
+        ui.label(str(val) if (pd.notna(val) and val != "") else "-").classes("w-32 text-xs text-gray-500 truncate")
+    elif c in ("nation", "nationality"):
+        ui.label(str(val) if (pd.notna(val) and val != "") else "-").classes("w-24 text-xs text-gray-500 truncate")
+    elif c in ("age", "height", "weight"):
+        v_str = str(int(val)) if (pd.notna(val) and str(val) != "") else "-"
+        ui.label(v_str).classes("w-12 text-xs text-gray-500")
     else:
         ui.label(str(val)).classes("w-20 text-xs text-gray-500 truncate")
 
@@ -473,23 +589,24 @@ def render_results() -> None:
             # Header Row
             with ui.row().classes(
                 "w-full items-center no-wrap bg-slate-200 dark:bg-slate-800 "
-                "py-1.5 px-2 gap-3 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 rounded mb-1"
+                "py-1.5 px-2 gap-2 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 rounded mb-1"
             ):
                 if ai_cols:
                     for col in ai_cols:
-                        w_cls = "w-44" if col == "name" else ("w-96" if col == "play_styles" else ("w-10" if col in ("position", "pace", "stamina") else ("w-8" if col == "overall" else "w-20")))
-                        ui.label(col.replace("_", " ").upper()).classes(w_cls)
+                        title, w_cls = _col_header_info(col)
+                        ui.label(title).classes(f"{w_cls} shrink-0")
                 else:
-                    ui.label("POS").classes("w-10")
-                    ui.label("NAME").classes("w-44")
-                    ui.label("OVR").classes("w-8")
-                    ui.label("PAC").classes("w-10")
-                    ui.label("STA").classes("w-10")
-                    ui.label("PLAY STYLES").classes("w-96")
+                    ui.label("POS").classes("w-28 shrink-0")
+                    ui.label("NAME").classes("w-36 shrink-0")
+                    ui.label("OVR").classes("w-8 shrink-0")
+                    ui.label("PAC").classes("w-8 shrink-0")
+                    ui.label("STA").classes("w-8 shrink-0")
+                    ui.label("PLAY STYLES").classes("w-60 shrink-0")
                     for col in extra_c:
-                        ui.label(col[:6].upper()).classes("w-20")
+                        title, w_cls = _col_header_info(col)
+                        ui.label(title).classes(f"{w_cls} shrink-0")
                 ui.space()
-                ui.label("ACTION").classes("w-16 text-right")
+                ui.label("ACTION").classes("w-14 text-right shrink-0")
 
             # Data Rows
             for _, row in results_df.iterrows():
@@ -497,46 +614,44 @@ def render_results() -> None:
                 in_squad = pid in shortlist.ids()
                 with ui.row().classes(
                     "w-full items-center no-wrap border-b py-1 px-2 "
-                    "hover:bg-slate-100 dark:hover:bg-slate-800 gap-3"
+                    "hover:bg-slate-100 dark:hover:bg-slate-800 gap-2"
                 ):
                     if ai_cols:
                         for col in ai_cols:
                             _render_col(col, row)
                     else:
                         # 1. POS | 2. NAME | 3. OVR
-                        ui.label(str(row.get("position", ""))).classes("w-10 text-sm font-bold")
-                        ui.label(str(row.get("name", ""))).classes("font-medium w-44 truncate")
-                        ui.label(str(row.get("overall", ""))).classes("w-8 text-sm font-bold text-blue-600")
+                        _render_pos(row)
+                        ui.label(str(row.get("name", ""))).classes("font-medium w-36 truncate shrink-0").tooltip(str(row.get("name", "")))
+                        ui.label(str(row.get("overall", ""))).classes("w-8 text-sm font-bold text-blue-600 shrink-0")
 
                         # 4. PAC (Pace)
                         pac_val = row.get("pace")
                         pac_str = str(int(pac_val)) if (pd.notna(pac_val) and str(pac_val) != "") else "-"
-                        ui.label(pac_str).classes("w-10 text-xs font-bold text-amber-700 dark:text-amber-400")
+                        ui.label(pac_str).classes("w-8 text-xs font-bold text-amber-700 dark:text-amber-400 shrink-0")
 
                         # 5. STA (Stamina)
                         sta_val = row.get("stamina")
                         sta_str = str(int(sta_val)) if (pd.notna(sta_val) and str(sta_val) != "") else "-"
-                        ui.label(sta_str).classes("w-10 text-xs font-bold text-emerald-700 dark:text-emerald-400")
+                        ui.label(sta_str).classes("w-8 text-xs font-bold text-emerald-700 dark:text-emerald-400 shrink-0")
 
                         # 6. Play styles count & list
                         _render_play_styles(row)
 
                         # 7. Dynamic extra columns
                         for col in extra_c:
-                            val = row.get(col, "")
-                            if col in ("wage_eur", "value_eur"):
-                                val = _fmt_money(val)
-                            ui.label(f"{col[:3].upper()} {val}").classes("w-20 text-xs text-gray-500 truncate")
+                            _render_col(col, row)
 
                     ui.space()
 
                     # + / IN SQUAD button
-                    if in_squad:
-                        ui.badge("IN SQUAD", color="green")
-                    else:
-                        ui.button("+", on_click=lambda p=pid: add_player(p)).props(
-                            "round dense unelevated color=primary"
-                        ).tooltip("Add to squad")
+                    with ui.row().classes("w-14 justify-end shrink-0"):
+                        if in_squad:
+                            ui.badge("IN SQUAD", color="green").classes("text-[10px]")
+                        else:
+                            ui.button("+", on_click=lambda p=pid: add_player(p)).props(
+                                "round dense unelevated color=primary"
+                            ).tooltip("Add to squad")
 
 
 def on_target_team_change(e) -> None:
@@ -555,19 +670,31 @@ def on_target_team_change(e) -> None:
 def render_basket() -> None:
     ui.label(f"Your squad ({len(shortlist.players)})").classes("text-lg font-bold")
     ui.label(
-        f"Target: {shortlist.target_name} (id {shortlist.target_team})"
-    ).classes("text-sm text-gray-500 font-medium")
+        f"Default Target: {shortlist.target_name} (id {shortlist.target_team})"
+    ).classes("text-xs text-gray-500 font-medium mb-1")
     if not shortlist.players:
         ui.label("Empty — click + on search results.").classes("text-gray-400 italic")
         return
     for p in shortlist.players:
-        with ui.row().classes("w-full items-center no-wrap border-b py-1 gap-2"):
+        with ui.row().classes("w-full items-center no-wrap border-b py-1 gap-1"):
             shirt = (p.jersey_stored + 1) if p.jersey_stored is not None else "?"
             # 1. POS | 2. NAME | 3. OVR
-            ui.label(f"{p.position or ''}").classes("w-10 text-xs font-bold")
-            ui.label(f"{p.name}").classes("font-medium flex-grow truncate")
-            ui.label(f"OVR {p.overall or '?'}").classes("w-12 text-sm font-bold text-gray-500")
-            ui.label(f"#{shirt}").classes("w-8 text-xs text-gray-400")
+            _render_pos(p)
+            ui.label(f"{p.name}").classes("font-medium w-28 truncate text-xs shrink-0").tooltip(p.name)
+            ui.label(f"OVR {p.overall or '?'}").classes("w-12 text-xs font-bold text-gray-500 shrink-0")
+            
+            # Destination team dropdown per player
+            cur_dest = p.target_team if p.target_team is not None else shortlist.target_team
+            def _change_dest(e, player=p):
+                player.target_team = int(e.value)
+                ui.notify(f"{player.name} target set to team ID {e.value}", type="info")
+            
+            ui.select(
+                options=PRESET_TARGET_TEAMS,
+                value=cur_dest,
+                on_change=_change_dest,
+            ).classes("w-36 text-xs").props("dense outlined label=Destination")
+
             ui.button(
                 icon="close",
                 on_click=lambda pid=p.player_id: remove_player(pid),
@@ -575,7 +702,7 @@ def render_basket() -> None:
 
 
 def build_ui() -> None:
-    global name_in, position_in, playstyle_in, min_ovr, max_ovr
+    global name_in, position_in, club_in, league_in, nation_in, playstyle_in, min_ovr, max_ovr, icons_only_in
     global max_wage, min_playstyles, extra_cols_sel, nl_in, provider_sel, model_sel
     global target_team_sel
 
@@ -594,7 +721,7 @@ def build_ui() -> None:
             ui.label("Search").classes("text-base font-bold")
 
             with ui.row().classes("w-full gap-1 items-end flex-wrap"):
-                name_in = ui.input("Name", placeholder="Salah, Messi…").classes("w-48")
+                name_in = ui.input("Name", placeholder="Salah, Messi…").classes("w-36")
                 name_in.on("keydown.enter", lambda: do_search())
                 positions = [
                     "Any", "GK", "CB", "LB", "RB", "CDM", "CM", "CAM",
@@ -602,23 +729,28 @@ def build_ui() -> None:
                 ]
                 position_in = ui.select(
                     positions, value="Any", label="Position"
-                ).classes("w-28")
+                ).classes("w-24")
+                club_in = ui.input("Club", placeholder="Liverpool, Real…").classes("w-36")
+                club_in.on("keydown.enter", lambda: do_search())
+                league_in = ui.input("League", placeholder="Premier League…").classes("w-36")
+                league_in.on("keydown.enter", lambda: do_search())
+                nation_in = ui.input("Nationality", placeholder="Spain, Brazil…").classes("w-32")
+                nation_in.on("keydown.enter", lambda: do_search())
                 playstyle_in = ui.input(
                     "PlayStyle", placeholder="Finesse, Rapid…"
-                ).classes("w-40")
-                min_ovr = ui.number("Min OVR", value=None, min=40, max=99).classes("w-24")
-                max_ovr = ui.number("Max OVR", value=None, min=40, max=99).classes("w-24")
+                ).classes("w-32")
+                min_ovr = ui.number("Min OVR", value=None, min=40, max=99).classes("w-20")
+                max_ovr = ui.number("Max OVR", value=None, min=40, max=99).classes("w-20")
                 min_playstyles = ui.number("Min playstyles", value=None, min=0, max=20).classes("w-24")
                 max_wage = ui.number("Max wage €", value=None).classes("w-28")
+                icons_only_in = ui.checkbox("⭐ Icons Only", value=False).classes("self-center text-xs font-bold text-amber-600 dark:text-amber-400 mb-1")
+                icons_only_in.on("change", lambda: do_search())
                 extra_cols_sel = ui.select(
-                    [
-                        "pace", "shooting", "passing", "dribbling",
-                        "defending", "physical", "vision", "wage_eur", "value_eur",
-                    ],
+                    EXTRA_COL_OPTIONS,
                     multiple=True,
                     label="Extra cols",
                     on_change=lambda: render_results.refresh(),
-                ).classes("w-48")
+                ).classes("w-44")
                 ui.button("Search", on_click=do_search, icon="search").props(
                     "unelevated"
                 )

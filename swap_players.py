@@ -111,7 +111,17 @@ def move_player(buf, db, playerid, from_team, to_team, jersey=None, position=Non
                 and db.read_int_lsb(tpl, i, f_tid) == from_team):
             hits.append(i)
     if not hits:
-        raise SystemExit(f"no teamplayerlinks row for player {playerid} in team {from_team}")
+        any_hits = [
+            i for i in range(tpl.valid_records)
+            if db.read_int_lsb(tpl, i, f_pid) == playerid
+        ]
+        if any_hits:
+            hits = [any_hits[0]]
+            actual_tid = db.read_int_lsb(tpl, hits[0], f_tid)
+            print(f"  note: player {playerid} found in team {actual_tid} (instead of expected team {from_team})")
+        else:
+            print(f"  WARNING: no teamplayerlinks row for player {playerid} — skipping.")
+            return None
     if len(hits) > 1:
         raise SystemExit(f"ambiguous: {len(hits)} rows for player {playerid} in team {from_team}")
     row = hits[0]

@@ -28,6 +28,7 @@ class ShortlistPlayer:
     overall: int | None = None
     position: str | None = None
     from_team: int | None = None
+    target_team: int | None = None  # Per-player destination team override
     jersey_stored: int | None = None  # 0-based; in-game shirt = value + 1
     wage_eur: float | None = None
     value_eur: float | None = None
@@ -136,9 +137,7 @@ def used_jerseys(db: Database, team_id: int) -> set[int]:
 
 def assign_jerseys(sl: Shortlist, db: Database, start: int = 70) -> None:
     """
-    Fill jersey_stored for players missing one. start is in-game shirt
-    number preference; stored = shirt - 1. Avoids clashes on target team
-    and within the shortlist.
+    Assign jersey numbers to shortlist players.
     """
     used = used_jerseys(db, sl.target_team)
     for p in sl.players:
@@ -162,13 +161,14 @@ def assign_jerseys(sl: Shortlist, db: Database, start: int = 70) -> None:
 def resolve_from_teams(sl: Shortlist, db: Database) -> list[str]:
     """Set from_team on each player; return warning strings."""
     warnings = []
-    target_roster = set(roster(db, sl.target_team))
     for p in sl.players:
+        to_team = p.target_team if p.target_team is not None else sl.target_team
+        target_roster = set(roster(db, to_team))
         if p.player_id in target_roster:
-            p.from_team = sl.target_team
-            warnings.append(f"{p.name} ({p.player_id}) already at target team {sl.target_team}")
+            p.from_team = to_team
+            warnings.append(f"{p.name} ({p.player_id}) already at target team {to_team}")
             continue
-        club = find_club_team(db, p.player_id, prefer_not={sl.target_team})
+        club = find_club_team(db, p.player_id, prefer_not={to_team})
         if club is None:
             warnings.append(f"{p.name} ({p.player_id}): no teamplayerlinks row — cannot swap")
             p.from_team = None
@@ -183,10 +183,11 @@ def export_swap_args(sl: Shortlist) -> list[str]:
     for p in sl.players:
         if p.from_team is None or p.jersey_stored is None:
             continue
-        if p.from_team == sl.target_team:
+        to_team = p.target_team if p.target_team is not None else sl.target_team
+        if p.from_team == to_team:
             continue
         args.append(
-            f"--swap {p.player_id},{p.from_team},{sl.target_team},{p.jersey_stored}"
+            f"--swap {p.player_id},{p.from_team},{to_team},{p.jersey_stored}"
         )
     return args
 

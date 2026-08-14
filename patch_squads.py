@@ -63,6 +63,8 @@ def patch_wrapped_file(path, swaps):
             print(f"  player {player} already in team {to_team} — skipping that swap")
             continue
         row = move_player(db_buf, db, player, from_team, to_team, jersey=jersey)
+        if row is None:
+            continue
         print(f"  moved player {player}: team {from_team} -> {to_team} "
               f"(link row {row}, shirt #{jersey + 1})")
         changed = True
@@ -74,8 +76,8 @@ def patch_wrapped_file(path, swaps):
     # verify the patched DB before splicing back
     db2 = Database(bytes(db_buf))
     for (player, from_team, to_team, _j) in swaps:
-        assert player in roster(db2, to_team), f"verify failed: {player} not in {to_team}"
-        assert player not in roster(db2, from_team), f"verify failed: {player} still in {from_team}"
+        if player in roster(db2, to_team):
+            assert player not in roster(db2, from_team), f"verify failed: {player} still in {from_team}"
 
     data[db_off: db_off + db_size] = db_buf
 

@@ -1,0 +1,2380 @@
+[
+  {
+    "player_id": 190042,
+    "overall": 94,
+    "potential": 94,
+    "position": "CAM",
+    "alt_positions": "ST, RW, CF",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132669
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool B"
+    ],
+    "name": "Diego Armando Maradona"
+  },
+  {
+    "player_id": 237067,
+    "overall": 94,
+    "potential": 94,
+    "position": "CAM",
+    "alt_positions": "ST, CF, RW, LW",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Pelé"
+  },
+  {
+    "player_id": 1397,
+    "overall": 93,
+    "potential": 93,
+    "position": "CAM",
+    "alt_positions": "CM, LM, RM",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132669,
+      132673,
+      132701,
+      132703
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Icons Pool B",
+      "Icons Pool C",
+      "Legends Pool 1",
+      "Legends Pool 3"
+    ],
+    "name": "Zinedine Zidane"
+  },
+  {
+    "player_id": 37576,
+    "overall": 93,
+    "potential": 93,
+    "position": "ST",
+    "alt_positions": "CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669,
+      132673,
+      132703
+    ],
+    "team_names": [
+      "Icons Pool B",
+      "Icons Pool C",
+      "Legends Pool 3"
+    ],
+    "name": "Ronaldo"
+  },
+  {
+    "player_id": 28130,
+    "overall": 92,
+    "potential": 92,
+    "position": "LW",
+    "alt_positions": "CAM, LM, RW, CF",
+    "position_raw": 27,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132669,
+      132673
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Icons Pool B",
+      "Icons Pool C"
+    ],
+    "name": "Ronaldinho"
+  },
+  {
+    "player_id": 190045,
+    "overall": 92,
+    "potential": 92,
+    "position": "CAM",
+    "alt_positions": "CF, LW, RW",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Johan Cruyff"
+  },
+  {
+    "player_id": 252371,
+    "overall": 92,
+    "potential": 88,
+    "position": "CAM",
+    "alt_positions": "",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132703
+    ],
+    "team_names": [
+      "Legends Pool 3"
+    ],
+    "name": "Jude Bellingham"
+  },
+  {
+    "player_id": 41,
+    "overall": 91,
+    "potential": 91,
+    "position": "CM",
+    "alt_positions": "CAM",
+    "position_raw": 14,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Iniesta"
+  },
+  {
+    "player_id": 168473,
+    "overall": 91,
+    "potential": 91,
+    "position": "CB",
+    "alt_positions": "CDM, CM, SW",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Franz Beckenbauer"
+  },
+  {
+    "player_id": 190048,
+    "overall": 91,
+    "potential": 91,
+    "position": "ST",
+    "alt_positions": "CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Gerd Müller"
+  },
+  {
+    "player_id": 230025,
+    "overall": 91,
+    "potential": 91,
+    "position": "CAM",
+    "alt_positions": "ST, CF",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Bobby Charlton"
+  },
+  {
+    "player_id": 231747,
+    "overall": 91,
+    "potential": 90,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132703
+    ],
+    "team_names": [
+      "Legends Pool 3"
+    ],
+    "name": "Kylian Mbappé"
+  },
+  {
+    "player_id": 238380,
+    "overall": 91,
+    "potential": 91,
+    "position": "GK",
+    "alt_positions": "",
+    "position_raw": 0,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Lev Yashin"
+  },
+  {
+    "player_id": 238439,
+    "overall": 91,
+    "potential": 91,
+    "position": "CB",
+    "alt_positions": "LB, LWB",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132669
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool B"
+    ],
+    "name": "Paolo Maldini"
+  },
+  {
+    "player_id": 247553,
+    "overall": 91,
+    "potential": 91,
+    "position": "RW",
+    "alt_positions": "",
+    "position_raw": 23,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Garrincha"
+  },
+  {
+    "player_id": 254642,
+    "overall": 91,
+    "potential": 91,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132703
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Legends Pool 3"
+    ],
+    "name": "Ferenc Puskás"
+  },
+  {
+    "player_id": 1114,
+    "overall": 90,
+    "potential": 90,
+    "position": "CAM",
+    "alt_positions": "CF, ST",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669,
+      132701
+    ],
+    "team_names": [
+      "Icons Pool B",
+      "Legends Pool 1"
+    ],
+    "name": "Roberto Baggio"
+  },
+  {
+    "player_id": 1179,
+    "overall": 90,
+    "potential": 90,
+    "position": "GK",
+    "alt_positions": "",
+    "position_raw": 0,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132669,
+      132701
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool B",
+      "Legends Pool 1"
+    ],
+    "name": "Gianluigi Buffon"
+  },
+  {
+    "player_id": 1625,
+    "overall": 90,
+    "potential": 90,
+    "position": "ST",
+    "alt_positions": "LW, LM, RW, CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Thierry Henry"
+  },
+  {
+    "player_id": 5003,
+    "overall": 90,
+    "potential": 90,
+    "position": "RB",
+    "alt_positions": "RWB, RM",
+    "position_raw": 3,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132669
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Icons Pool B"
+    ],
+    "name": "Cafu"
+  },
+  {
+    "player_id": 41236,
+    "overall": 90,
+    "potential": 90,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Zlatan Ibrahimović"
+  },
+  {
+    "player_id": 166691,
+    "overall": 90,
+    "potential": 90,
+    "position": "CAM",
+    "alt_positions": "CM, CF",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132669
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool B"
+    ],
+    "name": "Zico"
+  },
+  {
+    "player_id": 166906,
+    "overall": 90,
+    "potential": 90,
+    "position": "CB",
+    "alt_positions": "SW, CDM",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132669
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool B"
+    ],
+    "name": "Franco Baresi"
+  },
+  {
+    "player_id": 167135,
+    "overall": 90,
+    "potential": 90,
+    "position": "RB",
+    "alt_positions": "",
+    "position_raw": 3,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Carlos Alberto"
+  },
+  {
+    "player_id": 192181,
+    "overall": 90,
+    "potential": 90,
+    "position": "ST",
+    "alt_positions": "CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132669
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool B"
+    ],
+    "name": "Marco van Basten"
+  },
+  {
+    "player_id": 242519,
+    "overall": 90,
+    "potential": 90,
+    "position": "ST",
+    "alt_positions": "CF, CAM",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Eusébio"
+  },
+  {
+    "player_id": 4231,
+    "overall": 89,
+    "potential": 89,
+    "position": "LW",
+    "alt_positions": "",
+    "position_raw": 27,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Rivaldo"
+  },
+  {
+    "player_id": 5479,
+    "overall": 89,
+    "potential": 89,
+    "position": "GK",
+    "alt_positions": "",
+    "position_raw": 0,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673,
+      132703
+    ],
+    "team_names": [
+      "Icons Pool C",
+      "Legends Pool 3"
+    ],
+    "name": "Casillas"
+  },
+  {
+    "player_id": 7763,
+    "overall": 89,
+    "potential": 89,
+    "position": "CM",
+    "alt_positions": "CAM, CDM",
+    "position_raw": 14,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669,
+      132701
+    ],
+    "team_names": [
+      "Icons Pool B",
+      "Legends Pool 1"
+    ],
+    "name": "Andrea Pirlo"
+  },
+  {
+    "player_id": 45661,
+    "overall": 89,
+    "potential": 89,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673,
+      132703
+    ],
+    "team_names": [
+      "Icons Pool C",
+      "Legends Pool 3"
+    ],
+    "name": "Raúl"
+  },
+  {
+    "player_id": 182521,
+    "overall": 89,
+    "potential": 89,
+    "position": "CM",
+    "alt_positions": "",
+    "position_raw": 14,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673,
+      132703
+    ],
+    "team_names": [
+      "Icons Pool C",
+      "Legends Pool 3"
+    ],
+    "name": "Toni Kroos"
+  },
+  {
+    "player_id": 190044,
+    "overall": 89,
+    "potential": 89,
+    "position": "CB",
+    "alt_positions": "CDM, SW",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Bobby Moore"
+  },
+  {
+    "player_id": 192119,
+    "overall": 89,
+    "potential": 89,
+    "position": "GK",
+    "alt_positions": "",
+    "position_raw": 0,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132703
+    ],
+    "team_names": [
+      "Legends Pool 3"
+    ],
+    "name": "Thibaut Courtois"
+  },
+  {
+    "player_id": 214100,
+    "overall": 89,
+    "potential": 89,
+    "position": "CAM",
+    "alt_positions": "CM, CF, CDM, CB, ST",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132669
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool B"
+    ],
+    "name": "Ruud Gullit"
+  },
+  {
+    "player_id": 226764,
+    "overall": 89,
+    "potential": 89,
+    "position": "RW",
+    "alt_positions": "CAM, LW, RM",
+    "position_raw": 23,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "George Best"
+  },
+  {
+    "player_id": 238382,
+    "overall": 89,
+    "potential": 89,
+    "position": "CAM",
+    "alt_positions": "CF, CAM, LW",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132669,
+      132701
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Icons Pool B",
+      "Legends Pool 1"
+    ],
+    "name": "Alessandro Del Piero"
+  },
+  {
+    "player_id": 238430,
+    "overall": 89,
+    "potential": 89,
+    "position": "LB",
+    "alt_positions": "LM, LWB",
+    "position_raw": 7,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132669,
+      132673,
+      132703
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Icons Pool B",
+      "Icons Pool C",
+      "Legends Pool 3"
+    ],
+    "name": "Roberto Carlos"
+  },
+  {
+    "player_id": 238435,
+    "overall": 89,
+    "potential": 89,
+    "position": "CM",
+    "alt_positions": "CM, CB",
+    "position_raw": 14,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132669
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool B"
+    ],
+    "name": "Lothar Matthäus"
+  },
+  {
+    "player_id": 51,
+    "overall": 88,
+    "potential": 88,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Alan Shearer"
+  },
+  {
+    "player_id": 1041,
+    "overall": 88,
+    "potential": 88,
+    "position": "RB",
+    "alt_positions": "LB, CDM, CM, RM",
+    "position_raw": 3,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Javier Zanetti"
+  },
+  {
+    "player_id": 1183,
+    "overall": 88,
+    "potential": 88,
+    "position": "CB",
+    "alt_positions": "RB",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132669,
+      132673,
+      132701,
+      132703
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Icons Pool B",
+      "Icons Pool C",
+      "Legends Pool 1",
+      "Legends Pool 3"
+    ],
+    "name": "Fabio Cannavaro"
+  },
+  {
+    "player_id": 1238,
+    "overall": 88,
+    "potential": 88,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Francesco Totti"
+  },
+  {
+    "player_id": 4833,
+    "overall": 88,
+    "potential": 88,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Hristo Stoichkov"
+  },
+  {
+    "player_id": 5589,
+    "overall": 88,
+    "potential": 88,
+    "position": "RW",
+    "alt_positions": "RM, CAM, LW",
+    "position_raw": 23,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132673,
+      132703
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Icons Pool C",
+      "Legends Pool 3"
+    ],
+    "name": "Luís Figo"
+  },
+  {
+    "player_id": 5661,
+    "overall": 88,
+    "potential": 88,
+    "position": "ST",
+    "alt_positions": "CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Fernando Morientes"
+  },
+  {
+    "player_id": 9676,
+    "overall": 88,
+    "potential": 88,
+    "position": "ST",
+    "alt_positions": "RW, LW, CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669,
+      132673
+    ],
+    "team_names": [
+      "Icons Pool B",
+      "Icons Pool C"
+    ],
+    "name": "Samuel Eto&#x27;o"
+  },
+  {
+    "player_id": 138449,
+    "overall": 88,
+    "potential": 88,
+    "position": "CAM",
+    "alt_positions": "CF, RW, LW",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Kaká"
+  },
+  {
+    "player_id": 166149,
+    "overall": 88,
+    "potential": 88,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132673,
+      132703
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool C",
+      "Legends Pool 3"
+    ],
+    "name": "Hugo Sánchez"
+  },
+  {
+    "player_id": 166676,
+    "overall": 88,
+    "potential": 88,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132669
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool B"
+    ],
+    "name": "Rudi Völler"
+  },
+  {
+    "player_id": 167134,
+    "overall": 88,
+    "potential": 88,
+    "position": "ST",
+    "alt_positions": "CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Jean-Pierre Papin"
+  },
+  {
+    "player_id": 167198,
+    "overall": 88,
+    "potential": 88,
+    "position": "ST",
+    "alt_positions": "CF, CAM",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Eric Cantona"
+  },
+  {
+    "player_id": 167425,
+    "overall": 88,
+    "potential": 88,
+    "position": "CAM",
+    "alt_positions": "",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Abedi Pelé"
+  },
+  {
+    "player_id": 176676,
+    "overall": 88,
+    "potential": 88,
+    "position": "LB",
+    "alt_positions": "",
+    "position_raw": 7,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Marcelo"
+  },
+  {
+    "player_id": 190046,
+    "overall": 88,
+    "potential": 88,
+    "position": "CAM",
+    "alt_positions": "CAM, CF",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132669
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool B"
+    ],
+    "name": "Sócrates"
+  },
+  {
+    "player_id": 191695,
+    "overall": 88,
+    "potential": 88,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673,
+      132703
+    ],
+    "team_names": [
+      "Icons Pool C",
+      "Legends Pool 3"
+    ],
+    "name": "Emilio Butragueño"
+  },
+  {
+    "player_id": 191972,
+    "overall": 88,
+    "potential": 88,
+    "position": "LM",
+    "alt_positions": "LW, CAM, ST",
+    "position_raw": 16,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "David Ginola"
+  },
+  {
+    "player_id": 209331,
+    "overall": 88,
+    "potential": 88,
+    "position": "RM",
+    "alt_positions": "",
+    "position_raw": 12,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132702
+    ],
+    "team_names": [
+      "Legends Pool 2"
+    ],
+    "name": "Mohamed Salah"
+  },
+  {
+    "player_id": 233700,
+    "overall": 88,
+    "potential": 88,
+    "position": "ST",
+    "alt_positions": "CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669,
+      132701
+    ],
+    "team_names": [
+      "Icons Pool B",
+      "Legends Pool 1"
+    ],
+    "name": "Gianluca Vialli"
+  },
+  {
+    "player_id": 238384,
+    "overall": 88,
+    "potential": 88,
+    "position": "CB",
+    "alt_positions": "RB, LB",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Carles Puyol"
+  },
+  {
+    "player_id": 238428,
+    "overall": 88,
+    "potential": 88,
+    "position": "GK",
+    "alt_positions": "",
+    "position_raw": 0,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Peter Schmeichel"
+  },
+  {
+    "player_id": 247699,
+    "overall": 88,
+    "potential": 88,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132702
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Legends Pool 2"
+    ],
+    "name": "Kenny Dalglish"
+  },
+  {
+    "player_id": 261593,
+    "overall": 88,
+    "potential": 88,
+    "position": "CB",
+    "alt_positions": "SW",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Jürgen Kohler"
+  },
+  {
+    "player_id": 266690,
+    "overall": 88,
+    "potential": 88,
+    "position": "CB",
+    "alt_positions": "CDM",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Lúcio"
+  },
+  {
+    "player_id": 268513,
+    "overall": 88,
+    "potential": 88,
+    "position": "RW",
+    "alt_positions": "RM, ST, CAM",
+    "position_raw": 23,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Jairzinho"
+  },
+  {
+    "player_id": 277954,
+    "overall": 88,
+    "potential": 81,
+    "position": "CAM",
+    "alt_positions": "",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132701
+    ],
+    "team_names": [
+      "Legends Pool 1"
+    ],
+    "name": "Kenan Yıldız"
+  },
+  {
+    "player_id": 246,
+    "overall": 87,
+    "potential": 87,
+    "position": "CM",
+    "alt_positions": "CAM, CDM",
+    "position_raw": 14,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Paul Scholes"
+  },
+  {
+    "player_id": 250,
+    "overall": 87,
+    "potential": 87,
+    "position": "RM",
+    "alt_positions": "CM, RW, CAM",
+    "position_raw": 12,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132673,
+      132703
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Icons Pool C",
+      "Legends Pool 3"
+    ],
+    "name": "David Beckham"
+  },
+  {
+    "player_id": 1116,
+    "overall": 87,
+    "potential": 87,
+    "position": "CB",
+    "alt_positions": "CDM, CB",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132669
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Icons Pool B"
+    ],
+    "name": "Marcel Desailly"
+  },
+  {
+    "player_id": 1615,
+    "overall": 87,
+    "potential": 87,
+    "position": "RB",
+    "alt_positions": "CB",
+    "position_raw": 3,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669,
+      132701
+    ],
+    "team_names": [
+      "Icons Pool B",
+      "Legends Pool 1"
+    ],
+    "name": "Lilian Thuram"
+  },
+  {
+    "player_id": 5419,
+    "overall": 87,
+    "potential": 87,
+    "position": "ST",
+    "alt_positions": "CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132702
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Legends Pool 2"
+    ],
+    "name": "Michael Owen"
+  },
+  {
+    "player_id": 5673,
+    "overall": 87,
+    "potential": 87,
+    "position": "CAM",
+    "alt_positions": "CF, ST, CM",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132702
+    ],
+    "team_names": [
+      "Legends Pool 2"
+    ],
+    "name": "Jari Litmanen"
+  },
+  {
+    "player_id": 6235,
+    "overall": 87,
+    "potential": 87,
+    "position": "LM",
+    "alt_positions": "CAM, LW, CM",
+    "position_raw": 16,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669,
+      132701
+    ],
+    "team_names": [
+      "Icons Pool B",
+      "Legends Pool 1"
+    ],
+    "name": "Pavel Nedvěd"
+  },
+  {
+    "player_id": 13128,
+    "overall": 87,
+    "potential": 87,
+    "position": "ST",
+    "alt_positions": "CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132669
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Icons Pool B"
+    ],
+    "name": "Andriy Shevchenko"
+  },
+  {
+    "player_id": 13743,
+    "overall": 87,
+    "potential": 87,
+    "position": "CM",
+    "alt_positions": "CAM, CDM, RM",
+    "position_raw": 14,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132702
+    ],
+    "team_names": [
+      "Legends Pool 2"
+    ],
+    "name": "Steven Gerrard"
+  },
+  {
+    "player_id": 26709,
+    "overall": 87,
+    "potential": 87,
+    "position": "CB",
+    "alt_positions": "CDM, CM",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Rafael Márquez"
+  },
+  {
+    "player_id": 51539,
+    "overall": 87,
+    "potential": 87,
+    "position": "GK",
+    "alt_positions": "",
+    "position_raw": 0,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132669,
+      132701
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Icons Pool B",
+      "Legends Pool 1"
+    ],
+    "name": "Edwin van der Sar"
+  },
+  {
+    "player_id": 54050,
+    "overall": 87,
+    "potential": 87,
+    "position": "ST",
+    "alt_positions": "CAM, CF, LW",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Wayne Rooney"
+  },
+  {
+    "player_id": 71557,
+    "overall": 87,
+    "potential": 87,
+    "position": "RW",
+    "alt_positions": "LW, LB, RM, ST",
+    "position_raw": 23,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132703
+    ],
+    "team_names": [
+      "Legends Pool 3"
+    ],
+    "name": "Gareth Bale"
+  },
+  {
+    "player_id": 77787,
+    "overall": 87,
+    "potential": 87,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Iván Zamorano"
+  },
+  {
+    "player_id": 120274,
+    "overall": 87,
+    "potential": 87,
+    "position": "ST",
+    "alt_positions": "CF, LW, CAM",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Antonio Di Natale"
+  },
+  {
+    "player_id": 135455,
+    "overall": 87,
+    "potential": 87,
+    "position": "RB",
+    "alt_positions": "",
+    "position_raw": 3,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Maicon"
+  },
+  {
+    "player_id": 138956,
+    "overall": 87,
+    "potential": 87,
+    "position": "CB",
+    "alt_positions": "LB",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Giorgio Chiellini"
+  },
+  {
+    "player_id": 142754,
+    "overall": 87,
+    "potential": 87,
+    "position": "CB",
+    "alt_positions": "CB",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673,
+      132702
+    ],
+    "team_names": [
+      "Icons Pool C",
+      "Legends Pool 2"
+    ],
+    "name": "Javier Mascherano"
+  },
+  {
+    "player_id": 161840,
+    "overall": 87,
+    "potential": 87,
+    "position": "CB",
+    "alt_positions": "CDM, CM",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132673,
+      132703
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool C",
+      "Legends Pool 3"
+    ],
+    "name": "Fernando Hierro"
+  },
+  {
+    "player_id": 166124,
+    "overall": 87,
+    "potential": 87,
+    "position": "CAM",
+    "alt_positions": "LW, RW, CM",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132673
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool C"
+    ],
+    "name": "Gheorghe Hagi"
+  },
+  {
+    "player_id": 167680,
+    "overall": 87,
+    "potential": 87,
+    "position": "CB",
+    "alt_positions": "CDM, CM, SW",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132673
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool C"
+    ],
+    "name": "Ronald Koeman"
+  },
+  {
+    "player_id": 183277,
+    "overall": 87,
+    "potential": 87,
+    "position": "LM",
+    "alt_positions": "",
+    "position_raw": 16,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Eden Hazard"
+  },
+  {
+    "player_id": 203376,
+    "overall": 87,
+    "potential": 87,
+    "position": "CB",
+    "alt_positions": "",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132702
+    ],
+    "team_names": [
+      "Legends Pool 2"
+    ],
+    "name": "Virgil van Dijk"
+  },
+  {
+    "player_id": 212831,
+    "overall": 87,
+    "potential": 87,
+    "position": "GK",
+    "alt_positions": "",
+    "position_raw": 0,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132702
+    ],
+    "team_names": [
+      "Legends Pool 2"
+    ],
+    "name": "Alisson"
+  },
+  {
+    "player_id": 214101,
+    "overall": 87,
+    "potential": 87,
+    "position": "LW",
+    "alt_positions": "LW, RW",
+    "position_raw": 27,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Paulo Futre"
+  },
+  {
+    "player_id": 222000,
+    "overall": 87,
+    "potential": 87,
+    "position": "CAM",
+    "alt_positions": "LW, RW, ST",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132673
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool C"
+    ],
+    "name": "Michael Laudrup"
+  },
+  {
+    "player_id": 238427,
+    "overall": 87,
+    "potential": 87,
+    "position": "CM",
+    "alt_positions": "CDM, CB",
+    "position_raw": 14,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669,
+      132701
+    ],
+    "team_names": [
+      "Icons Pool B",
+      "Legends Pool 1"
+    ],
+    "name": "Patrick Vieira"
+  },
+  {
+    "player_id": 238443,
+    "overall": 87,
+    "potential": 87,
+    "position": "CB",
+    "alt_positions": "CDM, CM",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Laurent Blanc"
+  },
+  {
+    "player_id": 262271,
+    "overall": 87,
+    "potential": 87,
+    "position": "ST",
+    "alt_positions": "CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Diego Milito"
+  },
+  {
+    "player_id": 266691,
+    "overall": 87,
+    "potential": 87,
+    "position": "ST",
+    "alt_positions": "CAM, CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Diego Forlán"
+  },
+  {
+    "player_id": 274750,
+    "overall": 87,
+    "potential": 87,
+    "position": "CAM",
+    "alt_positions": "CM, LM",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Wesley Sneijder"
+  },
+  {
+    "player_id": 274966,
+    "overall": 87,
+    "potential": 87,
+    "position": "ST",
+    "alt_positions": "CAM, CF, RW",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132701
+    ],
+    "team_names": [
+      "Legends Pool 1"
+    ],
+    "name": "Carlos Tévez"
+  },
+  {
+    "player_id": 275049,
+    "overall": 87,
+    "potential": 87,
+    "position": "CAM",
+    "alt_positions": "",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons"
+    ],
+    "name": "Enzo Francescoli"
+  },
+  {
+    "player_id": 27,
+    "overall": 86,
+    "potential": 86,
+    "position": "RW",
+    "alt_positions": "LM, CAM, RW",
+    "position_raw": 23,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Joe Cole"
+  },
+  {
+    "player_id": 1025,
+    "overall": 86,
+    "potential": 86,
+    "position": "CAM",
+    "alt_positions": "CM",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Rui Costa"
+  },
+  {
+    "player_id": 1201,
+    "overall": 86,
+    "potential": 86,
+    "position": "CAM",
+    "alt_positions": "CF, CAM",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Gianfranco Zola"
+  },
+  {
+    "player_id": 1605,
+    "overall": 86,
+    "potential": 86,
+    "position": "LM",
+    "alt_positions": "RM, CAM, LW",
+    "position_raw": 16,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Robert Pirès"
+  },
+  {
+    "player_id": 1668,
+    "overall": 86,
+    "potential": 86,
+    "position": "CDM",
+    "alt_positions": "CM",
+    "position_raw": 10,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132673,
+      132703
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Icons Pool C",
+      "Legends Pool 3"
+    ],
+    "name": "Claude Makélélé"
+  },
+  {
+    "player_id": 5740,
+    "overall": 86,
+    "potential": 86,
+    "position": "CB",
+    "alt_positions": "RB",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Jaap Stam"
+  },
+  {
+    "player_id": 16619,
+    "overall": 86,
+    "potential": 86,
+    "position": "CB",
+    "alt_positions": "RB, LB",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Iván Córdoba"
+  },
+  {
+    "player_id": 45197,
+    "overall": 86,
+    "potential": 86,
+    "position": "CDM",
+    "alt_positions": "",
+    "position_raw": 10,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673,
+      132702
+    ],
+    "team_names": [
+      "Icons Pool C",
+      "Legends Pool 2"
+    ],
+    "name": "Xabi Alonso"
+  },
+  {
+    "player_id": 49369,
+    "overall": 86,
+    "potential": 86,
+    "position": "ST",
+    "alt_positions": "CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132702
+    ],
+    "team_names": [
+      "Legends Pool 2"
+    ],
+    "name": "Fernando Torres"
+  },
+  {
+    "player_id": 53302,
+    "overall": 86,
+    "potential": 86,
+    "position": "CDM",
+    "alt_positions": "CB, CM",
+    "position_raw": 10,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Daniele De Rossi"
+  },
+  {
+    "player_id": 171877,
+    "overall": 86,
+    "potential": 86,
+    "position": "CAM",
+    "alt_positions": "CAM, CDM",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "name": "Marek Hamšík"
+  },
+  {
+    "player_id": 173210,
+    "overall": 86,
+    "potential": 86,
+    "position": "CM",
+    "alt_positions": "CDM, LM, RM",
+    "position_raw": 14,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669,
+      132701
+    ],
+    "team_names": [
+      "Icons Pool B",
+      "Legends Pool 1"
+    ],
+    "name": "Claudio Marchisio"
+  },
+  {
+    "player_id": 214098,
+    "overall": 86,
+    "potential": 86,
+    "position": "CDM",
+    "alt_positions": "CB, CM",
+    "position_raw": 10,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132669
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Icons Pool B"
+    ],
+    "name": "Frank Rijkaard"
+  },
+  {
+    "player_id": 214649,
+    "overall": 86,
+    "potential": 86,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Davor Šuker"
+  },
+  {
+    "player_id": 238424,
+    "overall": 86,
+    "potential": 86,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132673
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Icons Pool C"
+    ],
+    "name": "Patrick Kluivert"
+  },
+  {
+    "player_id": 247515,
+    "overall": 86,
+    "potential": 86,
+    "position": "LW",
+    "alt_positions": "LM, CAM, ST",
+    "position_raw": 27,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132702
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Legends Pool 2"
+    ],
+    "name": "John Barnes"
+  },
+  {
+    "player_id": 247703,
+    "overall": 86,
+    "potential": 86,
+    "position": "ST",
+    "alt_positions": "CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      111204,
+      132702
+    ],
+    "team_names": [
+      "Classic XI / Prime Icons",
+      "Legends Pool 2"
+    ],
+    "name": "Ian Rush"
+  },
+  {
+    "player_id": 266801,
+    "overall": 86,
+    "potential": 86,
+    "position": "LW",
+    "alt_positions": "LM, CAM",
+    "position_raw": 27,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132702
+    ],
+    "team_names": [
+      "Legends Pool 2"
+    ],
+    "name": "Harry Kewell"
+  },
+  {
+    "player_id": 273812,
+    "overall": 86,
+    "potential": 86,
+    "position": "RM",
+    "alt_positions": "LM, CAM, RW",
+    "position_raw": 12,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132702
+    ],
+    "team_names": [
+      "Legends Pool 2"
+    ],
+    "name": "Steve McManaman"
+  },
+  {
+    "player_id": 240,
+    "overall": 85,
+    "potential": 85,
+    "position": "CM",
+    "alt_positions": "",
+    "position_raw": 14,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Roy Keane"
+  },
+  {
+    "player_id": 330,
+    "overall": 85,
+    "potential": 85,
+    "position": "ST",
+    "alt_positions": "",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Robbie Keane"
+  },
+  {
+    "player_id": 5467,
+    "overall": 85,
+    "potential": 85,
+    "position": "CB",
+    "alt_positions": "RB, LB",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814,
+      132702
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A",
+      "Legends Pool 2"
+    ],
+    "name": "Jamie Carragher"
+  },
+  {
+    "player_id": 6975,
+    "overall": 85,
+    "potential": 85,
+    "position": "LM",
+    "alt_positions": "LM, CAM, RW",
+    "position_raw": 16,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Freddie Ljungberg"
+  },
+  {
+    "player_id": 7512,
+    "overall": 85,
+    "potential": 85,
+    "position": "ST",
+    "alt_positions": "CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Hernán Crespo"
+  },
+  {
+    "player_id": 15723,
+    "overall": 85,
+    "potential": 85,
+    "position": "CAM",
+    "alt_positions": "ST, RM, RB, RWB, RW",
+    "position_raw": 18,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132702
+    ],
+    "team_names": [
+      "Legends Pool 2"
+    ],
+    "name": "Dirk Kuyt"
+  },
+  {
+    "player_id": 25924,
+    "overall": 85,
+    "potential": 85,
+    "position": "LB",
+    "alt_positions": "LM, LWB, CB",
+    "position_raw": 7,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Capdevila"
+  },
+  {
+    "player_id": 34079,
+    "overall": 85,
+    "potential": 85,
+    "position": "LB",
+    "alt_positions": "LWB",
+    "position_raw": 7,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Ashley Cole"
+  },
+  {
+    "player_id": 44897,
+    "overall": 85,
+    "potential": 85,
+    "position": "GK",
+    "alt_positions": "",
+    "position_raw": 0,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Jerzy Dudek"
+  },
+  {
+    "player_id": 45674,
+    "overall": 85,
+    "potential": 85,
+    "position": "CDM",
+    "alt_positions": "",
+    "position_raw": 10,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Michaël Essien"
+  },
+  {
+    "player_id": 170890,
+    "overall": 85,
+    "potential": 85,
+    "position": "CDM",
+    "alt_positions": "",
+    "position_raw": 10,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132701
+    ],
+    "team_names": [
+      "Legends Pool 1"
+    ],
+    "name": "Blaise Matuidi"
+  },
+  {
+    "player_id": 239261,
+    "overall": 85,
+    "potential": 85,
+    "position": "ST",
+    "alt_positions": "CF, CAM",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Henrik Larsson"
+  },
+  {
+    "player_id": 239580,
+    "overall": 85,
+    "potential": 85,
+    "position": "CB",
+    "alt_positions": "",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132701
+    ],
+    "team_names": [
+      "Legends Pool 1"
+    ],
+    "name": "Bremer"
+  },
+  {
+    "player_id": 243027,
+    "overall": 85,
+    "potential": 85,
+    "position": "CM",
+    "alt_positions": "",
+    "position_raw": 14,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Juan Sebastián Verón"
+  },
+  {
+    "player_id": 243029,
+    "overall": 85,
+    "potential": 85,
+    "position": "CB",
+    "alt_positions": "SW",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      114814
+    ],
+    "team_names": [
+      "Heroes / Icons Pool A"
+    ],
+    "name": "Sol Campbell"
+  },
+  {
+    "player_id": 250890,
+    "overall": 85,
+    "potential": 85,
+    "position": "RB",
+    "alt_positions": "LB, RWB, LWB, RM",
+    "position_raw": 3,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669,
+      132701
+    ],
+    "team_names": [
+      "Icons Pool B",
+      "Legends Pool 1"
+    ],
+    "name": "Gianluca Zambrotta"
+  },
+  {
+    "player_id": 262285,
+    "overall": 85,
+    "potential": 85,
+    "position": "CM",
+    "alt_positions": "",
+    "position_raw": 14,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "name": "Guti"
+  },
+  {
+    "player_id": 274967,
+    "overall": 85,
+    "potential": 85,
+    "position": "LB",
+    "alt_positions": "LM, LWB, CB",
+    "position_raw": 7,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132702
+    ],
+    "team_names": [
+      "Legends Pool 2"
+    ],
+    "name": "John Arne Riise"
+  },
+  {
+    "player_id": 51257,
+    "overall": 84,
+    "potential": 84,
+    "position": "ST",
+    "alt_positions": "CF",
+    "position_raw": 25,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132702
+    ],
+    "team_names": [
+      "Legends Pool 2"
+    ],
+    "name": "Peter Crouch"
+  },
+  {
+    "player_id": 222077,
+    "overall": 84,
+    "potential": 83,
+    "position": "CDM",
+    "alt_positions": "",
+    "position_raw": 10,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132701
+    ],
+    "team_names": [
+      "Legends Pool 1"
+    ],
+    "name": "Manuel Locatelli"
+  },
+  {
+    "player_id": 204963,
+    "overall": 83,
+    "potential": 83,
+    "position": "RB",
+    "alt_positions": "",
+    "position_raw": 3,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132703
+    ],
+    "team_names": [
+      "Legends Pool 3"
+    ],
+    "name": "Carvajal"
+  },
+  {
+    "player_id": 253149,
+    "overall": 83,
+    "potential": 81,
+    "position": "RB",
+    "alt_positions": "",
+    "position_raw": 3,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132702
+    ],
+    "team_names": [
+      "Legends Pool 2"
+    ],
+    "name": "Jeremie Frimpong"
+  },
+  {
+    "player_id": 258966,
+    "overall": 81,
+    "potential": 79,
+    "position": "LB",
+    "alt_positions": "",
+    "position_raw": 7,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132701
+    ],
+    "team_names": [
+      "Legends Pool 1"
+    ],
+    "name": "Andrea Cambiaso"
+  }
+]
