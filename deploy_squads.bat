@@ -129,10 +129,11 @@ echo  ==========================================
 echo(
 
 set count=0
-for /f "delims=" %%F in ('dir /b "%PRESET_DIR%\*.json" 2^>nul') do (
+for /f "delims=" %%F in ('dir /b /o-d "%PRESET_DIR%\*.json" 2^>nul') do (
     set /a count+=1
     set "preset[!count!]=%%F"
-    echo   !count!. %%~nF
+    for %%A in ("%PRESET_DIR%\%%F") do set "ftime=%%~tA"
+    echo   !count!. [!ftime!]  %%~nF
 )
 
 if %count%==0 (

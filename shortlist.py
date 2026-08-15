@@ -222,14 +222,18 @@ def sanitize_preset_filename(name: str) -> str:
 
 
 def list_presets(presets_dir: Path | None = None) -> list[dict]:
-    """Scan presets directory and return list of preset info dicts."""
     p_dir = presets_dir or PRESETS_DIR
-    if not p_dir.exists():
+    if not p_dir.is_dir():
         return []
     res = []
-    for p in sorted(p_dir.glob("*.json")):
+    import datetime
+    # Sort newest to oldest (recent-to-last)
+    files = list(p_dir.glob("*.json"))
+    files.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    for p in files:
         try:
             sl = load_json(p)
+            mtime_str = datetime.datetime.fromtimestamp(p.stat().st_mtime).strftime("%Y-%m-%d %H:%M")
             res.append({
                 "filename": p.name,
                 "path": str(p),
@@ -237,6 +241,8 @@ def list_presets(presets_dir: Path | None = None) -> list[dict]:
                 "target_team": sl.target_team,
                 "target_name": sl.target_name,
                 "player_count": len(sl.players),
+                "mtime": p.stat().st_mtime,
+                "mtime_str": mtime_str,
             })
         except Exception:
             continue

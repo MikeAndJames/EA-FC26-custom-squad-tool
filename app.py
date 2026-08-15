@@ -190,7 +190,10 @@ def do_delete_preset() -> None:
 def render_preset_selector() -> None:
     global preset_name_in, preset_sel
     presets = list_presets()
-    opts = {p["path"]: f"{p['preset_name']} ({p['target_name']}, {p['player_count']} p)" for p in presets}
+    opts = {
+        p["path"]: f"{p['preset_name']} ({p['target_name']}, {p['player_count']} p) [{p.get('mtime_str', '')}]"
+        for p in presets
+    }
 
     with ui.column().classes("w-full gap-2"):
         ui.label("Squad Presets").classes("text-xs font-bold text-gray-500 uppercase tracking-wider")
