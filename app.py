@@ -914,10 +914,10 @@ def open_mini_me_dialog() -> None:
                             overall=int(p_row["overall"]) if pd.notna(p_row.get("overall")) else None,
                             position=str(p_row.get("position", "")),
                             target_team=state["target_team"],
-                            wage_eur=p_row.get("wage_eur"),
-                            value_eur=p_row.get("value_eur"),
-                            pace=p_row.get("pace"),
-                            stamina=p_row.get("stamina"),
+                            wage_eur=float(p_row["wage_eur"]) if pd.notna(p_row.get("wage_eur")) else None,
+                            value_eur=float(p_row["value_eur"]) if pd.notna(p_row.get("value_eur")) else None,
+                            pace=int(p_row["pace"]) if pd.notna(p_row.get("pace")) else None,
+                            stamina=int(p_row["stamina"]) if pd.notna(p_row.get("stamina")) else None,
                         )
                         if shortlist.add(sp):
                             added_count += 1
@@ -942,10 +942,10 @@ def open_mini_me_dialog() -> None:
                             overall=int(p_row["overall"]) if pd.notna(p_row.get("overall")) else None,
                             position=str(p_row.get("position", "")),
                             target_team=state["target_team"],
-                            wage_eur=p_row.get("wage_eur"),
-                            value_eur=p_row.get("value_eur"),
-                            pace=p_row.get("pace"),
-                            stamina=p_row.get("stamina"),
+                            wage_eur=float(p_row["wage_eur"]) if pd.notna(p_row.get("wage_eur")) else None,
+                            value_eur=float(p_row["value_eur"]) if pd.notna(p_row.get("value_eur")) else None,
+                            pace=int(p_row["pace"]) if pd.notna(p_row.get("pace")) else None,
+                            stamina=int(p_row["stamina"]) if pd.notna(p_row.get("stamina")) else None,
                         )
                         shortlist.add(sp)
             path = save_preset(shortlist, preset_name)

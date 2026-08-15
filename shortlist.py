@@ -62,10 +62,20 @@ class Shortlist:
         self.players.clear()
 
     def to_dict(self) -> dict:
+        def _clean(v):
+            if v is None:
+                return None
+            if isinstance(v, float) and pd.isna(v):
+                return None
+            return v
+
         return {
             "target_team": self.target_team,
             "target_name": self.target_name,
-            "players": [asdict(p) for p in self.players],
+            "players": [
+                {k: _clean(v) for k, v in asdict(p).items()}
+                for p in self.players
+            ],
         }
 
     @classmethod
