@@ -117,12 +117,13 @@ def main():
         assign_jerseys(sl, db_ref)
         swaps = []
         for p in sl.players:
-            if p.from_team is not None and p.jersey_stored is not None and p.from_team != sl.target_team:
-                swaps.append((p.player_id, p.from_team, sl.target_team, p.jersey_stored))
+            to_team = p.target_team if p.target_team is not None else sl.target_team
+            if p.from_team is not None and p.jersey_stored is not None and p.from_team != to_team:
+                swaps.append((p.player_id, p.from_team, to_team, p.jersey_stored))
         if not swaps:
             print(f"Preset '{sl.target_name}' loaded, but no valid player swaps needed.")
         else:
-            print(f"Loaded preset '{sl.target_name}' (target {sl.target_team}): {len(swaps)} swaps queued.")
+            print(f"Loaded preset '{sl.target_name}': {len(swaps)} player swaps queued.")
     elif args.swap:
         swaps = [tuple(int(x) for x in s.split(",")) for s in args.swap]
         for s in swaps:
