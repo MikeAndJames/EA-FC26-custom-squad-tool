@@ -240,10 +240,26 @@ def extract_raw_icon_records(db: Database) -> list[dict[str, Any]]:
     f_pid = next(f for f in tpl.fields if f.name == "ykFq")
 
     czum = db.by_tag["CZUM"]
-    f_cz_pid = next(f for f in czum.fields if f.name == "ykFq")
-    f_cz_ovr = next(f for f in czum.fields if f.name == "mpuH")
-    f_cz_pos = next(f for f in czum.fields if f.name == "wZQU")
-    f_cz_pot = next(f for f in czum.fields if f.name == "UERs")
+    cz_fields = {f.name: f for f in czum.fields}
+    f_cz_pid = cz_fields["ykFq"]
+    f_cz_ovr = cz_fields["mpuH"]
+    f_cz_pos = cz_fields["wZQU"]
+    f_cz_pot = cz_fields["UERs"]
+    f_cz_pac = cz_fields.get("aapy")
+    f_cz_sho = cz_fields.get("NTFr")
+    f_cz_pas = cz_fields.get("ceRf")
+    f_cz_dri = cz_fields.get("zNYP")
+    f_cz_def = cz_fields.get("aEqa")
+    f_cz_phy = cz_fields.get("hdMV")
+    f_cz_acc = cz_fields.get("SPge")
+    f_cz_agi = cz_fields.get("RRQB")
+    f_cz_sp = cz_fields.get("vObb")
+    f_cz_lp = cz_fields.get("kerE")
+    f_cz_stk = cz_fields.get("CsyD")
+    f_cz_slk = cz_fields.get("PhuM")
+    f_cz_defaw = cz_fields.get("SJKz")
+    f_cz_vis = cz_fields.get("wGOH")
+    f_cz_str = cz_fields.get("nmgT")
 
     # Map player IDs to teams
     icon_teams_by_pid: dict[int, list[int]] = {}
@@ -270,6 +286,9 @@ def extract_raw_icon_records(db: Database) -> list[dict[str, Any]]:
             team_names = [ICON_TEAM_IDS.get(t, f"Team {t}") for t in tids]
             alt_pos = ICON_ALT_POSITIONS.get(pid, "")
 
+            def _get_stat(fld):
+                return db.read_int_lsb(czum, i, fld) if fld else None
+
             records.append({
                 "player_id": pid,
                 "overall": ovr,
@@ -280,6 +299,21 @@ def extract_raw_icon_records(db: Database) -> list[dict[str, Any]]:
                 "category": category,
                 "team_ids": tids,
                 "team_names": team_names,
+                "pace": _get_stat(f_cz_pac),
+                "shooting": _get_stat(f_cz_sho),
+                "passing": _get_stat(f_cz_pas),
+                "dribbling": _get_stat(f_cz_dri),
+                "defending": _get_stat(f_cz_def),
+                "physical": _get_stat(f_cz_phy),
+                "acceleration": _get_stat(f_cz_acc),
+                "agility": _get_stat(f_cz_agi),
+                "short_passing": _get_stat(f_cz_sp),
+                "long_passing": _get_stat(f_cz_lp),
+                "standing_tackle": _get_stat(f_cz_stk),
+                "sliding_tackle": _get_stat(f_cz_slk),
+                "def_awareness": _get_stat(f_cz_defaw),
+                "vision": _get_stat(f_cz_vis),
+                "strength": _get_stat(f_cz_str),
             })
 
     records.sort(key=lambda r: (-r["overall"], r["player_id"]))
@@ -385,12 +419,27 @@ def build_icon_database(
         "position",
         "alt_positions",
         "category",
+        "pace",
+        "shooting",
+        "passing",
+        "dribbling",
+        "defending",
+        "physical",
+        "acceleration",
+        "agility",
+        "short_passing",
+        "long_passing",
+        "standing_tackle",
+        "sliding_tackle",
+        "def_awareness",
+        "vision",
+        "strength",
         "position_raw",
         "team_ids",
         "team_names",
     ]
     with open(ICON_DB_CSV, "w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
         writer.writeheader()
         for r in records:
             row = dict(r)

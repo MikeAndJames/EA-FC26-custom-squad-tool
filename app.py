@@ -726,9 +726,10 @@ def open_mini_me_dialog() -> None:
         ui.notify("Add some players to your squad basket first (e.g. Leeds Legends)!", type="warning")
         return
 
-    engine = get_mini_me_engine()
+    # Always ensure fresh engine with latest merged player data
+    engine = MiniMeEngine(df)
 
-    # Per-player state: {pid: {"pos_filter": "SAME", "selected_clone_pid": int | None, "candidates": list}}
+    # Per-player state: {pid: {"pos_filter": str, "selected_clone_pid": int | None, "candidates": list}}
     state: dict[str, Any] = {
         "handicap": 4,
         "target_team": 93,  # Ipswich Town
@@ -738,9 +739,11 @@ def open_mini_me_dialog() -> None:
     # Initialize slots for each player in basket
     for p in shortlist.players:
         pid = p.player_id
+        clean_pos = str(p.position or "CM").split()[0].split("(")[0].strip().upper()
         state["slots"][pid] = {
             "source": p,
-            "pos_filter": "SAME",
+            "clean_pos": clean_pos,
+            "pos_filter": f"SAME_{clean_pos}",
             "selected_clone_pid": None,
             "candidates": [],
         }
@@ -754,34 +757,35 @@ def open_mini_me_dialog() -> None:
                 slot["selected_clone_pid"] = None
                 continue
 
+            # Pass clean role (e.g. "SAME", "RW", "LB", "CB", "ANY")
+            req_role = "SAME" if pos_filter.startswith("SAME") else pos_filter
             cands = engine.find_top_clones(
                 player_id=pid,
                 handicap_drop=state["handicap"],
                 drop_tolerance=2,
-                position_filter=pos_filter,
+                position_filter=req_role,
                 excluded_ids=used_pids,
                 same_gender=True,
                 top_n=3,
             )
             slot["candidates"] = cands
-            # If current selection not in candidates, select top candidate
             cand_pids = [c["player_id"] for c in cands]
             if slot["selected_clone_pid"] not in cand_pids:
                 slot["selected_clone_pid"] = cand_pids[0] if cand_pids else None
 
     compute_all_candidates()
 
-    dialog = ui.dialog().classes("w-full max-w-5xl")
-    with dialog, ui.card().classes("w-full p-4 gap-3 max-h-[90vh] flex flex-col"):
-        with ui.row().classes("w-full items-center justify-between shrink-0"):
+    dialog = ui.dialog().classes("w-full")
+    with dialog, ui.card().classes("w-[95vw] max-w-[1300px] h-[90vh] p-4 gap-3 flex flex-col"):
+        with ui.row().classes("w-full items-center justify-between shrink-0 border-b pb-2"):
             with ui.row().classes("items-center gap-2"):
-                ui.icon("group_add", size="sm").classes("text-indigo-600 dark:text-indigo-400")
-                ui.label("👥 Mini-Me Opponent Squad Builder (Pick 1 of 3 Suggestions)").classes("text-lg font-bold")
+                ui.icon("group_add", size="md").classes("text-indigo-600 dark:text-indigo-400")
+                ui.label("👥 Mini-Me Opponent Squad Builder (Pick 1 of 3 Suggestions)").classes("text-xl font-bold")
             ui.button(icon="close", on_click=dialog.close).props("flat round dense")
 
         ui.label(
-            "For each player on your team, choose a position filter or pick from 3 ranked statistical clones "
-            "at your chosen handicap level."
+            "Matches every player on your team to a weaker statistical clone (using 29-stat Self-Median DNA) "
+            "with strict position & flank integrity. Pick between the top 3 ranked suggestions or customize roles."
         ).classes("text-xs text-gray-500 shrink-0")
 
         with ui.row().classes("w-full items-center gap-4 bg-slate-100 dark:bg-slate-800 p-2 rounded shrink-0"):
@@ -824,19 +828,20 @@ def open_mini_me_dialog() -> None:
 
         @ui.refreshable
         def render_slots():
-            with ui.element("div").classes("w-full overflow-y-auto flex-grow max-h-[55vh] pr-1"):
+            with ui.element("div").classes("w-full overflow-y-auto flex-grow max-h-[62vh] pr-2"):
                 with ui.column().classes("w-full gap-2"):
                     for pid, slot in state["slots"].items():
                         src = slot["source"]
                         cands = slot["candidates"]
                         cur_filter = slot["pos_filter"]
+                        clean_p = slot["clean_pos"]
 
-                        with ui.card().classes("w-full p-2 bg-slate-50 dark:bg-slate-900 border"):
+                        with ui.card().classes("w-full p-2 bg-slate-50 dark:bg-slate-900 border shadow-sm"):
                             with ui.row().classes("w-full items-center gap-3 no-wrap"):
                                 # 1. Dad Player Info
-                                with ui.row().classes("w-52 items-center gap-1 shrink-0"):
+                                with ui.row().classes("w-60 items-center gap-2 shrink-0"):
                                     _render_pos(src)
-                                    ui.label(src.name).classes("font-bold text-xs truncate w-28").tooltip(src.name)
+                                    ui.label(src.name).classes("font-bold text-xs truncate w-32").tooltip(src.name)
                                     ui.badge(f"{src.overall or '?'}", color="blue-8").classes("text-xs font-bold")
 
                                 ui.label("➔").classes("text-gray-400 font-bold shrink-0")
@@ -849,11 +854,12 @@ def open_mini_me_dialog() -> None:
                                         s["candidates"] = []
                                         s["selected_clone_pid"] = None
                                     else:
+                                        req_r = "SAME" if s["pos_filter"].startswith("SAME") else s["pos_filter"]
                                         s["candidates"] = engine.find_top_clones(
                                             player_id=p_id,
                                             handicap_drop=state["handicap"],
                                             drop_tolerance=2,
-                                            position_filter=s["pos_filter"],
+                                            position_filter=req_r,
                                             excluded_ids=used_pids,
                                             same_gender=True,
                                             top_n=3,
@@ -862,13 +868,14 @@ def open_mini_me_dialog() -> None:
                                         s["selected_clone_pid"] = cand_pids[0] if cand_pids else None
                                     render_slots.refresh()
 
+                                same_key = f"SAME_{clean_p}"
                                 pos_labels = {
-                                    "SAME": f"Same ({src.position or 'POS'})",
+                                    same_key: f"Same ({clean_p})",
                                     "ANY": "Any Position",
                                     "SKIP": "🚫 SKIP Slot",
                                 }
                                 for p_code in POS_FILTER_OPTIONS:
-                                    if p_code not in pos_labels:
+                                    if p_code not in ("SAME", "ANY", "SKIP"):
                                         pos_labels[p_code] = p_code
 
                                 ui.select(
@@ -876,7 +883,7 @@ def open_mini_me_dialog() -> None:
                                     value=cur_filter,
                                     label="Search Role",
                                     on_change=_on_pos_change,
-                                ).classes("w-36 text-xs shrink-0").props("dense outlined")
+                                ).classes("w-40 text-xs shrink-0").props("dense outlined")
 
                                 # 3. Candidate Choices (Top 3 suggestions)
                                 if cur_filter == "SKIP":

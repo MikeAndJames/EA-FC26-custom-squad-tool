@@ -15,6 +15,21 @@
       "Classic XI / Prime Icons",
       "Icons Pool B"
     ],
+    "pace": 90,
+    "shooting": 91,
+    "passing": 91,
+    "dribbling": 96,
+    "defending": 40,
+    "physical": 77,
+    "acceleration": 91,
+    "agility": 89,
+    "short_passing": 89,
+    "long_passing": 88,
+    "standing_tackle": 40,
+    "sliding_tackle": 37,
+    "def_awareness": 27,
+    "vision": 87,
+    "strength": 74,
     "name": "Diego Armando Maradona"
   },
   {
@@ -31,6 +46,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 93,
+    "shooting": 94,
+    "passing": 91,
+    "dribbling": 94,
+    "defending": 58,
+    "physical": 74,
+    "acceleration": 92,
+    "agility": 91,
+    "short_passing": 93,
+    "long_passing": 85,
+    "standing_tackle": 49,
+    "sliding_tackle": 46,
+    "def_awareness": 53,
+    "vision": 87,
+    "strength": 73,
     "name": "Pelé"
   },
   {
@@ -55,6 +85,21 @@
       "Legends Pool 1",
       "Legends Pool 3"
     ],
+    "pace": 83,
+    "shooting": 90,
+    "passing": 94,
+    "dribbling": 94,
+    "defending": 73,
+    "physical": 84,
+    "acceleration": 83,
+    "agility": 77,
+    "short_passing": 95,
+    "long_passing": 94,
+    "standing_tackle": 75,
+    "sliding_tackle": 64,
+    "def_awareness": 61,
+    "vision": 91,
+    "strength": 85,
     "name": "Zinedine Zidane"
   },
   {
@@ -75,6 +120,21 @@
       "Icons Pool C",
       "Legends Pool 3"
     ],
+    "pace": 94,
+    "shooting": 94,
+    "passing": 79,
+    "dribbling": 94,
+    "defending": 43,
+    "physical": 75,
+    "acceleration": 94,
+    "agility": 88,
+    "short_passing": 83,
+    "long_passing": 72,
+    "standing_tackle": 39,
+    "sliding_tackle": 34,
+    "def_awareness": 35,
+    "vision": 71,
+    "strength": 82,
     "name": "Ronaldo"
   },
   {
@@ -95,6 +155,21 @@
       "Icons Pool B",
       "Icons Pool C"
     ],
+    "pace": 91,
+    "shooting": 89,
+    "passing": 90,
+    "dribbling": 95,
+    "defending": 38,
+    "physical": 80,
+    "acceleration": 92,
+    "agility": 93,
+    "short_passing": 90,
+    "long_passing": 84,
+    "standing_tackle": 39,
+    "sliding_tackle": 30,
+    "def_awareness": 36,
+    "vision": 88,
+    "strength": 82,
     "name": "Ronaldinho"
   },
   {
@@ -106,11 +181,28 @@
     "position_raw": 18,
     "category": "Prime Icon / Hero",
     "team_ids": [
+      111204,
       132673
     ],
     "team_names": [
+      "Classic XI / Prime Icons",
       "Icons Pool C"
     ],
+    "pace": 90,
+    "shooting": 91,
+    "passing": 90,
+    "dribbling": 93,
+    "defending": 42,
+    "physical": 73,
+    "acceleration": 91,
+    "agility": 91,
+    "short_passing": 91,
+    "long_passing": 85,
+    "standing_tackle": 34,
+    "sliding_tackle": 38,
+    "def_awareness": 41,
+    "vision": 85,
+    "strength": 69,
     "name": "Johan Cruyff"
   },
   {
@@ -127,6 +219,21 @@
     "team_names": [
       "Legends Pool 3"
     ],
+    "pace": 80,
+    "shooting": 85,
+    "passing": 83,
+    "dribbling": 89,
+    "defending": 79,
+    "physical": 85,
+    "acceleration": 80,
+    "agility": 82,
+    "short_passing": 88,
+    "long_passing": 86,
+    "standing_tackle": 79,
+    "sliding_tackle": 81,
+    "def_awareness": 76,
+    "vision": 67,
+    "strength": 79,
     "name": "Jude Bellingham"
   },
   {
@@ -143,6 +250,21 @@
     "team_names": [
       "Icons Pool C"
     ],
+    "pace": 83,
+    "shooting": 80,
+    "passing": 91,
+    "dribbling": 92,
+    "defending": 62,
+    "physical": 66,
+    "acceleration": 85,
+    "agility": 86,
+    "short_passing": 94,
+    "long_passing": 92,
+    "standing_tackle": 62,
+    "sliding_tackle": 58,
+    "def_awareness": 56,
+    "vision": 85,
+    "strength": 58,
     "name": "Iniesta"
   },
   {
@@ -159,6 +281,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 82,
+    "shooting": 73,
+    "passing": 88,
+    "dribbling": 84,
+    "defending": 93,
+    "physical": 81,
+    "acceleration": 82,
+    "agility": 79,
+    "short_passing": 93,
+    "long_passing": 94,
+    "standing_tackle": 90,
+    "sliding_tackle": 89,
+    "def_awareness": 94,
+    "vision": 74,
+    "strength": 80,
     "name": "Franz Beckenbauer"
   },
   {
@@ -175,6 +312,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 87,
+    "shooting": 92,
+    "passing": 76,
+    "dribbling": 85,
+    "defending": 44,
+    "physical": 74,
+    "acceleration": 91,
+    "agility": 82,
+    "short_passing": 81,
+    "long_passing": 65,
+    "standing_tackle": 31,
+    "sliding_tackle": 30,
+    "def_awareness": 43,
+    "vision": 65,
+    "strength": 74,
     "name": "Gerd Müller"
   },
   {
@@ -191,6 +343,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 90,
+    "shooting": 91,
+    "passing": 87,
+    "dribbling": 91,
+    "defending": 50,
+    "physical": 74,
+    "acceleration": 90,
+    "agility": 90,
+    "short_passing": 87,
+    "long_passing": 88,
+    "standing_tackle": 46,
+    "sliding_tackle": 30,
+    "def_awareness": 49,
+    "vision": 81,
+    "strength": 67,
     "name": "Bobby Charlton"
   },
   {
@@ -207,6 +374,21 @@
     "team_names": [
       "Legends Pool 3"
     ],
+    "pace": 96,
+    "shooting": 91,
+    "passing": 81,
+    "dribbling": 92,
+    "defending": 37,
+    "physical": 76,
+    "acceleration": 96,
+    "agility": 92,
+    "short_passing": 86,
+    "long_passing": 73,
+    "standing_tackle": 33,
+    "sliding_tackle": 31,
+    "def_awareness": 25,
+    "vision": 77,
+    "strength": 76,
     "name": "Kylian Mbappé"
   },
   {
@@ -223,6 +405,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 93,
+    "shooting": 89,
+    "passing": 75,
+    "dribbling": 94,
+    "defending": 60,
+    "physical": 93,
+    "acceleration": 63,
+    "agility": 67,
+    "short_passing": 32,
+    "long_passing": 31,
+    "standing_tackle": 19,
+    "sliding_tackle": 18,
+    "def_awareness": 19,
+    "vision": 31,
+    "strength": 75,
     "name": "Lev Yashin"
   },
   {
@@ -241,6 +438,21 @@
       "Classic XI / Prime Icons",
       "Icons Pool B"
     ],
+    "pace": 85,
+    "shooting": 55,
+    "passing": 74,
+    "dribbling": 69,
+    "defending": 95,
+    "physical": 82,
+    "acceleration": 83,
+    "agility": 64,
+    "short_passing": 85,
+    "long_passing": 77,
+    "standing_tackle": 95,
+    "sliding_tackle": 94,
+    "def_awareness": 93,
+    "vision": 74,
+    "strength": 83,
     "name": "Paolo Maldini"
   },
   {
@@ -257,6 +469,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 89,
+    "shooting": 85,
+    "passing": 92,
+    "dribbling": 94,
+    "defending": 40,
+    "physical": 66,
+    "acceleration": 89,
+    "agility": 92,
+    "short_passing": 91,
+    "long_passing": 89,
+    "standing_tackle": 36,
+    "sliding_tackle": 33,
+    "def_awareness": 33,
+    "vision": 92,
+    "strength": 63,
     "name": "Garrincha"
   },
   {
@@ -275,6 +502,21 @@
       "Classic XI / Prime Icons",
       "Legends Pool 3"
     ],
+    "pace": 90,
+    "shooting": 94,
+    "passing": 89,
+    "dribbling": 91,
+    "defending": 45,
+    "physical": 74,
+    "acceleration": 90,
+    "agility": 89,
+    "short_passing": 89,
+    "long_passing": 86,
+    "standing_tackle": 40,
+    "sliding_tackle": 37,
+    "def_awareness": 41,
+    "vision": 85,
+    "strength": 74,
     "name": "Ferenc Puskás"
   },
   {
@@ -293,6 +535,21 @@
       "Icons Pool B",
       "Legends Pool 1"
     ],
+    "pace": 84,
+    "shooting": 82,
+    "passing": 90,
+    "dribbling": 91,
+    "defending": 38,
+    "physical": 60,
+    "acceleration": 85,
+    "agility": 79,
+    "short_passing": 91,
+    "long_passing": 87,
+    "standing_tackle": 32,
+    "sliding_tackle": 31,
+    "def_awareness": 35,
+    "vision": 84,
+    "strength": 59,
     "name": "Roberto Baggio"
   },
   {
@@ -313,6 +570,21 @@
       "Icons Pool B",
       "Legends Pool 1"
     ],
+    "pace": 94,
+    "shooting": 86,
+    "passing": 78,
+    "dribbling": 93,
+    "defending": 51,
+    "physical": 89,
+    "acceleration": 52,
+    "agility": 63,
+    "short_passing": 36,
+    "long_passing": 34,
+    "standing_tackle": 15,
+    "sliding_tackle": 13,
+    "def_awareness": 17,
+    "vision": 12,
+    "strength": 74,
     "name": "Gianluigi Buffon"
   },
   {
@@ -329,6 +601,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 93,
+    "shooting": 90,
+    "passing": 82,
+    "dribbling": 89,
+    "defending": 51,
+    "physical": 78,
+    "acceleration": 92,
+    "agility": 87,
+    "short_passing": 85,
+    "long_passing": 73,
+    "standing_tackle": 48,
+    "sliding_tackle": 42,
+    "def_awareness": 43,
+    "vision": 77,
+    "strength": 80,
     "name": "Thierry Henry"
   },
   {
@@ -347,7 +634,53 @@
       "Heroes / Icons Pool A",
       "Icons Pool B"
     ],
+    "pace": 90,
+    "shooting": 56,
+    "passing": 83,
+    "dribbling": 85,
+    "defending": 88,
+    "physical": 83,
+    "acceleration": 90,
+    "agility": 74,
+    "short_passing": 86,
+    "long_passing": 70,
+    "standing_tackle": 89,
+    "sliding_tackle": 83,
+    "def_awareness": 87,
+    "vision": 90,
+    "strength": 82,
     "name": "Cafu"
+  },
+  {
+    "player_id": 10535,
+    "overall": 90,
+    "potential": 90,
+    "position": "CM",
+    "alt_positions": "",
+    "position_raw": 14,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132673
+    ],
+    "team_names": [
+      "Icons Pool C"
+    ],
+    "pace": 80,
+    "shooting": 78,
+    "passing": 92,
+    "dribbling": 91,
+    "defending": 69,
+    "physical": 70,
+    "acceleration": 81,
+    "agility": 86,
+    "short_passing": 94,
+    "long_passing": 92,
+    "standing_tackle": 67,
+    "sliding_tackle": 63,
+    "def_awareness": 69,
+    "vision": 86,
+    "strength": 67,
+    "name": "Xavi"
   },
   {
     "player_id": 41236,
@@ -363,6 +696,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 84,
+    "shooting": 93,
+    "passing": 82,
+    "dribbling": 90,
+    "defending": 46,
+    "physical": 89,
+    "acceleration": 80,
+    "agility": 83,
+    "short_passing": 87,
+    "long_passing": 76,
+    "standing_tackle": 45,
+    "sliding_tackle": 33,
+    "def_awareness": 41,
+    "vision": 75,
+    "strength": 92,
     "name": "Zlatan Ibrahimović"
   },
   {
@@ -381,6 +729,21 @@
       "Classic XI / Prime Icons",
       "Icons Pool B"
     ],
+    "pace": 89,
+    "shooting": 92,
+    "passing": 91,
+    "dribbling": 91,
+    "defending": 62,
+    "physical": 71,
+    "acceleration": 86,
+    "agility": 88,
+    "short_passing": 92,
+    "long_passing": 86,
+    "standing_tackle": 65,
+    "sliding_tackle": 59,
+    "def_awareness": 55,
+    "vision": 85,
+    "strength": 74,
     "name": "Zico"
   },
   {
@@ -399,6 +762,21 @@
       "Classic XI / Prime Icons",
       "Icons Pool B"
     ],
+    "pace": 73,
+    "shooting": 48,
+    "passing": 75,
+    "dribbling": 70,
+    "defending": 94,
+    "physical": 83,
+    "acceleration": 68,
+    "agility": 72,
+    "short_passing": 86,
+    "long_passing": 84,
+    "standing_tackle": 93,
+    "sliding_tackle": 93,
+    "def_awareness": 93,
+    "vision": 62,
+    "strength": 78,
     "name": "Franco Baresi"
   },
   {
@@ -415,6 +793,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 89,
+    "shooting": 64,
+    "passing": 80,
+    "dribbling": 84,
+    "defending": 88,
+    "physical": 85,
+    "acceleration": 89,
+    "agility": 81,
+    "short_passing": 88,
+    "long_passing": 63,
+    "standing_tackle": 88,
+    "sliding_tackle": 87,
+    "def_awareness": 86,
+    "vision": 83,
+    "strength": 85,
     "name": "Carlos Alberto"
   },
   {
@@ -433,6 +826,21 @@
       "Classic XI / Prime Icons",
       "Icons Pool B"
     ],
+    "pace": 84,
+    "shooting": 92,
+    "passing": 74,
+    "dribbling": 87,
+    "defending": 37,
+    "physical": 73,
+    "acceleration": 81,
+    "agility": 83,
+    "short_passing": 77,
+    "long_passing": 63,
+    "standing_tackle": 30,
+    "sliding_tackle": 29,
+    "def_awareness": 23,
+    "vision": 71,
+    "strength": 79,
     "name": "Marco van Basten"
   },
   {
@@ -449,6 +857,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 92,
+    "shooting": 92,
+    "passing": 84,
+    "dribbling": 91,
+    "defending": 44,
+    "physical": 77,
+    "acceleration": 90,
+    "agility": 91,
+    "short_passing": 83,
+    "long_passing": 81,
+    "standing_tackle": 38,
+    "sliding_tackle": 33,
+    "def_awareness": 40,
+    "vision": 83,
+    "strength": 71,
     "name": "Eusébio"
   },
   {
@@ -465,6 +888,21 @@
     "team_names": [
       "Icons Pool C"
     ],
+    "pace": 87,
+    "shooting": 88,
+    "passing": 87,
+    "dribbling": 91,
+    "defending": 42,
+    "physical": 75,
+    "acceleration": 85,
+    "agility": 88,
+    "short_passing": 86,
+    "long_passing": 82,
+    "standing_tackle": 41,
+    "sliding_tackle": 38,
+    "def_awareness": 36,
+    "vision": 85,
+    "strength": 78,
     "name": "Rivaldo"
   },
   {
@@ -483,6 +921,21 @@
       "Icons Pool C",
       "Legends Pool 3"
     ],
+    "pace": 90,
+    "shooting": 88,
+    "passing": 84,
+    "dribbling": 93,
+    "defending": 59,
+    "physical": 88,
+    "acceleration": 61,
+    "agility": 65,
+    "short_passing": 58,
+    "long_passing": 55,
+    "standing_tackle": 15,
+    "sliding_tackle": 20,
+    "def_awareness": 27,
+    "vision": 28,
+    "strength": 68,
     "name": "Casillas"
   },
   {
@@ -501,6 +954,21 @@
       "Icons Pool B",
       "Legends Pool 1"
     ],
+    "pace": 73,
+    "shooting": 79,
+    "passing": 93,
+    "dribbling": 89,
+    "defending": 69,
+    "physical": 66,
+    "acceleration": 73,
+    "agility": 82,
+    "short_passing": 93,
+    "long_passing": 93,
+    "standing_tackle": 66,
+    "sliding_tackle": 63,
+    "def_awareness": 71,
+    "vision": 87,
+    "strength": 63,
     "name": "Andrea Pirlo"
   },
   {
@@ -519,6 +987,21 @@
       "Icons Pool C",
       "Legends Pool 3"
     ],
+    "pace": 86,
+    "shooting": 90,
+    "passing": 80,
+    "dribbling": 88,
+    "defending": 45,
+    "physical": 72,
+    "acceleration": 83,
+    "agility": 86,
+    "short_passing": 86,
+    "long_passing": 62,
+    "standing_tackle": 41,
+    "sliding_tackle": 30,
+    "def_awareness": 41,
+    "vision": 68,
+    "strength": 72,
     "name": "Raúl"
   },
   {
@@ -537,6 +1020,21 @@
       "Icons Pool C",
       "Legends Pool 3"
     ],
+    "pace": 71,
+    "shooting": 82,
+    "passing": 91,
+    "dribbling": 86,
+    "defending": 76,
+    "physical": 74,
+    "acceleration": 69,
+    "agility": 76,
+    "short_passing": 92,
+    "long_passing": 92,
+    "standing_tackle": 79,
+    "sliding_tackle": 70,
+    "def_awareness": 72,
+    "vision": 87,
+    "strength": 73,
     "name": "Toni Kroos"
   },
   {
@@ -553,6 +1051,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 70,
+    "shooting": 62,
+    "passing": 81,
+    "dribbling": 76,
+    "defending": 92,
+    "physical": 83,
+    "acceleration": 68,
+    "agility": 80,
+    "short_passing": 89,
+    "long_passing": 87,
+    "standing_tackle": 92,
+    "sliding_tackle": 90,
+    "def_awareness": 92,
+    "vision": 70,
+    "strength": 81,
     "name": "Bobby Moore"
   },
   {
@@ -569,6 +1082,21 @@
     "team_names": [
       "Legends Pool 3"
     ],
+    "pace": 86,
+    "shooting": 89,
+    "passing": 78,
+    "dribbling": 90,
+    "defending": 46,
+    "physical": 88,
+    "acceleration": 41,
+    "agility": 62,
+    "short_passing": 32,
+    "long_passing": 34,
+    "standing_tackle": 17,
+    "sliding_tackle": 15,
+    "def_awareness": 19,
+    "vision": 13,
+    "strength": 69,
     "name": "Thibaut Courtois"
   },
   {
@@ -587,6 +1115,21 @@
       "Classic XI / Prime Icons",
       "Icons Pool B"
     ],
+    "pace": 85,
+    "shooting": 88,
+    "passing": 88,
+    "dribbling": 86,
+    "defending": 80,
+    "physical": 87,
+    "acceleration": 82,
+    "agility": 75,
+    "short_passing": 88,
+    "long_passing": 90,
+    "standing_tackle": 79,
+    "sliding_tackle": 74,
+    "def_awareness": 76,
+    "vision": 84,
+    "strength": 85,
     "name": "Ruud Gullit"
   },
   {
@@ -603,6 +1146,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 91,
+    "shooting": 89,
+    "passing": 82,
+    "dribbling": 92,
+    "defending": 56,
+    "physical": 68,
+    "acceleration": 91,
+    "agility": 90,
+    "short_passing": 81,
+    "long_passing": 76,
+    "standing_tackle": 50,
+    "sliding_tackle": 47,
+    "def_awareness": 49,
+    "vision": 85,
+    "strength": 64,
     "name": "George Best"
   },
   {
@@ -623,6 +1181,21 @@
       "Icons Pool B",
       "Legends Pool 1"
     ],
+    "pace": 83,
+    "shooting": 90,
+    "passing": 87,
+    "dribbling": 91,
+    "defending": 41,
+    "physical": 66,
+    "acceleration": 83,
+    "agility": 81,
+    "short_passing": 86,
+    "long_passing": 77,
+    "standing_tackle": 39,
+    "sliding_tackle": 33,
+    "def_awareness": 35,
+    "vision": 86,
+    "strength": 62,
     "name": "Alessandro Del Piero"
   },
   {
@@ -645,6 +1218,21 @@
       "Icons Pool C",
       "Legends Pool 3"
     ],
+    "pace": 91,
+    "shooting": 83,
+    "passing": 83,
+    "dribbling": 80,
+    "defending": 85,
+    "physical": 86,
+    "acceleration": 91,
+    "agility": 76,
+    "short_passing": 82,
+    "long_passing": 81,
+    "standing_tackle": 84,
+    "sliding_tackle": 86,
+    "def_awareness": 82,
+    "vision": 87,
+    "strength": 82,
     "name": "Roberto Carlos"
   },
   {
@@ -663,6 +1251,21 @@
       "Classic XI / Prime Icons",
       "Icons Pool B"
     ],
+    "pace": 88,
+    "shooting": 87,
+    "passing": 88,
+    "dribbling": 81,
+    "defending": 89,
+    "physical": 82,
+    "acceleration": 91,
+    "agility": 74,
+    "short_passing": 90,
+    "long_passing": 90,
+    "standing_tackle": 91,
+    "sliding_tackle": 88,
+    "def_awareness": 86,
+    "vision": 81,
+    "strength": 75,
     "name": "Lothar Matthäus"
   },
   {
@@ -679,6 +1282,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 82,
+    "shooting": 91,
+    "passing": 76,
+    "dribbling": 78,
+    "defending": 49,
+    "physical": 84,
+    "acceleration": 82,
+    "agility": 69,
+    "short_passing": 81,
+    "long_passing": 61,
+    "standing_tackle": 56,
+    "sliding_tackle": 52,
+    "def_awareness": 26,
+    "vision": 75,
+    "strength": 86,
     "name": "Alan Shearer"
   },
   {
@@ -695,7 +1313,53 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 83,
+    "shooting": 60,
+    "passing": 84,
+    "dribbling": 81,
+    "defending": 86,
+    "physical": 78,
+    "acceleration": 81,
+    "agility": 74,
+    "short_passing": 89,
+    "long_passing": 83,
+    "standing_tackle": 86,
+    "sliding_tackle": 84,
+    "def_awareness": 83,
+    "vision": 90,
+    "strength": 72,
     "name": "Javier Zanetti"
+  },
+  {
+    "player_id": 1088,
+    "overall": 88,
+    "potential": 88,
+    "position": "CB",
+    "alt_positions": "RB",
+    "position_raw": 5,
+    "category": "Prime Icon / Hero",
+    "team_ids": [
+      132669
+    ],
+    "team_names": [
+      "Icons Pool B"
+    ],
+    "pace": 76,
+    "shooting": 44,
+    "passing": 63,
+    "dribbling": 68,
+    "defending": 92,
+    "physical": 84,
+    "acceleration": 71,
+    "agility": 55,
+    "short_passing": 76,
+    "long_passing": 67,
+    "standing_tackle": 92,
+    "sliding_tackle": 91,
+    "def_awareness": 92,
+    "vision": 52,
+    "strength": 88,
+    "name": "Alessandro Nesta"
   },
   {
     "player_id": 1183,
@@ -719,6 +1383,21 @@
       "Legends Pool 1",
       "Legends Pool 3"
     ],
+    "pace": 80,
+    "shooting": 44,
+    "passing": 62,
+    "dribbling": 67,
+    "defending": 93,
+    "physical": 83,
+    "acceleration": 82,
+    "agility": 81,
+    "short_passing": 70,
+    "long_passing": 67,
+    "standing_tackle": 92,
+    "sliding_tackle": 91,
+    "def_awareness": 92,
+    "vision": 56,
+    "strength": 84,
     "name": "Fabio Cannavaro"
   },
   {
@@ -735,6 +1414,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 85,
+    "shooting": 91,
+    "passing": 89,
+    "dribbling": 90,
+    "defending": 40,
+    "physical": 75,
+    "acceleration": 83,
+    "agility": 79,
+    "short_passing": 89,
+    "long_passing": 89,
+    "standing_tackle": 35,
+    "sliding_tackle": 31,
+    "def_awareness": 35,
+    "vision": 85,
+    "strength": 76,
     "name": "Francesco Totti"
   },
   {
@@ -751,6 +1445,21 @@
     "team_names": [
       "Icons Pool C"
     ],
+    "pace": 90,
+    "shooting": 91,
+    "passing": 84,
+    "dribbling": 90,
+    "defending": 49,
+    "physical": 84,
+    "acceleration": 90,
+    "agility": 87,
+    "short_passing": 82,
+    "long_passing": 80,
+    "standing_tackle": 51,
+    "sliding_tackle": 46,
+    "def_awareness": 34,
+    "vision": 83,
+    "strength": 80,
     "name": "Hristo Stoichkov"
   },
   {
@@ -771,6 +1480,21 @@
       "Icons Pool C",
       "Legends Pool 3"
     ],
+    "pace": 89,
+    "shooting": 84,
+    "passing": 86,
+    "dribbling": 90,
+    "defending": 38,
+    "physical": 77,
+    "acceleration": 90,
+    "agility": 88,
+    "short_passing": 87,
+    "long_passing": 80,
+    "standing_tackle": 37,
+    "sliding_tackle": 35,
+    "def_awareness": 32,
+    "vision": 89,
+    "strength": 74,
     "name": "Luís Figo"
   },
   {
@@ -787,6 +1511,21 @@
     "team_names": [
       "Icons Pool C"
     ],
+    "pace": 84,
+    "shooting": 90,
+    "passing": 77,
+    "dribbling": 83,
+    "defending": 45,
+    "physical": 86,
+    "acceleration": 81,
+    "agility": 76,
+    "short_passing": 80,
+    "long_passing": 68,
+    "standing_tackle": 41,
+    "sliding_tackle": 40,
+    "def_awareness": 35,
+    "vision": 71,
+    "strength": 89,
     "name": "Fernando Morientes"
   },
   {
@@ -805,6 +1544,21 @@
       "Icons Pool B",
       "Icons Pool C"
     ],
+    "pace": 92,
+    "shooting": 90,
+    "passing": 79,
+    "dribbling": 87,
+    "defending": 45,
+    "physical": 80,
+    "acceleration": 91,
+    "agility": 86,
+    "short_passing": 81,
+    "long_passing": 68,
+    "standing_tackle": 38,
+    "sliding_tackle": 33,
+    "def_awareness": 44,
+    "vision": 74,
+    "strength": 77,
     "name": "Samuel Eto&#x27;o"
   },
   {
@@ -821,6 +1575,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 89,
+    "shooting": 84,
+    "passing": 86,
+    "dribbling": 90,
+    "defending": 43,
+    "physical": 71,
+    "acceleration": 89,
+    "agility": 85,
+    "short_passing": 87,
+    "long_passing": 81,
+    "standing_tackle": 36,
+    "sliding_tackle": 34,
+    "def_awareness": 43,
+    "vision": 84,
+    "strength": 75,
     "name": "Kaká"
   },
   {
@@ -841,6 +1610,21 @@
       "Icons Pool C",
       "Legends Pool 3"
     ],
+    "pace": 89,
+    "shooting": 90,
+    "passing": 78,
+    "dribbling": 88,
+    "defending": 41,
+    "physical": 72,
+    "acceleration": 87,
+    "agility": 89,
+    "short_passing": 81,
+    "long_passing": 54,
+    "standing_tackle": 33,
+    "sliding_tackle": 31,
+    "def_awareness": 34,
+    "vision": 81,
+    "strength": 71,
     "name": "Hugo Sánchez"
   },
   {
@@ -859,6 +1643,21 @@
       "Classic XI / Prime Icons",
       "Icons Pool B"
     ],
+    "pace": 89,
+    "shooting": 90,
+    "passing": 76,
+    "dribbling": 86,
+    "defending": 47,
+    "physical": 85,
+    "acceleration": 89,
+    "agility": 86,
+    "short_passing": 76,
+    "long_passing": 61,
+    "standing_tackle": 42,
+    "sliding_tackle": 40,
+    "def_awareness": 40,
+    "vision": 77,
+    "strength": 84,
     "name": "Rudi Völler"
   },
   {
@@ -875,6 +1674,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 83,
+    "shooting": 93,
+    "passing": 73,
+    "dribbling": 83,
+    "defending": 44,
+    "physical": 76,
+    "acceleration": 81,
+    "agility": 87,
+    "short_passing": 76,
+    "long_passing": 60,
+    "standing_tackle": 41,
+    "sliding_tackle": 34,
+    "def_awareness": 37,
+    "vision": 69,
+    "strength": 76,
     "name": "Jean-Pierre Papin"
   },
   {
@@ -891,6 +1705,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 86,
+    "shooting": 89,
+    "passing": 86,
+    "dribbling": 89,
+    "defending": 50,
+    "physical": 88,
+    "acceleration": 84,
+    "agility": 81,
+    "short_passing": 84,
+    "long_passing": 81,
+    "standing_tackle": 50,
+    "sliding_tackle": 47,
+    "def_awareness": 38,
+    "vision": 84,
+    "strength": 87,
     "name": "Eric Cantona"
   },
   {
@@ -907,6 +1736,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 91,
+    "shooting": 83,
+    "passing": 87,
+    "dribbling": 91,
+    "defending": 48,
+    "physical": 66,
+    "acceleration": 91,
+    "agility": 94,
+    "short_passing": 87,
+    "long_passing": 77,
+    "standing_tackle": 43,
+    "sliding_tackle": 40,
+    "def_awareness": 46,
+    "vision": 88,
+    "strength": 64,
     "name": "Abedi Pelé"
   },
   {
@@ -918,11 +1762,28 @@
     "position_raw": 7,
     "category": "Prime Icon / Hero",
     "team_ids": [
-      132673
+      132673,
+      132703
     ],
     "team_names": [
-      "Icons Pool C"
+      "Icons Pool C",
+      "Legends Pool 3"
     ],
+    "pace": 87,
+    "shooting": 72,
+    "passing": 87,
+    "dribbling": 89,
+    "defending": 83,
+    "physical": 76,
+    "acceleration": 87,
+    "agility": 80,
+    "short_passing": 92,
+    "long_passing": 85,
+    "standing_tackle": 84,
+    "sliding_tackle": 85,
+    "def_awareness": 80,
+    "vision": 88,
+    "strength": 68,
     "name": "Marcelo"
   },
   {
@@ -941,6 +1802,21 @@
       "Classic XI / Prime Icons",
       "Icons Pool B"
     ],
+    "pace": 82,
+    "shooting": 88,
+    "passing": 89,
+    "dribbling": 88,
+    "defending": 43,
+    "physical": 82,
+    "acceleration": 82,
+    "agility": 81,
+    "short_passing": 87,
+    "long_passing": 88,
+    "standing_tackle": 50,
+    "sliding_tackle": 45,
+    "def_awareness": 27,
+    "vision": 86,
+    "strength": 81,
     "name": "Sócrates"
   },
   {
@@ -959,6 +1835,21 @@
       "Icons Pool C",
       "Legends Pool 3"
     ],
+    "pace": 92,
+    "shooting": 89,
+    "passing": 78,
+    "dribbling": 90,
+    "defending": 40,
+    "physical": 65,
+    "acceleration": 92,
+    "agility": 89,
+    "short_passing": 82,
+    "long_passing": 59,
+    "standing_tackle": 31,
+    "sliding_tackle": 29,
+    "def_awareness": 32,
+    "vision": 71,
+    "strength": 61,
     "name": "Emilio Butragueño"
   },
   {
@@ -975,6 +1866,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 90,
+    "shooting": 88,
+    "passing": 87,
+    "dribbling": 91,
+    "defending": 55,
+    "physical": 84,
+    "acceleration": 90,
+    "agility": 90,
+    "short_passing": 84,
+    "long_passing": 83,
+    "standing_tackle": 48,
+    "sliding_tackle": 44,
+    "def_awareness": 52,
+    "vision": 88,
+    "strength": 84,
     "name": "David Ginola"
   },
   {
@@ -991,6 +1897,21 @@
     "team_names": [
       "Legends Pool 2"
     ],
+    "pace": 86,
+    "shooting": 85,
+    "passing": 85,
+    "dribbling": 87,
+    "defending": 45,
+    "physical": 75,
+    "acceleration": 86,
+    "agility": 85,
+    "short_passing": 85,
+    "long_passing": 79,
+    "standing_tackle": 42,
+    "sliding_tackle": 40,
+    "def_awareness": 37,
+    "vision": 85,
+    "strength": 74,
     "name": "Mohamed Salah"
   },
   {
@@ -1009,6 +1930,21 @@
       "Icons Pool B",
       "Legends Pool 1"
     ],
+    "pace": 86,
+    "shooting": 89,
+    "passing": 72,
+    "dribbling": 83,
+    "defending": 42,
+    "physical": 79,
+    "acceleration": 84,
+    "agility": 82,
+    "short_passing": 80,
+    "long_passing": 63,
+    "standing_tackle": 30,
+    "sliding_tackle": 27,
+    "def_awareness": 47,
+    "vision": 63,
+    "strength": 82,
     "name": "Gianluca Vialli"
   },
   {
@@ -1025,6 +1961,21 @@
     "team_names": [
       "Icons Pool C"
     ],
+    "pace": 72,
+    "shooting": 46,
+    "passing": 66,
+    "dribbling": 59,
+    "defending": 91,
+    "physical": 88,
+    "acceleration": 68,
+    "agility": 51,
+    "short_passing": 73,
+    "long_passing": 70,
+    "standing_tackle": 91,
+    "sliding_tackle": 87,
+    "def_awareness": 89,
+    "vision": 67,
+    "strength": 90,
     "name": "Carles Puyol"
   },
   {
@@ -1041,6 +1992,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 89,
+    "shooting": 84,
+    "passing": 86,
+    "dribbling": 91,
+    "defending": 47,
+    "physical": 87,
+    "acceleration": 49,
+    "agility": 45,
+    "short_passing": 32,
+    "long_passing": 30,
+    "standing_tackle": 19,
+    "sliding_tackle": 21,
+    "def_awareness": 21,
+    "vision": 31,
+    "strength": 79,
     "name": "Peter Schmeichel"
   },
   {
@@ -1059,6 +2025,21 @@
       "Classic XI / Prime Icons",
       "Legends Pool 2"
     ],
+    "pace": 89,
+    "shooting": 90,
+    "passing": 75,
+    "dribbling": 88,
+    "defending": 41,
+    "physical": 72,
+    "acceleration": 90,
+    "agility": 89,
+    "short_passing": 82,
+    "long_passing": 54,
+    "standing_tackle": 38,
+    "sliding_tackle": 35,
+    "def_awareness": 34,
+    "vision": 73,
+    "strength": 65,
     "name": "Kenny Dalglish"
   },
   {
@@ -1075,6 +2056,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 71,
+    "shooting": 51,
+    "passing": 63,
+    "dribbling": 62,
+    "defending": 91,
+    "physical": 90,
+    "acceleration": 66,
+    "agility": 63,
+    "short_passing": 73,
+    "long_passing": 69,
+    "standing_tackle": 90,
+    "sliding_tackle": 92,
+    "def_awareness": 92,
+    "vision": 61,
+    "strength": 89,
     "name": "Jürgen Kohler"
   },
   {
@@ -1091,6 +2087,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 82,
+    "shooting": 72,
+    "passing": 74,
+    "dribbling": 77,
+    "defending": 91,
+    "physical": 89,
+    "acceleration": 79,
+    "agility": 72,
+    "short_passing": 82,
+    "long_passing": 76,
+    "standing_tackle": 90,
+    "sliding_tackle": 88,
+    "def_awareness": 90,
+    "vision": 66,
+    "strength": 90,
     "name": "Lúcio"
   },
   {
@@ -1107,6 +2118,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 91,
+    "shooting": 89,
+    "passing": 84,
+    "dribbling": 90,
+    "defending": 49,
+    "physical": 73,
+    "acceleration": 92,
+    "agility": 89,
+    "short_passing": 84,
+    "long_passing": 77,
+    "standing_tackle": 44,
+    "sliding_tackle": 42,
+    "def_awareness": 42,
+    "vision": 81,
+    "strength": 79,
     "name": "Jairzinho"
   },
   {
@@ -1123,6 +2149,21 @@
     "team_names": [
       "Legends Pool 1"
     ],
+    "pace": 84,
+    "shooting": 79,
+    "passing": 77,
+    "dribbling": 85,
+    "defending": 51,
+    "physical": 66,
+    "acceleration": 84,
+    "agility": 82,
+    "short_passing": 77,
+    "long_passing": 69,
+    "standing_tackle": 50,
+    "sliding_tackle": 49,
+    "def_awareness": 41,
+    "vision": 75,
+    "strength": 66,
     "name": "Kenan Yıldız"
   },
   {
@@ -1139,6 +2180,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 74,
+    "shooting": 86,
+    "passing": 89,
+    "dribbling": 78,
+    "defending": 62,
+    "physical": 80,
+    "acceleration": 74,
+    "agility": 69,
+    "short_passing": 90,
+    "long_passing": 91,
+    "standing_tackle": 57,
+    "sliding_tackle": 39,
+    "def_awareness": 53,
+    "vision": 86,
+    "strength": 70,
     "name": "Paul Scholes"
   },
   {
@@ -1159,6 +2215,21 @@
       "Icons Pool C",
       "Legends Pool 3"
     ],
+    "pace": 80,
+    "shooting": 85,
+    "passing": 92,
+    "dribbling": 85,
+    "defending": 66,
+    "physical": 80,
+    "acceleration": 76,
+    "agility": 75,
+    "short_passing": 89,
+    "long_passing": 92,
+    "standing_tackle": 66,
+    "sliding_tackle": 60,
+    "def_awareness": 64,
+    "vision": 94,
+    "strength": 74,
     "name": "David Beckham"
   },
   {
@@ -1177,6 +2248,21 @@
       "Heroes / Icons Pool A",
       "Icons Pool B"
     ],
+    "pace": 82,
+    "shooting": 51,
+    "passing": 65,
+    "dribbling": 66,
+    "defending": 88,
+    "physical": 88,
+    "acceleration": 79,
+    "agility": 56,
+    "short_passing": 73,
+    "long_passing": 69,
+    "standing_tackle": 86,
+    "sliding_tackle": 84,
+    "def_awareness": 89,
+    "vision": 50,
+    "strength": 89,
     "name": "Marcel Desailly"
   },
   {
@@ -1195,6 +2281,21 @@
       "Icons Pool B",
       "Legends Pool 1"
     ],
+    "pace": 88,
+    "shooting": 58,
+    "passing": 76,
+    "dribbling": 75,
+    "defending": 90,
+    "physical": 90,
+    "acceleration": 88,
+    "agility": 76,
+    "short_passing": 82,
+    "long_passing": 77,
+    "standing_tackle": 87,
+    "sliding_tackle": 93,
+    "def_awareness": 91,
+    "vision": 73,
+    "strength": 89,
     "name": "Lilian Thuram"
   },
   {
@@ -1213,6 +2314,21 @@
       "Heroes / Icons Pool A",
       "Legends Pool 2"
     ],
+    "pace": 89,
+    "shooting": 88,
+    "passing": 69,
+    "dribbling": 87,
+    "defending": 35,
+    "physical": 66,
+    "acceleration": 89,
+    "agility": 84,
+    "short_passing": 77,
+    "long_passing": 51,
+    "standing_tackle": 29,
+    "sliding_tackle": 29,
+    "def_awareness": 27,
+    "vision": 65,
+    "strength": 60,
     "name": "Michael Owen"
   },
   {
@@ -1229,6 +2345,21 @@
     "team_names": [
       "Legends Pool 2"
     ],
+    "pace": 82,
+    "shooting": 87,
+    "passing": 83,
+    "dribbling": 83,
+    "defending": 35,
+    "physical": 65,
+    "acceleration": 79,
+    "agility": 76,
+    "short_passing": 86,
+    "long_passing": 78,
+    "standing_tackle": 24,
+    "sliding_tackle": 27,
+    "def_awareness": 30,
+    "vision": 75,
+    "strength": 72,
     "name": "Jari Litmanen"
   },
   {
@@ -1247,6 +2378,21 @@
       "Icons Pool B",
       "Legends Pool 1"
     ],
+    "pace": 84,
+    "shooting": 84,
+    "passing": 86,
+    "dribbling": 87,
+    "defending": 58,
+    "physical": 77,
+    "acceleration": 83,
+    "agility": 79,
+    "short_passing": 85,
+    "long_passing": 84,
+    "standing_tackle": 50,
+    "sliding_tackle": 47,
+    "def_awareness": 60,
+    "vision": 85,
+    "strength": 70,
     "name": "Pavel Nedvěd"
   },
   {
@@ -1265,6 +2411,21 @@
       "Heroes / Icons Pool A",
       "Icons Pool B"
     ],
+    "pace": 86,
+    "shooting": 90,
+    "passing": 71,
+    "dribbling": 85,
+    "defending": 35,
+    "physical": 73,
+    "acceleration": 83,
+    "agility": 78,
+    "short_passing": 72,
+    "long_passing": 63,
+    "standing_tackle": 31,
+    "sliding_tackle": 28,
+    "def_awareness": 22,
+    "vision": 61,
+    "strength": 76,
     "name": "Andriy Shevchenko"
   },
   {
@@ -1281,6 +2442,21 @@
     "team_names": [
       "Legends Pool 2"
     ],
+    "pace": 78,
+    "shooting": 88,
+    "passing": 88,
+    "dribbling": 83,
+    "defending": 75,
+    "physical": 82,
+    "acceleration": 76,
+    "agility": 69,
+    "short_passing": 90,
+    "long_passing": 92,
+    "standing_tackle": 76,
+    "sliding_tackle": 71,
+    "def_awareness": 73,
+    "vision": 84,
+    "strength": 79,
     "name": "Steven Gerrard"
   },
   {
@@ -1297,6 +2473,21 @@
     "team_names": [
       "Icons Pool C"
     ],
+    "pace": 74,
+    "shooting": 65,
+    "passing": 75,
+    "dribbling": 74,
+    "defending": 90,
+    "physical": 88,
+    "acceleration": 74,
+    "agility": 62,
+    "short_passing": 80,
+    "long_passing": 83,
+    "standing_tackle": 88,
+    "sliding_tackle": 90,
+    "def_awareness": 90,
+    "vision": 65,
+    "strength": 88,
     "name": "Rafael Márquez"
   },
   {
@@ -1317,6 +2508,21 @@
       "Icons Pool B",
       "Legends Pool 1"
     ],
+    "pace": 84,
+    "shooting": 87,
+    "passing": 79,
+    "dribbling": 86,
+    "defending": 39,
+    "physical": 92,
+    "acceleration": 38,
+    "agility": 40,
+    "short_passing": 45,
+    "long_passing": 45,
+    "standing_tackle": 9,
+    "sliding_tackle": 9,
+    "def_awareness": 9,
+    "vision": 9,
+    "strength": 73,
     "name": "Edwin van der Sar"
   },
   {
@@ -1333,6 +2539,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 88,
+    "shooting": 90,
+    "passing": 81,
+    "dribbling": 86,
+    "defending": 53,
+    "physical": 87,
+    "acceleration": 88,
+    "agility": 81,
+    "short_passing": 83,
+    "long_passing": 82,
+    "standing_tackle": 54,
+    "sliding_tackle": 42,
+    "def_awareness": 50,
+    "vision": 76,
+    "strength": 84,
     "name": "Wayne Rooney"
   },
   {
@@ -1349,6 +2570,21 @@
     "team_names": [
       "Legends Pool 3"
     ],
+    "pace": 95,
+    "shooting": 89,
+    "passing": 84,
+    "dribbling": 89,
+    "defending": 65,
+    "physical": 79,
+    "acceleration": 93,
+    "agility": 84,
+    "short_passing": 84,
+    "long_passing": 81,
+    "standing_tackle": 63,
+    "sliding_tackle": 57,
+    "def_awareness": 63,
+    "vision": 83,
+    "strength": 78,
     "name": "Gareth Bale"
   },
   {
@@ -1365,6 +2601,21 @@
     "team_names": [
       "Icons Pool C"
     ],
+    "pace": 84,
+    "shooting": 88,
+    "passing": 69,
+    "dribbling": 84,
+    "defending": 42,
+    "physical": 83,
+    "acceleration": 84,
+    "agility": 80,
+    "short_passing": 74,
+    "long_passing": 60,
+    "standing_tackle": 35,
+    "sliding_tackle": 31,
+    "def_awareness": 33,
+    "vision": 60,
+    "strength": 88,
     "name": "Iván Zamorano"
   },
   {
@@ -1381,6 +2632,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 90,
+    "shooting": 91,
+    "passing": 85,
+    "dribbling": 90,
+    "defending": 46,
+    "physical": 70,
+    "acceleration": 91,
+    "agility": 86,
+    "short_passing": 85,
+    "long_passing": 78,
+    "standing_tackle": 36,
+    "sliding_tackle": 33,
+    "def_awareness": 50,
+    "vision": 85,
+    "strength": 69,
     "name": "Antonio Di Natale"
   },
   {
@@ -1397,6 +2663,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 86,
+    "shooting": 82,
+    "passing": 81,
+    "dribbling": 84,
+    "defending": 83,
+    "physical": 85,
+    "acceleration": 82,
+    "agility": 73,
+    "short_passing": 80,
+    "long_passing": 77,
+    "standing_tackle": 82,
+    "sliding_tackle": 88,
+    "def_awareness": 81,
+    "vision": 87,
+    "strength": 85,
     "name": "Maicon"
   },
   {
@@ -1408,11 +2689,28 @@
     "position_raw": 5,
     "category": "Prime Icon / Hero",
     "team_ids": [
-      132669
+      132669,
+      132701
     ],
     "team_names": [
-      "Icons Pool B"
+      "Icons Pool B",
+      "Legends Pool 1"
     ],
+    "pace": 78,
+    "shooting": 55,
+    "passing": 62,
+    "dribbling": 63,
+    "defending": 92,
+    "physical": 89,
+    "acceleration": 75,
+    "agility": 64,
+    "short_passing": 66,
+    "long_passing": 65,
+    "standing_tackle": 92,
+    "sliding_tackle": 90,
+    "def_awareness": 92,
+    "vision": 64,
+    "strength": 91,
     "name": "Giorgio Chiellini"
   },
   {
@@ -1431,6 +2729,21 @@
       "Icons Pool C",
       "Legends Pool 2"
     ],
+    "pace": 76,
+    "shooting": 55,
+    "passing": 76,
+    "dribbling": 75,
+    "defending": 89,
+    "physical": 86,
+    "acceleration": 75,
+    "agility": 70,
+    "short_passing": 85,
+    "long_passing": 82,
+    "standing_tackle": 90,
+    "sliding_tackle": 91,
+    "def_awareness": 89,
+    "vision": 68,
+    "strength": 81,
     "name": "Javier Mascherano"
   },
   {
@@ -1451,6 +2764,21 @@
       "Icons Pool C",
       "Legends Pool 3"
     ],
+    "pace": 74,
+    "shooting": 67,
+    "passing": 74,
+    "dribbling": 68,
+    "defending": 92,
+    "physical": 84,
+    "acceleration": 73,
+    "agility": 62,
+    "short_passing": 78,
+    "long_passing": 85,
+    "standing_tackle": 93,
+    "sliding_tackle": 76,
+    "def_awareness": 92,
+    "vision": 61,
+    "strength": 86,
     "name": "Fernando Hierro"
   },
   {
@@ -1469,6 +2797,21 @@
       "Classic XI / Prime Icons",
       "Icons Pool C"
     ],
+    "pace": 82,
+    "shooting": 86,
+    "passing": 88,
+    "dribbling": 88,
+    "defending": 41,
+    "physical": 64,
+    "acceleration": 82,
+    "agility": 82,
+    "short_passing": 89,
+    "long_passing": 85,
+    "standing_tackle": 44,
+    "sliding_tackle": 38,
+    "def_awareness": 31,
+    "vision": 85,
+    "strength": 59,
     "name": "Gheorghe Hagi"
   },
   {
@@ -1487,6 +2830,21 @@
       "Classic XI / Prime Icons",
       "Icons Pool C"
     ],
+    "pace": 76,
+    "shooting": 86,
+    "passing": 85,
+    "dribbling": 78,
+    "defending": 88,
+    "physical": 84,
+    "acceleration": 72,
+    "agility": 64,
+    "short_passing": 85,
+    "long_passing": 93,
+    "standing_tackle": 89,
+    "sliding_tackle": 86,
+    "def_awareness": 85,
+    "vision": 78,
+    "strength": 84,
     "name": "Ronald Koeman"
   },
   {
@@ -1503,6 +2861,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 91,
+    "shooting": 83,
+    "passing": 84,
+    "dribbling": 91,
+    "defending": 37,
+    "physical": 68,
+    "acceleration": 92,
+    "agility": 91,
+    "short_passing": 85,
+    "long_passing": 82,
+    "standing_tackle": 30,
+    "sliding_tackle": 23,
+    "def_awareness": 31,
+    "vision": 78,
+    "strength": 67,
     "name": "Eden Hazard"
   },
   {
@@ -1519,6 +2892,21 @@
     "team_names": [
       "Legends Pool 2"
     ],
+    "pace": 73,
+    "shooting": 60,
+    "passing": 72,
+    "dribbling": 71,
+    "defending": 89,
+    "physical": 85,
+    "acceleration": 65,
+    "agility": 53,
+    "short_passing": 79,
+    "long_passing": 82,
+    "standing_tackle": 89,
+    "sliding_tackle": 86,
+    "def_awareness": 89,
+    "vision": 52,
+    "strength": 91,
     "name": "Virgil van Dijk"
   },
   {
@@ -1535,6 +2923,21 @@
     "team_names": [
       "Legends Pool 2"
     ],
+    "pace": 86,
+    "shooting": 87,
+    "passing": 83,
+    "dribbling": 87,
+    "defending": 56,
+    "physical": 88,
+    "acceleration": 59,
+    "agility": 39,
+    "short_passing": 59,
+    "long_passing": 57,
+    "standing_tackle": 18,
+    "sliding_tackle": 15,
+    "def_awareness": 14,
+    "vision": 16,
+    "strength": 77,
     "name": "Alisson"
   },
   {
@@ -1551,6 +2954,21 @@
     "team_names": [
       "Icons Pool C"
     ],
+    "pace": 93,
+    "shooting": 81,
+    "passing": 80,
+    "dribbling": 93,
+    "defending": 37,
+    "physical": 58,
+    "acceleration": 94,
+    "agility": 92,
+    "short_passing": 80,
+    "long_passing": 73,
+    "standing_tackle": 32,
+    "sliding_tackle": 28,
+    "def_awareness": 34,
+    "vision": 82,
+    "strength": 55,
     "name": "Paulo Futre"
   },
   {
@@ -1569,6 +2987,21 @@
       "Classic XI / Prime Icons",
       "Icons Pool C"
     ],
+    "pace": 84,
+    "shooting": 80,
+    "passing": 88,
+    "dribbling": 90,
+    "defending": 40,
+    "physical": 63,
+    "acceleration": 84,
+    "agility": 84,
+    "short_passing": 88,
+    "long_passing": 78,
+    "standing_tackle": 38,
+    "sliding_tackle": 35,
+    "def_awareness": 35,
+    "vision": 90,
+    "strength": 64,
     "name": "Michael Laudrup"
   },
   {
@@ -1587,6 +3020,21 @@
       "Icons Pool B",
       "Legends Pool 1"
     ],
+    "pace": 82,
+    "shooting": 78,
+    "passing": 80,
+    "dribbling": 82,
+    "defending": 88,
+    "physical": 90,
+    "acceleration": 82,
+    "agility": 72,
+    "short_passing": 86,
+    "long_passing": 86,
+    "standing_tackle": 91,
+    "sliding_tackle": 84,
+    "def_awareness": 83,
+    "vision": 64,
+    "strength": 88,
     "name": "Patrick Vieira"
   },
   {
@@ -1603,6 +3051,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 78,
+    "shooting": 67,
+    "passing": 68,
+    "dribbling": 76,
+    "defending": 90,
+    "physical": 85,
+    "acceleration": 75,
+    "agility": 68,
+    "short_passing": 78,
+    "long_passing": 79,
+    "standing_tackle": 91,
+    "sliding_tackle": 86,
+    "def_awareness": 90,
+    "vision": 54,
+    "strength": 83,
     "name": "Laurent Blanc"
   },
   {
@@ -1619,6 +3082,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 83,
+    "shooting": 89,
+    "passing": 75,
+    "dribbling": 84,
+    "defending": 43,
+    "physical": 80,
+    "acceleration": 81,
+    "agility": 75,
+    "short_passing": 80,
+    "long_passing": 69,
+    "standing_tackle": 33,
+    "sliding_tackle": 31,
+    "def_awareness": 37,
+    "vision": 65,
+    "strength": 84,
     "name": "Diego Milito"
   },
   {
@@ -1635,6 +3113,21 @@
     "team_names": [
       "Icons Pool C"
     ],
+    "pace": 86,
+    "shooting": 90,
+    "passing": 79,
+    "dribbling": 85,
+    "defending": 55,
+    "physical": 76,
+    "acceleration": 86,
+    "agility": 80,
+    "short_passing": 83,
+    "long_passing": 73,
+    "standing_tackle": 48,
+    "sliding_tackle": 43,
+    "def_awareness": 57,
+    "vision": 65,
+    "strength": 75,
     "name": "Diego Forlán"
   },
   {
@@ -1651,6 +3144,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 81,
+    "shooting": 84,
+    "passing": 90,
+    "dribbling": 86,
+    "defending": 53,
+    "physical": 75,
+    "acceleration": 83,
+    "agility": 83,
+    "short_passing": 88,
+    "long_passing": 92,
+    "standing_tackle": 53,
+    "sliding_tackle": 50,
+    "def_awareness": 44,
+    "vision": 85,
+    "strength": 73,
     "name": "Wesley Sneijder"
   },
   {
@@ -1667,6 +3175,21 @@
     "team_names": [
       "Legends Pool 1"
     ],
+    "pace": 85,
+    "shooting": 89,
+    "passing": 80,
+    "dribbling": 86,
+    "defending": 46,
+    "physical": 89,
+    "acceleration": 86,
+    "agility": 81,
+    "short_passing": 84,
+    "long_passing": 67,
+    "standing_tackle": 38,
+    "sliding_tackle": 31,
+    "def_awareness": 50,
+    "vision": 74,
+    "strength": 86,
     "name": "Carlos Tévez"
   },
   {
@@ -1683,6 +3206,21 @@
     "team_names": [
       "Classic XI / Prime Icons"
     ],
+    "pace": 86,
+    "shooting": 88,
+    "passing": 83,
+    "dribbling": 90,
+    "defending": 44,
+    "physical": 72,
+    "acceleration": 86,
+    "agility": 90,
+    "short_passing": 84,
+    "long_passing": 77,
+    "standing_tackle": 39,
+    "sliding_tackle": 37,
+    "def_awareness": 40,
+    "vision": 77,
+    "strength": 71,
     "name": "Enzo Francescoli"
   },
   {
@@ -1699,6 +3237,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 88,
+    "shooting": 84,
+    "passing": 86,
+    "dribbling": 90,
+    "defending": 51,
+    "physical": 72,
+    "acceleration": 88,
+    "agility": 89,
+    "short_passing": 86,
+    "long_passing": 75,
+    "standing_tackle": 45,
+    "sliding_tackle": 40,
+    "def_awareness": 54,
+    "vision": 86,
+    "strength": 68,
     "name": "Joe Cole"
   },
   {
@@ -1715,6 +3268,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 83,
+    "shooting": 80,
+    "passing": 87,
+    "dribbling": 85,
+    "defending": 43,
+    "physical": 76,
+    "acceleration": 80,
+    "agility": 83,
+    "short_passing": 87,
+    "long_passing": 83,
+    "standing_tackle": 37,
+    "sliding_tackle": 39,
+    "def_awareness": 31,
+    "vision": 84,
+    "strength": 79,
     "name": "Rui Costa"
   },
   {
@@ -1726,11 +3294,28 @@
     "position_raw": 18,
     "category": "Prime Icon / Hero",
     "team_ids": [
+      114814,
       132669
     ],
     "team_names": [
+      "Heroes / Icons Pool A",
       "Icons Pool B"
     ],
+    "pace": 85,
+    "shooting": 88,
+    "passing": 85,
+    "dribbling": 89,
+    "defending": 41,
+    "physical": 63,
+    "acceleration": 86,
+    "agility": 81,
+    "short_passing": 86,
+    "long_passing": 80,
+    "standing_tackle": 42,
+    "sliding_tackle": 35,
+    "def_awareness": 39,
+    "vision": 81,
+    "strength": 58,
     "name": "Gianfranco Zola"
   },
   {
@@ -1747,6 +3332,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 86,
+    "shooting": 79,
+    "passing": 84,
+    "dribbling": 86,
+    "defending": 38,
+    "physical": 64,
+    "acceleration": 85,
+    "agility": 80,
+    "short_passing": 83,
+    "long_passing": 80,
+    "standing_tackle": 35,
+    "sliding_tackle": 33,
+    "def_awareness": 30,
+    "vision": 84,
+    "strength": 62,
     "name": "Robert Pirès"
   },
   {
@@ -1767,6 +3367,21 @@
       "Icons Pool C",
       "Legends Pool 3"
     ],
+    "pace": 81,
+    "shooting": 48,
+    "passing": 76,
+    "dribbling": 78,
+    "defending": 86,
+    "physical": 86,
+    "acceleration": 82,
+    "agility": 82,
+    "short_passing": 86,
+    "long_passing": 79,
+    "standing_tackle": 91,
+    "sliding_tackle": 82,
+    "def_awareness": 86,
+    "vision": 68,
+    "strength": 82,
     "name": "Claude Makélélé"
   },
   {
@@ -1783,6 +3398,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 83,
+    "shooting": 52,
+    "passing": 62,
+    "dribbling": 68,
+    "defending": 89,
+    "physical": 88,
+    "acceleration": 79,
+    "agility": 66,
+    "short_passing": 73,
+    "long_passing": 66,
+    "standing_tackle": 91,
+    "sliding_tackle": 87,
+    "def_awareness": 88,
+    "vision": 60,
+    "strength": 91,
     "name": "Jaap Stam"
   },
   {
@@ -1799,6 +3429,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 86,
+    "shooting": 63,
+    "passing": 65,
+    "dribbling": 68,
+    "defending": 90,
+    "physical": 87,
+    "acceleration": 86,
+    "agility": 79,
+    "short_passing": 77,
+    "long_passing": 73,
+    "standing_tackle": 89,
+    "sliding_tackle": 86,
+    "def_awareness": 87,
+    "vision": 65,
+    "strength": 83,
     "name": "Iván Córdoba"
   },
   {
@@ -1817,6 +3462,21 @@
       "Icons Pool C",
       "Legends Pool 2"
     ],
+    "pace": 71,
+    "shooting": 77,
+    "passing": 86,
+    "dribbling": 78,
+    "defending": 82,
+    "physical": 80,
+    "acceleration": 66,
+    "agility": 65,
+    "short_passing": 88,
+    "long_passing": 87,
+    "standing_tackle": 83,
+    "sliding_tackle": 76,
+    "def_awareness": 82,
+    "vision": 80,
+    "strength": 78,
     "name": "Xabi Alonso"
   },
   {
@@ -1833,6 +3493,21 @@
     "team_names": [
       "Legends Pool 2"
     ],
+    "pace": 89,
+    "shooting": 87,
+    "passing": 75,
+    "dribbling": 85,
+    "defending": 43,
+    "physical": 75,
+    "acceleration": 90,
+    "agility": 84,
+    "short_passing": 78,
+    "long_passing": 55,
+    "standing_tackle": 43,
+    "sliding_tackle": 37,
+    "def_awareness": 34,
+    "vision": 74,
+    "strength": 74,
     "name": "Fernando Torres"
   },
   {
@@ -1849,6 +3524,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 78,
+    "shooting": 82,
+    "passing": 79,
+    "dribbling": 79,
+    "defending": 88,
+    "physical": 87,
+    "acceleration": 78,
+    "agility": 73,
+    "short_passing": 85,
+    "long_passing": 82,
+    "standing_tackle": 87,
+    "sliding_tackle": 88,
+    "def_awareness": 86,
+    "vision": 68,
+    "strength": 83,
     "name": "Daniele De Rossi"
   },
   {
@@ -1865,6 +3555,21 @@
     "team_names": [
       "Icons Pool B"
     ],
+    "pace": 83,
+    "shooting": 87,
+    "passing": 87,
+    "dribbling": 86,
+    "defending": 75,
+    "physical": 83,
+    "acceleration": 81,
+    "agility": 77,
+    "short_passing": 90,
+    "long_passing": 88,
+    "standing_tackle": 75,
+    "sliding_tackle": 70,
+    "def_awareness": 71,
+    "vision": 83,
+    "strength": 80,
     "name": "Marek Hamšík"
   },
   {
@@ -1883,6 +3588,21 @@
       "Icons Pool B",
       "Legends Pool 1"
     ],
+    "pace": 82,
+    "shooting": 81,
+    "passing": 85,
+    "dribbling": 86,
+    "defending": 80,
+    "physical": 82,
+    "acceleration": 82,
+    "agility": 81,
+    "short_passing": 88,
+    "long_passing": 86,
+    "standing_tackle": 81,
+    "sliding_tackle": 79,
+    "def_awareness": 78,
+    "vision": 77,
+    "strength": 79,
     "name": "Claudio Marchisio"
   },
   {
@@ -1901,6 +3621,21 @@
       "Classic XI / Prime Icons",
       "Icons Pool B"
     ],
+    "pace": 77,
+    "shooting": 73,
+    "passing": 80,
+    "dribbling": 77,
+    "defending": 87,
+    "physical": 86,
+    "acceleration": 74,
+    "agility": 69,
+    "short_passing": 86,
+    "long_passing": 83,
+    "standing_tackle": 87,
+    "sliding_tackle": 83,
+    "def_awareness": 85,
+    "vision": 73,
+    "strength": 88,
     "name": "Frank Rijkaard"
   },
   {
@@ -1917,6 +3652,21 @@
     "team_names": [
       "Icons Pool C"
     ],
+    "pace": 83,
+    "shooting": 89,
+    "passing": 79,
+    "dribbling": 88,
+    "defending": 43,
+    "physical": 75,
+    "acceleration": 81,
+    "agility": 84,
+    "short_passing": 83,
+    "long_passing": 67,
+    "standing_tackle": 38,
+    "sliding_tackle": 30,
+    "def_awareness": 38,
+    "vision": 73,
+    "strength": 71,
     "name": "Davor Šuker"
   },
   {
@@ -1935,6 +3685,21 @@
       "Heroes / Icons Pool A",
       "Icons Pool C"
     ],
+    "pace": 84,
+    "shooting": 86,
+    "passing": 76,
+    "dribbling": 81,
+    "defending": 40,
+    "physical": 79,
+    "acceleration": 82,
+    "agility": 72,
+    "short_passing": 81,
+    "long_passing": 74,
+    "standing_tackle": 32,
+    "sliding_tackle": 37,
+    "def_awareness": 34,
+    "vision": 63,
+    "strength": 82,
     "name": "Patrick Kluivert"
   },
   {
@@ -1953,6 +3718,21 @@
       "Heroes / Icons Pool A",
       "Legends Pool 2"
     ],
+    "pace": 89,
+    "shooting": 85,
+    "passing": 83,
+    "dribbling": 89,
+    "defending": 44,
+    "physical": 83,
+    "acceleration": 86,
+    "agility": 83,
+    "short_passing": 83,
+    "long_passing": 75,
+    "standing_tackle": 44,
+    "sliding_tackle": 34,
+    "def_awareness": 44,
+    "vision": 84,
+    "strength": 83,
     "name": "John Barnes"
   },
   {
@@ -1971,6 +3751,21 @@
       "Classic XI / Prime Icons",
       "Legends Pool 2"
     ],
+    "pace": 84,
+    "shooting": 89,
+    "passing": 69,
+    "dribbling": 83,
+    "defending": 43,
+    "physical": 78,
+    "acceleration": 81,
+    "agility": 76,
+    "short_passing": 73,
+    "long_passing": 51,
+    "standing_tackle": 44,
+    "sliding_tackle": 30,
+    "def_awareness": 36,
+    "vision": 63,
+    "strength": 78,
     "name": "Ian Rush"
   },
   {
@@ -1987,6 +3782,21 @@
     "team_names": [
       "Legends Pool 2"
     ],
+    "pace": 90,
+    "shooting": 85,
+    "passing": 88,
+    "dribbling": 88,
+    "defending": 52,
+    "physical": 69,
+    "acceleration": 90,
+    "agility": 85,
+    "short_passing": 84,
+    "long_passing": 86,
+    "standing_tackle": 53,
+    "sliding_tackle": 50,
+    "def_awareness": 48,
+    "vision": 90,
+    "strength": 68,
     "name": "Harry Kewell"
   },
   {
@@ -2003,6 +3813,21 @@
     "team_names": [
       "Legends Pool 2"
     ],
+    "pace": 89,
+    "shooting": 77,
+    "passing": 84,
+    "dribbling": 87,
+    "defending": 46,
+    "physical": 77,
+    "acceleration": 86,
+    "agility": 81,
+    "short_passing": 85,
+    "long_passing": 80,
+    "standing_tackle": 50,
+    "sliding_tackle": 41,
+    "def_awareness": 37,
+    "vision": 83,
+    "strength": 74,
     "name": "Steve McManaman"
   },
   {
@@ -2019,6 +3844,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 72,
+    "shooting": 69,
+    "passing": 82,
+    "dribbling": 78,
+    "defending": 84,
+    "physical": 87,
+    "acceleration": 69,
+    "agility": 67,
+    "short_passing": 88,
+    "long_passing": 85,
+    "standing_tackle": 89,
+    "sliding_tackle": 84,
+    "def_awareness": 75,
+    "vision": 70,
+    "strength": 83,
     "name": "Roy Keane"
   },
   {
@@ -2035,6 +3875,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 87,
+    "shooting": 88,
+    "passing": 76,
+    "dribbling": 88,
+    "defending": 45,
+    "physical": 76,
+    "acceleration": 87,
+    "agility": 85,
+    "short_passing": 80,
+    "long_passing": 63,
+    "standing_tackle": 40,
+    "sliding_tackle": 16,
+    "def_awareness": 49,
+    "vision": 71,
+    "strength": 70,
     "name": "Robbie Keane"
   },
   {
@@ -2053,6 +3908,21 @@
       "Heroes / Icons Pool A",
       "Legends Pool 2"
     ],
+    "pace": 70,
+    "shooting": 52,
+    "passing": 68,
+    "dribbling": 67,
+    "defending": 87,
+    "physical": 84,
+    "acceleration": 68,
+    "agility": 62,
+    "short_passing": 74,
+    "long_passing": 72,
+    "standing_tackle": 86,
+    "sliding_tackle": 89,
+    "def_awareness": 87,
+    "vision": 64,
+    "strength": 84,
     "name": "Jamie Carragher"
   },
   {
@@ -2069,6 +3939,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 87,
+    "shooting": 81,
+    "passing": 82,
+    "dribbling": 86,
+    "defending": 45,
+    "physical": 77,
+    "acceleration": 88,
+    "agility": 83,
+    "short_passing": 83,
+    "long_passing": 74,
+    "standing_tackle": 41,
+    "sliding_tackle": 35,
+    "def_awareness": 47,
+    "vision": 80,
+    "strength": 73,
     "name": "Freddie Ljungberg"
   },
   {
@@ -2085,6 +3970,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 86,
+    "shooting": 86,
+    "passing": 70,
+    "dribbling": 85,
+    "defending": 36,
+    "physical": 70,
+    "acceleration": 85,
+    "agility": 85,
+    "short_passing": 70,
+    "long_passing": 53,
+    "standing_tackle": 30,
+    "sliding_tackle": 29,
+    "def_awareness": 28,
+    "vision": 72,
+    "strength": 73,
     "name": "Hernán Crespo"
   },
   {
@@ -2101,6 +4001,21 @@
     "team_names": [
       "Legends Pool 2"
     ],
+    "pace": 84,
+    "shooting": 88,
+    "passing": 80,
+    "dribbling": 83,
+    "defending": 70,
+    "physical": 82,
+    "acceleration": 85,
+    "agility": 81,
+    "short_passing": 83,
+    "long_passing": 78,
+    "standing_tackle": 65,
+    "sliding_tackle": 56,
+    "def_awareness": 74,
+    "vision": 77,
+    "strength": 77,
     "name": "Dirk Kuyt"
   },
   {
@@ -2117,6 +4032,21 @@
     "team_names": [
       "Icons Pool C"
     ],
+    "pace": 84,
+    "shooting": 76,
+    "passing": 81,
+    "dribbling": 79,
+    "defending": 85,
+    "physical": 80,
+    "acceleration": 85,
+    "agility": 71,
+    "short_passing": 82,
+    "long_passing": 81,
+    "standing_tackle": 85,
+    "sliding_tackle": 79,
+    "def_awareness": 84,
+    "vision": 83,
+    "strength": 78,
     "name": "Capdevila"
   },
   {
@@ -2133,6 +4063,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 87,
+    "shooting": 65,
+    "passing": 79,
+    "dribbling": 80,
+    "defending": 84,
+    "physical": 77,
+    "acceleration": 87,
+    "agility": 80,
+    "short_passing": 79,
+    "long_passing": 78,
+    "standing_tackle": 85,
+    "sliding_tackle": 88,
+    "def_awareness": 85,
+    "vision": 82,
+    "strength": 68,
     "name": "Ashley Cole"
   },
   {
@@ -2144,11 +4089,28 @@
     "position_raw": 0,
     "category": "Prime Icon / Hero",
     "team_ids": [
-      132673
+      132673,
+      132702
     ],
     "team_names": [
-      "Icons Pool C"
+      "Icons Pool C",
+      "Legends Pool 2"
     ],
+    "pace": 86,
+    "shooting": 83,
+    "passing": 78,
+    "dribbling": 90,
+    "defending": 60,
+    "physical": 85,
+    "acceleration": 61,
+    "agility": 67,
+    "short_passing": 32,
+    "long_passing": 26,
+    "standing_tackle": 18,
+    "sliding_tackle": 17,
+    "def_awareness": 25,
+    "vision": 13,
+    "strength": 72,
     "name": "Jerzy Dudek"
   },
   {
@@ -2165,6 +4127,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 82,
+    "shooting": 73,
+    "passing": 77,
+    "dribbling": 78,
+    "defending": 85,
+    "physical": 86,
+    "acceleration": 82,
+    "agility": 71,
+    "short_passing": 86,
+    "long_passing": 82,
+    "standing_tackle": 87,
+    "sliding_tackle": 86,
+    "def_awareness": 84,
+    "vision": 66,
+    "strength": 84,
     "name": "Michaël Essien"
   },
   {
@@ -2181,6 +4158,21 @@
     "team_names": [
       "Legends Pool 1"
     ],
+    "pace": 83,
+    "shooting": 72,
+    "passing": 79,
+    "dribbling": 77,
+    "defending": 84,
+    "physical": 85,
+    "acceleration": 84,
+    "agility": 74,
+    "short_passing": 84,
+    "long_passing": 77,
+    "standing_tackle": 86,
+    "sliding_tackle": 80,
+    "def_awareness": 82,
+    "vision": 70,
+    "strength": 81,
     "name": "Blaise Matuidi"
   },
   {
@@ -2197,6 +4189,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 87,
+    "shooting": 86,
+    "passing": 73,
+    "dribbling": 82,
+    "defending": 45,
+    "physical": 71,
+    "acceleration": 88,
+    "agility": 86,
+    "short_passing": 74,
+    "long_passing": 70,
+    "standing_tackle": 44,
+    "sliding_tackle": 43,
+    "def_awareness": 32,
+    "vision": 65,
+    "strength": 62,
     "name": "Henrik Larsson"
   },
   {
@@ -2213,6 +4220,21 @@
     "team_names": [
       "Legends Pool 1"
     ],
+    "pace": 82,
+    "shooting": 51,
+    "passing": 62,
+    "dribbling": 67,
+    "defending": 86,
+    "physical": 81,
+    "acceleration": 77,
+    "agility": 64,
+    "short_passing": 76,
+    "long_passing": 68,
+    "standing_tackle": 86,
+    "sliding_tackle": 83,
+    "def_awareness": 86,
+    "vision": 50,
+    "strength": 84,
     "name": "Bremer"
   },
   {
@@ -2229,6 +4251,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 75,
+    "shooting": 81,
+    "passing": 86,
+    "dribbling": 81,
+    "defending": 73,
+    "physical": 81,
+    "acceleration": 75,
+    "agility": 69,
+    "short_passing": 87,
+    "long_passing": 86,
+    "standing_tackle": 76,
+    "sliding_tackle": 62,
+    "def_awareness": 70,
+    "vision": 80,
+    "strength": 77,
     "name": "Juan Sebastián Verón"
   },
   {
@@ -2245,6 +4282,21 @@
     "team_names": [
       "Heroes / Icons Pool A"
     ],
+    "pace": 81,
+    "shooting": 45,
+    "passing": 60,
+    "dribbling": 58,
+    "defending": 87,
+    "physical": 88,
+    "acceleration": 76,
+    "agility": 51,
+    "short_passing": 72,
+    "long_passing": 65,
+    "standing_tackle": 84,
+    "sliding_tackle": 89,
+    "def_awareness": 87,
+    "vision": 50,
+    "strength": 92,
     "name": "Sol Campbell"
   },
   {
@@ -2263,6 +4315,21 @@
       "Icons Pool B",
       "Legends Pool 1"
     ],
+    "pace": 87,
+    "shooting": 69,
+    "passing": 80,
+    "dribbling": 81,
+    "defending": 84,
+    "physical": 82,
+    "acceleration": 85,
+    "agility": 74,
+    "short_passing": 80,
+    "long_passing": 78,
+    "standing_tackle": 86,
+    "sliding_tackle": 85,
+    "def_awareness": 81,
+    "vision": 84,
+    "strength": 79,
     "name": "Gianluca Zambrotta"
   },
   {
@@ -2279,6 +4346,21 @@
     "team_names": [
       "Icons Pool C"
     ],
+    "pace": 77,
+    "shooting": 82,
+    "passing": 88,
+    "dribbling": 85,
+    "defending": 63,
+    "physical": 73,
+    "acceleration": 78,
+    "agility": 80,
+    "short_passing": 91,
+    "long_passing": 90,
+    "standing_tackle": 65,
+    "sliding_tackle": 58,
+    "def_awareness": 52,
+    "vision": 80,
+    "strength": 73,
     "name": "Guti"
   },
   {
@@ -2295,6 +4377,21 @@
     "team_names": [
       "Legends Pool 2"
     ],
+    "pace": 83,
+    "shooting": 81,
+    "passing": 81,
+    "dribbling": 80,
+    "defending": 81,
+    "physical": 86,
+    "acceleration": 79,
+    "agility": 69,
+    "short_passing": 83,
+    "long_passing": 78,
+    "standing_tackle": 83,
+    "sliding_tackle": 84,
+    "def_awareness": 79,
+    "vision": 87,
+    "strength": 84,
     "name": "John Arne Riise"
   },
   {
@@ -2311,6 +4408,21 @@
     "team_names": [
       "Legends Pool 2"
     ],
+    "pace": 74,
+    "shooting": 87,
+    "passing": 75,
+    "dribbling": 78,
+    "defending": 52,
+    "physical": 80,
+    "acceleration": 70,
+    "agility": 67,
+    "short_passing": 82,
+    "long_passing": 73,
+    "standing_tackle": 45,
+    "sliding_tackle": 40,
+    "def_awareness": 51,
+    "vision": 65,
+    "strength": 81,
     "name": "Peter Crouch"
   },
   {
@@ -2327,6 +4439,21 @@
     "team_names": [
       "Legends Pool 1"
     ],
+    "pace": 64,
+    "shooting": 70,
+    "passing": 80,
+    "dribbling": 76,
+    "defending": 81,
+    "physical": 79,
+    "acceleration": 61,
+    "agility": 64,
+    "short_passing": 84,
+    "long_passing": 83,
+    "standing_tackle": 84,
+    "sliding_tackle": 79,
+    "def_awareness": 81,
+    "vision": 72,
+    "strength": 72,
     "name": "Manuel Locatelli"
   },
   {
@@ -2343,6 +4470,21 @@
     "team_names": [
       "Legends Pool 3"
     ],
+    "pace": 77,
+    "shooting": 58,
+    "passing": 79,
+    "dribbling": 80,
+    "defending": 81,
+    "physical": 78,
+    "acceleration": 75,
+    "agility": 74,
+    "short_passing": 82,
+    "long_passing": 73,
+    "standing_tackle": 83,
+    "sliding_tackle": 81,
+    "def_awareness": 79,
+    "vision": 82,
+    "strength": 73,
     "name": "Carvajal"
   },
   {
@@ -2359,6 +4501,21 @@
     "team_names": [
       "Legends Pool 2"
     ],
+    "pace": 94,
+    "shooting": 62,
+    "passing": 74,
+    "dribbling": 84,
+    "defending": 72,
+    "physical": 63,
+    "acceleration": 94,
+    "agility": 88,
+    "short_passing": 77,
+    "long_passing": 62,
+    "standing_tackle": 70,
+    "sliding_tackle": 78,
+    "def_awareness": 73,
+    "vision": 81,
+    "strength": 46,
     "name": "Jeremie Frimpong"
   },
   {
@@ -2375,6 +4532,21 @@
     "team_names": [
       "Legends Pool 1"
     ],
+    "pace": 80,
+    "shooting": 70,
+    "passing": 78,
+    "dribbling": 80,
+    "defending": 75,
+    "physical": 72,
+    "acceleration": 79,
+    "agility": 77,
+    "short_passing": 79,
+    "long_passing": 74,
+    "standing_tackle": 78,
+    "sliding_tackle": 75,
+    "def_awareness": 76,
+    "vision": 81,
+    "strength": 67,
     "name": "Andrea Cambiaso"
   }
 ]

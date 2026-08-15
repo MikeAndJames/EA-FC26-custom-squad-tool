@@ -303,10 +303,6 @@ def load_icon_players() -> pd.DataFrame:
         team = r.get("team_names", ["Icons Pool"])[0] if r.get("team_names") else "Icons Pool"
         ps = _get_icon_playstyles(pid, name, pos)
 
-        # Realistic attributes based on position & rating
-        pace = 88 if pos in ("ST", "LW", "RW", "RM", "LM", "RB", "LB") else (45 if pos == "GK" else 82)
-        stamina = 85 if cat != "Soccer Aid" else 68
-
         alt_pos = r.get("alt_positions", "")
 
         records.append({
@@ -320,8 +316,22 @@ def load_icon_players() -> pd.DataFrame:
             "nation": "Legend",
             "gender": "M",
             "is_icon": True,
-            "pace": pace,
-            "stamina": stamina,
+            "pace": r.get("pace") or (88 if pos in ("ST", "LW", "RW", "RM", "LM", "RB", "LB") else 80),
+            "shooting": r.get("shooting") or (ovr - 5 if pos in ("ST", "LW", "RW", "CAM") else 60),
+            "passing": r.get("passing") or (ovr - 2 if pos in ("CM", "CAM", "RM", "LM") else 75),
+            "dribbling": r.get("dribbling") or (ovr - 2 if pos in ("LW", "RW", "CAM", "ST") else 75),
+            "defending": r.get("defending") or (ovr if pos in ("CB", "LB", "RB", "CDM") else 45),
+            "physical": r.get("physical") or (ovr - 5),
+            "stamina": 85,
+            "acceleration": r.get("acceleration") or r.get("pace") or 85,
+            "agility": r.get("agility") or 82,
+            "short_passing": r.get("short_passing") or r.get("passing") or 80,
+            "long_passing": r.get("long_passing") or r.get("passing") or 78,
+            "standing_tackle": r.get("standing_tackle") or r.get("defending") or 50,
+            "sliding_tackle": r.get("sliding_tackle") or r.get("defending") or 45,
+            "def_awareness": r.get("def_awareness") or r.get("defending") or 50,
+            "vision": r.get("vision") or r.get("passing") or 80,
+            "strength": r.get("strength") or r.get("physical") or 75,
             "play_styles": ps,
         })
 

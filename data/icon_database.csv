@@ -1,141 +1,143 @@
-player_id,name,overall,potential,position,alt_positions,category,position_raw,team_ids,team_names
-190042,Diego Armando Maradona,94,94,CAM,"ST, RW, CF",Prime Icon / Hero,18,111204|132669,Classic XI / Prime Icons|Icons Pool B
-237067,Pelé,94,94,CAM,"ST, CF, RW, LW",Prime Icon / Hero,18,111204,Classic XI / Prime Icons
-1397,Zinedine Zidane,93,93,CAM,"CM, LM, RM",Prime Icon / Hero,18,114814|132669|132673|132701|132703,Heroes / Icons Pool A|Icons Pool B|Icons Pool C|Legends Pool 1|Legends Pool 3
-37576,Ronaldo,93,93,ST,CF,Prime Icon / Hero,25,132669|132673|132703,Icons Pool B|Icons Pool C|Legends Pool 3
-28130,Ronaldinho,92,92,LW,"CAM, LM, RW, CF",Prime Icon / Hero,27,114814|132669|132673,Heroes / Icons Pool A|Icons Pool B|Icons Pool C
-190045,Johan Cruyff,92,92,CAM,"CF, LW, RW",Prime Icon / Hero,18,132673,Icons Pool C
-252371,Jude Bellingham,92,88,CAM,,Prime Icon / Hero,18,132703,Legends Pool 3
-41,Iniesta,91,91,CM,CAM,Prime Icon / Hero,14,132673,Icons Pool C
-168473,Franz Beckenbauer,91,91,CB,"CDM, CM, SW",Prime Icon / Hero,5,111204,Classic XI / Prime Icons
-190048,Gerd Müller,91,91,ST,CF,Prime Icon / Hero,25,111204,Classic XI / Prime Icons
-230025,Bobby Charlton,91,91,CAM,"ST, CF",Prime Icon / Hero,18,111204,Classic XI / Prime Icons
-231747,Kylian Mbappé,91,90,ST,,Prime Icon / Hero,25,132703,Legends Pool 3
-238380,Lev Yashin,91,91,GK,,Prime Icon / Hero,0,111204,Classic XI / Prime Icons
-238439,Paolo Maldini,91,91,CB,"LB, LWB",Prime Icon / Hero,5,111204|132669,Classic XI / Prime Icons|Icons Pool B
-247553,Garrincha,91,91,RW,,Prime Icon / Hero,23,111204,Classic XI / Prime Icons
-254642,Ferenc Puskás,91,91,ST,,Prime Icon / Hero,25,111204|132703,Classic XI / Prime Icons|Legends Pool 3
-1114,Roberto Baggio,90,90,CAM,"CF, ST",Prime Icon / Hero,18,132669|132701,Icons Pool B|Legends Pool 1
-1179,Gianluigi Buffon,90,90,GK,,Prime Icon / Hero,0,111204|132669|132701,Classic XI / Prime Icons|Icons Pool B|Legends Pool 1
-1625,Thierry Henry,90,90,ST,"LW, LM, RW, CF",Prime Icon / Hero,25,132669,Icons Pool B
-5003,Cafu,90,90,RB,"RWB, RM",Prime Icon / Hero,3,114814|132669,Heroes / Icons Pool A|Icons Pool B
-41236,Zlatan Ibrahimović,90,90,ST,,Prime Icon / Hero,25,132669,Icons Pool B
-166691,Zico,90,90,CAM,"CM, CF",Prime Icon / Hero,18,111204|132669,Classic XI / Prime Icons|Icons Pool B
-166906,Franco Baresi,90,90,CB,"SW, CDM",Prime Icon / Hero,5,111204|132669,Classic XI / Prime Icons|Icons Pool B
-167135,Carlos Alberto,90,90,RB,,Prime Icon / Hero,3,111204,Classic XI / Prime Icons
-192181,Marco van Basten,90,90,ST,CF,Prime Icon / Hero,25,111204|132669,Classic XI / Prime Icons|Icons Pool B
-242519,Eusébio,90,90,ST,"CF, CAM",Prime Icon / Hero,25,111204,Classic XI / Prime Icons
-4231,Rivaldo,89,89,LW,,Prime Icon / Hero,27,132673,Icons Pool C
-5479,Casillas,89,89,GK,,Prime Icon / Hero,0,132673|132703,Icons Pool C|Legends Pool 3
-7763,Andrea Pirlo,89,89,CM,"CAM, CDM",Prime Icon / Hero,14,132669|132701,Icons Pool B|Legends Pool 1
-45661,Raúl,89,89,ST,,Prime Icon / Hero,25,132673|132703,Icons Pool C|Legends Pool 3
-182521,Toni Kroos,89,89,CM,,Prime Icon / Hero,14,132673|132703,Icons Pool C|Legends Pool 3
-190044,Bobby Moore,89,89,CB,"CDM, SW",Prime Icon / Hero,5,111204,Classic XI / Prime Icons
-192119,Thibaut Courtois,89,89,GK,,Prime Icon / Hero,0,132703,Legends Pool 3
-214100,Ruud Gullit,89,89,CAM,"CM, CF, CDM, CB, ST",Prime Icon / Hero,18,111204|132669,Classic XI / Prime Icons|Icons Pool B
-226764,George Best,89,89,RW,"CAM, LW, RM",Prime Icon / Hero,23,111204,Classic XI / Prime Icons
-238382,Alessandro Del Piero,89,89,CAM,"CF, CAM, LW",Prime Icon / Hero,18,114814|132669|132701,Heroes / Icons Pool A|Icons Pool B|Legends Pool 1
-238430,Roberto Carlos,89,89,LB,"LM, LWB",Prime Icon / Hero,7,114814|132669|132673|132703,Heroes / Icons Pool A|Icons Pool B|Icons Pool C|Legends Pool 3
-238435,Lothar Matthäus,89,89,CM,"CM, CB",Prime Icon / Hero,14,111204|132669,Classic XI / Prime Icons|Icons Pool B
-51,Alan Shearer,88,88,ST,,Prime Icon / Hero,25,114814,Heroes / Icons Pool A
-1041,Javier Zanetti,88,88,RB,"LB, CDM, CM, RM",Prime Icon / Hero,3,132669,Icons Pool B
-1183,Fabio Cannavaro,88,88,CB,RB,Prime Icon / Hero,5,114814|132669|132673|132701|132703,Heroes / Icons Pool A|Icons Pool B|Icons Pool C|Legends Pool 1|Legends Pool 3
-1238,Francesco Totti,88,88,ST,,Prime Icon / Hero,25,132669,Icons Pool B
-4833,Hristo Stoichkov,88,88,ST,,Prime Icon / Hero,25,132673,Icons Pool C
-5589,Luís Figo,88,88,RW,"RM, CAM, LW",Prime Icon / Hero,23,114814|132673|132703,Heroes / Icons Pool A|Icons Pool C|Legends Pool 3
-5661,Fernando Morientes,88,88,ST,CF,Prime Icon / Hero,25,132673,Icons Pool C
-9676,Samuel Eto&#x27;o,88,88,ST,"RW, LW, CF",Prime Icon / Hero,25,132669|132673,Icons Pool B|Icons Pool C
-138449,Kaká,88,88,CAM,"CF, RW, LW",Prime Icon / Hero,18,132669,Icons Pool B
-166149,Hugo Sánchez,88,88,ST,,Prime Icon / Hero,25,111204|132673|132703,Classic XI / Prime Icons|Icons Pool C|Legends Pool 3
-166676,Rudi Völler,88,88,ST,,Prime Icon / Hero,25,111204|132669,Classic XI / Prime Icons|Icons Pool B
-167134,Jean-Pierre Papin,88,88,ST,CF,Prime Icon / Hero,25,111204,Classic XI / Prime Icons
-167198,Eric Cantona,88,88,ST,"CF, CAM",Prime Icon / Hero,25,114814,Heroes / Icons Pool A
-167425,Abedi Pelé,88,88,CAM,,Prime Icon / Hero,18,111204,Classic XI / Prime Icons
-176676,Marcelo,88,88,LB,,Prime Icon / Hero,7,132673,Icons Pool C
-190046,Sócrates,88,88,CAM,"CAM, CF",Prime Icon / Hero,18,111204|132669,Classic XI / Prime Icons|Icons Pool B
-191695,Emilio Butragueño,88,88,ST,,Prime Icon / Hero,25,132673|132703,Icons Pool C|Legends Pool 3
-191972,David Ginola,88,88,LM,"LW, CAM, ST",Prime Icon / Hero,16,114814,Heroes / Icons Pool A
-209331,Mohamed Salah,88,88,RM,,Prime Icon / Hero,12,132702,Legends Pool 2
-233700,Gianluca Vialli,88,88,ST,CF,Prime Icon / Hero,25,132669|132701,Icons Pool B|Legends Pool 1
-238384,Carles Puyol,88,88,CB,"RB, LB",Prime Icon / Hero,5,132673,Icons Pool C
-238428,Peter Schmeichel,88,88,GK,,Prime Icon / Hero,0,114814,Heroes / Icons Pool A
-247699,Kenny Dalglish,88,88,ST,,Prime Icon / Hero,25,111204|132702,Classic XI / Prime Icons|Legends Pool 2
-261593,Jürgen Kohler,88,88,CB,SW,Prime Icon / Hero,5,111204,Classic XI / Prime Icons
-266690,Lúcio,88,88,CB,CDM,Prime Icon / Hero,5,132669,Icons Pool B
-268513,Jairzinho,88,88,RW,"RM, ST, CAM",Prime Icon / Hero,23,111204,Classic XI / Prime Icons
-277954,Kenan Yıldız,88,81,CAM,,Prime Icon / Hero,18,132701,Legends Pool 1
-246,Paul Scholes,87,87,CM,"CAM, CDM",Prime Icon / Hero,14,114814,Heroes / Icons Pool A
-250,David Beckham,87,87,RM,"CM, RW, CAM",Prime Icon / Hero,12,114814|132673|132703,Heroes / Icons Pool A|Icons Pool C|Legends Pool 3
-1116,Marcel Desailly,87,87,CB,"CDM, CB",Prime Icon / Hero,5,114814|132669,Heroes / Icons Pool A|Icons Pool B
-1615,Lilian Thuram,87,87,RB,CB,Prime Icon / Hero,3,132669|132701,Icons Pool B|Legends Pool 1
-5419,Michael Owen,87,87,ST,CF,Prime Icon / Hero,25,114814|132702,Heroes / Icons Pool A|Legends Pool 2
-5673,Jari Litmanen,87,87,CAM,"CF, ST, CM",Prime Icon / Hero,18,132702,Legends Pool 2
-6235,Pavel Nedvěd,87,87,LM,"CAM, LW, CM",Prime Icon / Hero,16,132669|132701,Icons Pool B|Legends Pool 1
-13128,Andriy Shevchenko,87,87,ST,CF,Prime Icon / Hero,25,114814|132669,Heroes / Icons Pool A|Icons Pool B
-13743,Steven Gerrard,87,87,CM,"CAM, CDM, RM",Prime Icon / Hero,14,132702,Legends Pool 2
-26709,Rafael Márquez,87,87,CB,"CDM, CM",Prime Icon / Hero,5,132673,Icons Pool C
-51539,Edwin van der Sar,87,87,GK,,Prime Icon / Hero,0,114814|132669|132701,Heroes / Icons Pool A|Icons Pool B|Legends Pool 1
-54050,Wayne Rooney,87,87,ST,"CAM, CF, LW",Prime Icon / Hero,25,114814,Heroes / Icons Pool A
-71557,Gareth Bale,87,87,RW,"LW, LB, RM, ST",Prime Icon / Hero,23,132703,Legends Pool 3
-77787,Iván Zamorano,87,87,ST,,Prime Icon / Hero,25,132673,Icons Pool C
-120274,Antonio Di Natale,87,87,ST,"CF, LW, CAM",Prime Icon / Hero,25,132669,Icons Pool B
-135455,Maicon,87,87,RB,,Prime Icon / Hero,3,132669,Icons Pool B
-138956,Giorgio Chiellini,87,87,CB,LB,Prime Icon / Hero,5,132669,Icons Pool B
-142754,Javier Mascherano,87,87,CB,CB,Prime Icon / Hero,5,132673|132702,Icons Pool C|Legends Pool 2
-161840,Fernando Hierro,87,87,CB,"CDM, CM",Prime Icon / Hero,5,111204|132673|132703,Classic XI / Prime Icons|Icons Pool C|Legends Pool 3
-166124,Gheorghe Hagi,87,87,CAM,"LW, RW, CM",Prime Icon / Hero,18,111204|132673,Classic XI / Prime Icons|Icons Pool C
-167680,Ronald Koeman,87,87,CB,"CDM, CM, SW",Prime Icon / Hero,5,111204|132673,Classic XI / Prime Icons|Icons Pool C
-183277,Eden Hazard,87,87,LM,,Prime Icon / Hero,16,114814,Heroes / Icons Pool A
-203376,Virgil van Dijk,87,87,CB,,Prime Icon / Hero,5,132702,Legends Pool 2
-212831,Alisson,87,87,GK,,Prime Icon / Hero,0,132702,Legends Pool 2
-214101,Paulo Futre,87,87,LW,"LW, RW",Prime Icon / Hero,27,132673,Icons Pool C
-222000,Michael Laudrup,87,87,CAM,"LW, RW, ST",Prime Icon / Hero,18,111204|132673,Classic XI / Prime Icons|Icons Pool C
-238427,Patrick Vieira,87,87,CM,"CDM, CB",Prime Icon / Hero,14,132669|132701,Icons Pool B|Legends Pool 1
-238443,Laurent Blanc,87,87,CB,"CDM, CM",Prime Icon / Hero,5,111204,Classic XI / Prime Icons
-262271,Diego Milito,87,87,ST,CF,Prime Icon / Hero,25,132669,Icons Pool B
-266691,Diego Forlán,87,87,ST,"CAM, CF",Prime Icon / Hero,25,132673,Icons Pool C
-274750,Wesley Sneijder,87,87,CAM,"CM, LM",Prime Icon / Hero,18,132669,Icons Pool B
-274966,Carlos Tévez,87,87,ST,"CAM, CF, RW",Prime Icon / Hero,25,132701,Legends Pool 1
-275049,Enzo Francescoli,87,87,CAM,,Prime Icon / Hero,18,111204,Classic XI / Prime Icons
-27,Joe Cole,86,86,RW,"LM, CAM, RW",Prime Icon / Hero,23,114814,Heroes / Icons Pool A
-1025,Rui Costa,86,86,CAM,CM,Prime Icon / Hero,18,132669,Icons Pool B
-1201,Gianfranco Zola,86,86,CAM,"CF, CAM",Prime Icon / Hero,18,132669,Icons Pool B
-1605,Robert Pirès,86,86,LM,"RM, CAM, LW",Prime Icon / Hero,16,114814,Heroes / Icons Pool A
-1668,Claude Makélélé,86,86,CDM,CM,Prime Icon / Hero,10,114814|132673|132703,Heroes / Icons Pool A|Icons Pool C|Legends Pool 3
-5740,Jaap Stam,86,86,CB,RB,Prime Icon / Hero,5,132669,Icons Pool B
-16619,Iván Córdoba,86,86,CB,"RB, LB",Prime Icon / Hero,5,132669,Icons Pool B
-45197,Xabi Alonso,86,86,CDM,,Prime Icon / Hero,10,132673|132702,Icons Pool C|Legends Pool 2
-49369,Fernando Torres,86,86,ST,CF,Prime Icon / Hero,25,132702,Legends Pool 2
-53302,Daniele De Rossi,86,86,CDM,"CB, CM",Prime Icon / Hero,10,132669,Icons Pool B
-171877,Marek Hamšík,86,86,CAM,"CAM, CDM",Prime Icon / Hero,18,132669,Icons Pool B
-173210,Claudio Marchisio,86,86,CM,"CDM, LM, RM",Prime Icon / Hero,14,132669|132701,Icons Pool B|Legends Pool 1
-214098,Frank Rijkaard,86,86,CDM,"CB, CM",Prime Icon / Hero,10,111204|132669,Classic XI / Prime Icons|Icons Pool B
-214649,Davor Šuker,86,86,ST,,Prime Icon / Hero,25,132673,Icons Pool C
-238424,Patrick Kluivert,86,86,ST,,Prime Icon / Hero,25,114814|132673,Heroes / Icons Pool A|Icons Pool C
-247515,John Barnes,86,86,LW,"LM, CAM, ST",Prime Icon / Hero,27,114814|132702,Heroes / Icons Pool A|Legends Pool 2
-247703,Ian Rush,86,86,ST,CF,Prime Icon / Hero,25,111204|132702,Classic XI / Prime Icons|Legends Pool 2
-266801,Harry Kewell,86,86,LW,"LM, CAM",Prime Icon / Hero,27,132702,Legends Pool 2
-273812,Steve McManaman,86,86,RM,"LM, CAM, RW",Prime Icon / Hero,12,132702,Legends Pool 2
-240,Roy Keane,85,85,CM,,Prime Icon / Hero,14,114814,Heroes / Icons Pool A
-330,Robbie Keane,85,85,ST,,Prime Icon / Hero,25,114814,Heroes / Icons Pool A
-5467,Jamie Carragher,85,85,CB,"RB, LB",Prime Icon / Hero,5,114814|132702,Heroes / Icons Pool A|Legends Pool 2
-6975,Freddie Ljungberg,85,85,LM,"LM, CAM, RW",Prime Icon / Hero,16,114814,Heroes / Icons Pool A
-7512,Hernán Crespo,85,85,ST,CF,Prime Icon / Hero,25,114814,Heroes / Icons Pool A
-15723,Dirk Kuyt,85,85,CAM,"ST, RM, RB, RWB, RW",Prime Icon / Hero,18,132702,Legends Pool 2
-25924,Capdevila,85,85,LB,"LM, LWB, CB",Prime Icon / Hero,7,132673,Icons Pool C
-34079,Ashley Cole,85,85,LB,LWB,Prime Icon / Hero,7,114814,Heroes / Icons Pool A
-44897,Jerzy Dudek,85,85,GK,,Prime Icon / Hero,0,132673,Icons Pool C
-45674,Michaël Essien,85,85,CDM,,Prime Icon / Hero,10,114814,Heroes / Icons Pool A
-170890,Blaise Matuidi,85,85,CDM,,Prime Icon / Hero,10,132701,Legends Pool 1
-239261,Henrik Larsson,85,85,ST,"CF, CAM",Prime Icon / Hero,25,114814,Heroes / Icons Pool A
-239580,Bremer,85,85,CB,,Prime Icon / Hero,5,132701,Legends Pool 1
-243027,Juan Sebastián Verón,85,85,CM,,Prime Icon / Hero,14,114814,Heroes / Icons Pool A
-243029,Sol Campbell,85,85,CB,SW,Prime Icon / Hero,5,114814,Heroes / Icons Pool A
-250890,Gianluca Zambrotta,85,85,RB,"LB, RWB, LWB, RM",Prime Icon / Hero,3,132669|132701,Icons Pool B|Legends Pool 1
-262285,Guti,85,85,CM,,Prime Icon / Hero,14,132673,Icons Pool C
-274967,John Arne Riise,85,85,LB,"LM, LWB, CB",Prime Icon / Hero,7,132702,Legends Pool 2
-51257,Peter Crouch,84,84,ST,CF,Prime Icon / Hero,25,132702,Legends Pool 2
-222077,Manuel Locatelli,84,83,CDM,,Prime Icon / Hero,10,132701,Legends Pool 1
-204963,Carvajal,83,83,RB,,Prime Icon / Hero,3,132703,Legends Pool 3
-253149,Jeremie Frimpong,83,81,RB,,Prime Icon / Hero,3,132702,Legends Pool 2
-258966,Andrea Cambiaso,81,79,LB,,Prime Icon / Hero,7,132701,Legends Pool 1
+player_id,name,overall,potential,position,alt_positions,category,pace,shooting,passing,dribbling,defending,physical,acceleration,agility,short_passing,long_passing,standing_tackle,sliding_tackle,def_awareness,vision,strength,position_raw,team_ids,team_names
+190042,Diego Armando Maradona,94,94,CAM,"ST, RW, CF",Prime Icon / Hero,90,91,91,96,40,77,91,89,89,88,40,37,27,87,74,18,111204|132669,Classic XI / Prime Icons|Icons Pool B
+237067,Pelé,94,94,CAM,"ST, CF, RW, LW",Prime Icon / Hero,93,94,91,94,58,74,92,91,93,85,49,46,53,87,73,18,111204,Classic XI / Prime Icons
+1397,Zinedine Zidane,93,93,CAM,"CM, LM, RM",Prime Icon / Hero,83,90,94,94,73,84,83,77,95,94,75,64,61,91,85,18,114814|132669|132673|132701|132703,Heroes / Icons Pool A|Icons Pool B|Icons Pool C|Legends Pool 1|Legends Pool 3
+37576,Ronaldo,93,93,ST,CF,Prime Icon / Hero,94,94,79,94,43,75,94,88,83,72,39,34,35,71,82,25,132669|132673|132703,Icons Pool B|Icons Pool C|Legends Pool 3
+28130,Ronaldinho,92,92,LW,"CAM, LM, RW, CF",Prime Icon / Hero,91,89,90,95,38,80,92,93,90,84,39,30,36,88,82,27,114814|132669|132673,Heroes / Icons Pool A|Icons Pool B|Icons Pool C
+190045,Johan Cruyff,92,92,CAM,"CF, LW, RW",Prime Icon / Hero,90,91,90,93,42,73,91,91,91,85,34,38,41,85,69,18,111204|132673,Classic XI / Prime Icons|Icons Pool C
+252371,Jude Bellingham,92,88,CAM,,Prime Icon / Hero,80,85,83,89,79,85,80,82,88,86,79,81,76,67,79,18,132703,Legends Pool 3
+41,Iniesta,91,91,CM,CAM,Prime Icon / Hero,83,80,91,92,62,66,85,86,94,92,62,58,56,85,58,14,132673,Icons Pool C
+168473,Franz Beckenbauer,91,91,CB,"CDM, CM, SW",Prime Icon / Hero,82,73,88,84,93,81,82,79,93,94,90,89,94,74,80,5,111204,Classic XI / Prime Icons
+190048,Gerd Müller,91,91,ST,CF,Prime Icon / Hero,87,92,76,85,44,74,91,82,81,65,31,30,43,65,74,25,111204,Classic XI / Prime Icons
+230025,Bobby Charlton,91,91,CAM,"ST, CF",Prime Icon / Hero,90,91,87,91,50,74,90,90,87,88,46,30,49,81,67,18,111204,Classic XI / Prime Icons
+231747,Kylian Mbappé,91,90,ST,,Prime Icon / Hero,96,91,81,92,37,76,96,92,86,73,33,31,25,77,76,25,132703,Legends Pool 3
+238380,Lev Yashin,91,91,GK,,Prime Icon / Hero,93,89,75,94,60,93,63,67,32,31,19,18,19,31,75,0,111204,Classic XI / Prime Icons
+238439,Paolo Maldini,91,91,CB,"LB, LWB",Prime Icon / Hero,85,55,74,69,95,82,83,64,85,77,95,94,93,74,83,5,111204|132669,Classic XI / Prime Icons|Icons Pool B
+247553,Garrincha,91,91,RW,,Prime Icon / Hero,89,85,92,94,40,66,89,92,91,89,36,33,33,92,63,23,111204,Classic XI / Prime Icons
+254642,Ferenc Puskás,91,91,ST,,Prime Icon / Hero,90,94,89,91,45,74,90,89,89,86,40,37,41,85,74,25,111204|132703,Classic XI / Prime Icons|Legends Pool 3
+1114,Roberto Baggio,90,90,CAM,"CF, ST",Prime Icon / Hero,84,82,90,91,38,60,85,79,91,87,32,31,35,84,59,18,132669|132701,Icons Pool B|Legends Pool 1
+1179,Gianluigi Buffon,90,90,GK,,Prime Icon / Hero,94,86,78,93,51,89,52,63,36,34,15,13,17,12,74,0,111204|132669|132701,Classic XI / Prime Icons|Icons Pool B|Legends Pool 1
+1625,Thierry Henry,90,90,ST,"LW, LM, RW, CF",Prime Icon / Hero,93,90,82,89,51,78,92,87,85,73,48,42,43,77,80,25,132669,Icons Pool B
+5003,Cafu,90,90,RB,"RWB, RM",Prime Icon / Hero,90,56,83,85,88,83,90,74,86,70,89,83,87,90,82,3,114814|132669,Heroes / Icons Pool A|Icons Pool B
+10535,Xavi,90,90,CM,,Prime Icon / Hero,80,78,92,91,69,70,81,86,94,92,67,63,69,86,67,14,132673,Icons Pool C
+41236,Zlatan Ibrahimović,90,90,ST,,Prime Icon / Hero,84,93,82,90,46,89,80,83,87,76,45,33,41,75,92,25,132669,Icons Pool B
+166691,Zico,90,90,CAM,"CM, CF",Prime Icon / Hero,89,92,91,91,62,71,86,88,92,86,65,59,55,85,74,18,111204|132669,Classic XI / Prime Icons|Icons Pool B
+166906,Franco Baresi,90,90,CB,"SW, CDM",Prime Icon / Hero,73,48,75,70,94,83,68,72,86,84,93,93,93,62,78,5,111204|132669,Classic XI / Prime Icons|Icons Pool B
+167135,Carlos Alberto,90,90,RB,,Prime Icon / Hero,89,64,80,84,88,85,89,81,88,63,88,87,86,83,85,3,111204,Classic XI / Prime Icons
+192181,Marco van Basten,90,90,ST,CF,Prime Icon / Hero,84,92,74,87,37,73,81,83,77,63,30,29,23,71,79,25,111204|132669,Classic XI / Prime Icons|Icons Pool B
+242519,Eusébio,90,90,ST,"CF, CAM",Prime Icon / Hero,92,92,84,91,44,77,90,91,83,81,38,33,40,83,71,25,111204,Classic XI / Prime Icons
+4231,Rivaldo,89,89,LW,,Prime Icon / Hero,87,88,87,91,42,75,85,88,86,82,41,38,36,85,78,27,132673,Icons Pool C
+5479,Casillas,89,89,GK,,Prime Icon / Hero,90,88,84,93,59,88,61,65,58,55,15,20,27,28,68,0,132673|132703,Icons Pool C|Legends Pool 3
+7763,Andrea Pirlo,89,89,CM,"CAM, CDM",Prime Icon / Hero,73,79,93,89,69,66,73,82,93,93,66,63,71,87,63,14,132669|132701,Icons Pool B|Legends Pool 1
+45661,Raúl,89,89,ST,,Prime Icon / Hero,86,90,80,88,45,72,83,86,86,62,41,30,41,68,72,25,132673|132703,Icons Pool C|Legends Pool 3
+182521,Toni Kroos,89,89,CM,,Prime Icon / Hero,71,82,91,86,76,74,69,76,92,92,79,70,72,87,73,14,132673|132703,Icons Pool C|Legends Pool 3
+190044,Bobby Moore,89,89,CB,"CDM, SW",Prime Icon / Hero,70,62,81,76,92,83,68,80,89,87,92,90,92,70,81,5,111204,Classic XI / Prime Icons
+192119,Thibaut Courtois,89,89,GK,,Prime Icon / Hero,86,89,78,90,46,88,41,62,32,34,17,15,19,13,69,0,132703,Legends Pool 3
+214100,Ruud Gullit,89,89,CAM,"CM, CF, CDM, CB, ST",Prime Icon / Hero,85,88,88,86,80,87,82,75,88,90,79,74,76,84,85,18,111204|132669,Classic XI / Prime Icons|Icons Pool B
+226764,George Best,89,89,RW,"CAM, LW, RM",Prime Icon / Hero,91,89,82,92,56,68,91,90,81,76,50,47,49,85,64,23,111204,Classic XI / Prime Icons
+238382,Alessandro Del Piero,89,89,CAM,"CF, CAM, LW",Prime Icon / Hero,83,90,87,91,41,66,83,81,86,77,39,33,35,86,62,18,114814|132669|132701,Heroes / Icons Pool A|Icons Pool B|Legends Pool 1
+238430,Roberto Carlos,89,89,LB,"LM, LWB",Prime Icon / Hero,91,83,83,80,85,86,91,76,82,81,84,86,82,87,82,7,114814|132669|132673|132703,Heroes / Icons Pool A|Icons Pool B|Icons Pool C|Legends Pool 3
+238435,Lothar Matthäus,89,89,CM,"CM, CB",Prime Icon / Hero,88,87,88,81,89,82,91,74,90,90,91,88,86,81,75,14,111204|132669,Classic XI / Prime Icons|Icons Pool B
+51,Alan Shearer,88,88,ST,,Prime Icon / Hero,82,91,76,78,49,84,82,69,81,61,56,52,26,75,86,25,114814,Heroes / Icons Pool A
+1041,Javier Zanetti,88,88,RB,"LB, CDM, CM, RM",Prime Icon / Hero,83,60,84,81,86,78,81,74,89,83,86,84,83,90,72,3,132669,Icons Pool B
+1088,Alessandro Nesta,88,88,CB,RB,Prime Icon / Hero,76,44,63,68,92,84,71,55,76,67,92,91,92,52,88,5,132669,Icons Pool B
+1183,Fabio Cannavaro,88,88,CB,RB,Prime Icon / Hero,80,44,62,67,93,83,82,81,70,67,92,91,92,56,84,5,114814|132669|132673|132701|132703,Heroes / Icons Pool A|Icons Pool B|Icons Pool C|Legends Pool 1|Legends Pool 3
+1238,Francesco Totti,88,88,ST,,Prime Icon / Hero,85,91,89,90,40,75,83,79,89,89,35,31,35,85,76,25,132669,Icons Pool B
+4833,Hristo Stoichkov,88,88,ST,,Prime Icon / Hero,90,91,84,90,49,84,90,87,82,80,51,46,34,83,80,25,132673,Icons Pool C
+5589,Luís Figo,88,88,RW,"RM, CAM, LW",Prime Icon / Hero,89,84,86,90,38,77,90,88,87,80,37,35,32,89,74,23,114814|132673|132703,Heroes / Icons Pool A|Icons Pool C|Legends Pool 3
+5661,Fernando Morientes,88,88,ST,CF,Prime Icon / Hero,84,90,77,83,45,86,81,76,80,68,41,40,35,71,89,25,132673,Icons Pool C
+9676,Samuel Eto&#x27;o,88,88,ST,"RW, LW, CF",Prime Icon / Hero,92,90,79,87,45,80,91,86,81,68,38,33,44,74,77,25,132669|132673,Icons Pool B|Icons Pool C
+138449,Kaká,88,88,CAM,"CF, RW, LW",Prime Icon / Hero,89,84,86,90,43,71,89,85,87,81,36,34,43,84,75,18,132669,Icons Pool B
+166149,Hugo Sánchez,88,88,ST,,Prime Icon / Hero,89,90,78,88,41,72,87,89,81,54,33,31,34,81,71,25,111204|132673|132703,Classic XI / Prime Icons|Icons Pool C|Legends Pool 3
+166676,Rudi Völler,88,88,ST,,Prime Icon / Hero,89,90,76,86,47,85,89,86,76,61,42,40,40,77,84,25,111204|132669,Classic XI / Prime Icons|Icons Pool B
+167134,Jean-Pierre Papin,88,88,ST,CF,Prime Icon / Hero,83,93,73,83,44,76,81,87,76,60,41,34,37,69,76,25,111204,Classic XI / Prime Icons
+167198,Eric Cantona,88,88,ST,"CF, CAM",Prime Icon / Hero,86,89,86,89,50,88,84,81,84,81,50,47,38,84,87,25,114814,Heroes / Icons Pool A
+167425,Abedi Pelé,88,88,CAM,,Prime Icon / Hero,91,83,87,91,48,66,91,94,87,77,43,40,46,88,64,18,111204,Classic XI / Prime Icons
+176676,Marcelo,88,88,LB,,Prime Icon / Hero,87,72,87,89,83,76,87,80,92,85,84,85,80,88,68,7,132673|132703,Icons Pool C|Legends Pool 3
+190046,Sócrates,88,88,CAM,"CAM, CF",Prime Icon / Hero,82,88,89,88,43,82,82,81,87,88,50,45,27,86,81,18,111204|132669,Classic XI / Prime Icons|Icons Pool B
+191695,Emilio Butragueño,88,88,ST,,Prime Icon / Hero,92,89,78,90,40,65,92,89,82,59,31,29,32,71,61,25,132673|132703,Icons Pool C|Legends Pool 3
+191972,David Ginola,88,88,LM,"LW, CAM, ST",Prime Icon / Hero,90,88,87,91,55,84,90,90,84,83,48,44,52,88,84,16,114814,Heroes / Icons Pool A
+209331,Mohamed Salah,88,88,RM,,Prime Icon / Hero,86,85,85,87,45,75,86,85,85,79,42,40,37,85,74,12,132702,Legends Pool 2
+233700,Gianluca Vialli,88,88,ST,CF,Prime Icon / Hero,86,89,72,83,42,79,84,82,80,63,30,27,47,63,82,25,132669|132701,Icons Pool B|Legends Pool 1
+238384,Carles Puyol,88,88,CB,"RB, LB",Prime Icon / Hero,72,46,66,59,91,88,68,51,73,70,91,87,89,67,90,5,132673,Icons Pool C
+238428,Peter Schmeichel,88,88,GK,,Prime Icon / Hero,89,84,86,91,47,87,49,45,32,30,19,21,21,31,79,0,114814,Heroes / Icons Pool A
+247699,Kenny Dalglish,88,88,ST,,Prime Icon / Hero,89,90,75,88,41,72,90,89,82,54,38,35,34,73,65,25,111204|132702,Classic XI / Prime Icons|Legends Pool 2
+261593,Jürgen Kohler,88,88,CB,SW,Prime Icon / Hero,71,51,63,62,91,90,66,63,73,69,90,92,92,61,89,5,111204,Classic XI / Prime Icons
+266690,Lúcio,88,88,CB,CDM,Prime Icon / Hero,82,72,74,77,91,89,79,72,82,76,90,88,90,66,90,5,132669,Icons Pool B
+268513,Jairzinho,88,88,RW,"RM, ST, CAM",Prime Icon / Hero,91,89,84,90,49,73,92,89,84,77,44,42,42,81,79,23,111204,Classic XI / Prime Icons
+277954,Kenan Yıldız,88,81,CAM,,Prime Icon / Hero,84,79,77,85,51,66,84,82,77,69,50,49,41,75,66,18,132701,Legends Pool 1
+246,Paul Scholes,87,87,CM,"CAM, CDM",Prime Icon / Hero,74,86,89,78,62,80,74,69,90,91,57,39,53,86,70,14,114814,Heroes / Icons Pool A
+250,David Beckham,87,87,RM,"CM, RW, CAM",Prime Icon / Hero,80,85,92,85,66,80,76,75,89,92,66,60,64,94,74,12,114814|132673|132703,Heroes / Icons Pool A|Icons Pool C|Legends Pool 3
+1116,Marcel Desailly,87,87,CB,"CDM, CB",Prime Icon / Hero,82,51,65,66,88,88,79,56,73,69,86,84,89,50,89,5,114814|132669,Heroes / Icons Pool A|Icons Pool B
+1615,Lilian Thuram,87,87,RB,CB,Prime Icon / Hero,88,58,76,75,90,90,88,76,82,77,87,93,91,73,89,3,132669|132701,Icons Pool B|Legends Pool 1
+5419,Michael Owen,87,87,ST,CF,Prime Icon / Hero,89,88,69,87,35,66,89,84,77,51,29,29,27,65,60,25,114814|132702,Heroes / Icons Pool A|Legends Pool 2
+5673,Jari Litmanen,87,87,CAM,"CF, ST, CM",Prime Icon / Hero,82,87,83,83,35,65,79,76,86,78,24,27,30,75,72,18,132702,Legends Pool 2
+6235,Pavel Nedvěd,87,87,LM,"CAM, LW, CM",Prime Icon / Hero,84,84,86,87,58,77,83,79,85,84,50,47,60,85,70,16,132669|132701,Icons Pool B|Legends Pool 1
+13128,Andriy Shevchenko,87,87,ST,CF,Prime Icon / Hero,86,90,71,85,35,73,83,78,72,63,31,28,22,61,76,25,114814|132669,Heroes / Icons Pool A|Icons Pool B
+13743,Steven Gerrard,87,87,CM,"CAM, CDM, RM",Prime Icon / Hero,78,88,88,83,75,82,76,69,90,92,76,71,73,84,79,14,132702,Legends Pool 2
+26709,Rafael Márquez,87,87,CB,"CDM, CM",Prime Icon / Hero,74,65,75,74,90,88,74,62,80,83,88,90,90,65,88,5,132673,Icons Pool C
+51539,Edwin van der Sar,87,87,GK,,Prime Icon / Hero,84,87,79,86,39,92,38,40,45,45,9,9,9,9,73,0,114814|132669|132701,Heroes / Icons Pool A|Icons Pool B|Legends Pool 1
+54050,Wayne Rooney,87,87,ST,"CAM, CF, LW",Prime Icon / Hero,88,90,81,86,53,87,88,81,83,82,54,42,50,76,84,25,114814,Heroes / Icons Pool A
+71557,Gareth Bale,87,87,RW,"LW, LB, RM, ST",Prime Icon / Hero,95,89,84,89,65,79,93,84,84,81,63,57,63,83,78,23,132703,Legends Pool 3
+77787,Iván Zamorano,87,87,ST,,Prime Icon / Hero,84,88,69,84,42,83,84,80,74,60,35,31,33,60,88,25,132673,Icons Pool C
+120274,Antonio Di Natale,87,87,ST,"CF, LW, CAM",Prime Icon / Hero,90,91,85,90,46,70,91,86,85,78,36,33,50,85,69,25,132669,Icons Pool B
+135455,Maicon,87,87,RB,,Prime Icon / Hero,86,82,81,84,83,85,82,73,80,77,82,88,81,87,85,3,132669,Icons Pool B
+138956,Giorgio Chiellini,87,87,CB,LB,Prime Icon / Hero,78,55,62,63,92,89,75,64,66,65,92,90,92,64,91,5,132669|132701,Icons Pool B|Legends Pool 1
+142754,Javier Mascherano,87,87,CB,CB,Prime Icon / Hero,76,55,76,75,89,86,75,70,85,82,90,91,89,68,81,5,132673|132702,Icons Pool C|Legends Pool 2
+161840,Fernando Hierro,87,87,CB,"CDM, CM",Prime Icon / Hero,74,67,74,68,92,84,73,62,78,85,93,76,92,61,86,5,111204|132673|132703,Classic XI / Prime Icons|Icons Pool C|Legends Pool 3
+166124,Gheorghe Hagi,87,87,CAM,"LW, RW, CM",Prime Icon / Hero,82,86,88,88,41,64,82,82,89,85,44,38,31,85,59,18,111204|132673,Classic XI / Prime Icons|Icons Pool C
+167680,Ronald Koeman,87,87,CB,"CDM, CM, SW",Prime Icon / Hero,76,86,85,78,88,84,72,64,85,93,89,86,85,78,84,5,111204|132673,Classic XI / Prime Icons|Icons Pool C
+183277,Eden Hazard,87,87,LM,,Prime Icon / Hero,91,83,84,91,37,68,92,91,85,82,30,23,31,78,67,16,114814,Heroes / Icons Pool A
+203376,Virgil van Dijk,87,87,CB,,Prime Icon / Hero,73,60,72,71,89,85,65,53,79,82,89,86,89,52,91,5,132702,Legends Pool 2
+212831,Alisson,87,87,GK,,Prime Icon / Hero,86,87,83,87,56,88,59,39,59,57,18,15,14,16,77,0,132702,Legends Pool 2
+214101,Paulo Futre,87,87,LW,"LW, RW",Prime Icon / Hero,93,81,80,93,37,58,94,92,80,73,32,28,34,82,55,27,132673,Icons Pool C
+222000,Michael Laudrup,87,87,CAM,"LW, RW, ST",Prime Icon / Hero,84,80,88,90,40,63,84,84,88,78,38,35,35,90,64,18,111204|132673,Classic XI / Prime Icons|Icons Pool C
+238427,Patrick Vieira,87,87,CM,"CDM, CB",Prime Icon / Hero,82,78,80,82,88,90,82,72,86,86,91,84,83,64,88,14,132669|132701,Icons Pool B|Legends Pool 1
+238443,Laurent Blanc,87,87,CB,"CDM, CM",Prime Icon / Hero,78,67,68,76,90,85,75,68,78,79,91,86,90,54,83,5,111204,Classic XI / Prime Icons
+262271,Diego Milito,87,87,ST,CF,Prime Icon / Hero,83,89,75,84,43,80,81,75,80,69,33,31,37,65,84,25,132669,Icons Pool B
+266691,Diego Forlán,87,87,ST,"CAM, CF",Prime Icon / Hero,86,90,79,85,55,76,86,80,83,73,48,43,57,65,75,25,132673,Icons Pool C
+274750,Wesley Sneijder,87,87,CAM,"CM, LM",Prime Icon / Hero,81,84,90,86,53,75,83,83,88,92,53,50,44,85,73,18,132669,Icons Pool B
+274966,Carlos Tévez,87,87,ST,"CAM, CF, RW",Prime Icon / Hero,85,89,80,86,46,89,86,81,84,67,38,31,50,74,86,25,132701,Legends Pool 1
+275049,Enzo Francescoli,87,87,CAM,,Prime Icon / Hero,86,88,83,90,44,72,86,90,84,77,39,37,40,77,71,18,111204,Classic XI / Prime Icons
+27,Joe Cole,86,86,RW,"LM, CAM, RW",Prime Icon / Hero,88,84,86,90,51,72,88,89,86,75,45,40,54,86,68,23,114814,Heroes / Icons Pool A
+1025,Rui Costa,86,86,CAM,CM,Prime Icon / Hero,83,80,87,85,43,76,80,83,87,83,37,39,31,84,79,18,132669,Icons Pool B
+1201,Gianfranco Zola,86,86,CAM,"CF, CAM",Prime Icon / Hero,85,88,85,89,41,63,86,81,86,80,42,35,39,81,58,18,114814|132669,Heroes / Icons Pool A|Icons Pool B
+1605,Robert Pirès,86,86,LM,"RM, CAM, LW",Prime Icon / Hero,86,79,84,86,38,64,85,80,83,80,35,33,30,84,62,16,114814,Heroes / Icons Pool A
+1668,Claude Makélélé,86,86,CDM,CM,Prime Icon / Hero,81,48,76,78,86,86,82,82,86,79,91,82,86,68,82,10,114814|132673|132703,Heroes / Icons Pool A|Icons Pool C|Legends Pool 3
+5740,Jaap Stam,86,86,CB,RB,Prime Icon / Hero,83,52,62,68,89,88,79,66,73,66,91,87,88,60,91,5,132669,Icons Pool B
+16619,Iván Córdoba,86,86,CB,"RB, LB",Prime Icon / Hero,86,63,65,68,90,87,86,79,77,73,89,86,87,65,83,5,132669,Icons Pool B
+45197,Xabi Alonso,86,86,CDM,,Prime Icon / Hero,71,77,86,78,82,80,66,65,88,87,83,76,82,80,78,10,132673|132702,Icons Pool C|Legends Pool 2
+49369,Fernando Torres,86,86,ST,CF,Prime Icon / Hero,89,87,75,85,43,75,90,84,78,55,43,37,34,74,74,25,132702,Legends Pool 2
+53302,Daniele De Rossi,86,86,CDM,"CB, CM",Prime Icon / Hero,78,82,79,79,88,87,78,73,85,82,87,88,86,68,83,10,132669,Icons Pool B
+171877,Marek Hamšík,86,86,CAM,"CAM, CDM",Prime Icon / Hero,83,87,87,86,75,83,81,77,90,88,75,70,71,83,80,18,132669,Icons Pool B
+173210,Claudio Marchisio,86,86,CM,"CDM, LM, RM",Prime Icon / Hero,82,81,85,86,80,82,82,81,88,86,81,79,78,77,79,14,132669|132701,Icons Pool B|Legends Pool 1
+214098,Frank Rijkaard,86,86,CDM,"CB, CM",Prime Icon / Hero,77,73,80,77,87,86,74,69,86,83,87,83,85,73,88,10,111204|132669,Classic XI / Prime Icons|Icons Pool B
+214649,Davor Šuker,86,86,ST,,Prime Icon / Hero,83,89,79,88,43,75,81,84,83,67,38,30,38,73,71,25,132673,Icons Pool C
+238424,Patrick Kluivert,86,86,ST,,Prime Icon / Hero,84,86,76,81,40,79,82,72,81,74,32,37,34,63,82,25,114814|132673,Heroes / Icons Pool A|Icons Pool C
+247515,John Barnes,86,86,LW,"LM, CAM, ST",Prime Icon / Hero,89,85,83,89,44,83,86,83,83,75,44,34,44,84,83,27,114814|132702,Heroes / Icons Pool A|Legends Pool 2
+247703,Ian Rush,86,86,ST,CF,Prime Icon / Hero,84,89,69,83,43,78,81,76,73,51,44,30,36,63,78,25,111204|132702,Classic XI / Prime Icons|Legends Pool 2
+266801,Harry Kewell,86,86,LW,"LM, CAM",Prime Icon / Hero,90,85,88,88,52,69,90,85,84,86,53,50,48,90,68,27,132702,Legends Pool 2
+273812,Steve McManaman,86,86,RM,"LM, CAM, RW",Prime Icon / Hero,89,77,84,87,46,77,86,81,85,80,50,41,37,83,74,12,132702,Legends Pool 2
+240,Roy Keane,85,85,CM,,Prime Icon / Hero,72,69,82,78,84,87,69,67,88,85,89,84,75,70,83,14,114814,Heroes / Icons Pool A
+330,Robbie Keane,85,85,ST,,Prime Icon / Hero,87,88,76,88,45,76,87,85,80,63,40,16,49,71,70,25,114814,Heroes / Icons Pool A
+5467,Jamie Carragher,85,85,CB,"RB, LB",Prime Icon / Hero,70,52,68,67,87,84,68,62,74,72,86,89,87,64,84,5,114814|132702,Heroes / Icons Pool A|Legends Pool 2
+6975,Freddie Ljungberg,85,85,LM,"LM, CAM, RW",Prime Icon / Hero,87,81,82,86,45,77,88,83,83,74,41,35,47,80,73,16,114814,Heroes / Icons Pool A
+7512,Hernán Crespo,85,85,ST,CF,Prime Icon / Hero,86,86,70,85,36,70,85,85,70,53,30,29,28,72,73,25,114814,Heroes / Icons Pool A
+15723,Dirk Kuyt,85,85,CAM,"ST, RM, RB, RWB, RW",Prime Icon / Hero,84,88,80,83,70,82,85,81,83,78,65,56,74,77,77,18,132702,Legends Pool 2
+25924,Capdevila,85,85,LB,"LM, LWB, CB",Prime Icon / Hero,84,76,81,79,85,80,85,71,82,81,85,79,84,83,78,7,132673,Icons Pool C
+34079,Ashley Cole,85,85,LB,LWB,Prime Icon / Hero,87,65,79,80,84,77,87,80,79,78,85,88,85,82,68,7,114814,Heroes / Icons Pool A
+44897,Jerzy Dudek,85,85,GK,,Prime Icon / Hero,86,83,78,90,60,85,61,67,32,26,18,17,25,13,72,0,132673|132702,Icons Pool C|Legends Pool 2
+45674,Michaël Essien,85,85,CDM,,Prime Icon / Hero,82,73,77,78,85,86,82,71,86,82,87,86,84,66,84,10,114814,Heroes / Icons Pool A
+170890,Blaise Matuidi,85,85,CDM,,Prime Icon / Hero,83,72,79,77,84,85,84,74,84,77,86,80,82,70,81,10,132701,Legends Pool 1
+239261,Henrik Larsson,85,85,ST,"CF, CAM",Prime Icon / Hero,87,86,73,82,45,71,88,86,74,70,44,43,32,65,62,25,114814,Heroes / Icons Pool A
+239580,Bremer,85,85,CB,,Prime Icon / Hero,82,51,62,67,86,81,77,64,76,68,86,83,86,50,84,5,132701,Legends Pool 1
+243027,Juan Sebastián Verón,85,85,CM,,Prime Icon / Hero,75,81,86,81,73,81,75,69,87,86,76,62,70,80,77,14,114814,Heroes / Icons Pool A
+243029,Sol Campbell,85,85,CB,SW,Prime Icon / Hero,81,45,60,58,87,88,76,51,72,65,84,89,87,50,92,5,114814,Heroes / Icons Pool A
+250890,Gianluca Zambrotta,85,85,RB,"LB, RWB, LWB, RM",Prime Icon / Hero,87,69,80,81,84,82,85,74,80,78,86,85,81,84,79,3,132669|132701,Icons Pool B|Legends Pool 1
+262285,Guti,85,85,CM,,Prime Icon / Hero,77,82,88,85,63,73,78,80,91,90,65,58,52,80,73,14,132673,Icons Pool C
+274967,John Arne Riise,85,85,LB,"LM, LWB, CB",Prime Icon / Hero,83,81,81,80,81,86,79,69,83,78,83,84,79,87,84,7,132702,Legends Pool 2
+51257,Peter Crouch,84,84,ST,CF,Prime Icon / Hero,74,87,75,78,52,80,70,67,82,73,45,40,51,65,81,25,132702,Legends Pool 2
+222077,Manuel Locatelli,84,83,CDM,,Prime Icon / Hero,64,70,80,76,81,79,61,64,84,83,84,79,81,72,72,10,132701,Legends Pool 1
+204963,Carvajal,83,83,RB,,Prime Icon / Hero,77,58,79,80,81,78,75,74,82,73,83,81,79,82,73,3,132703,Legends Pool 3
+253149,Jeremie Frimpong,83,81,RB,,Prime Icon / Hero,94,62,74,84,72,63,94,88,77,62,70,78,73,81,46,3,132702,Legends Pool 2
+258966,Andrea Cambiaso,81,79,LB,,Prime Icon / Hero,80,70,78,80,75,72,79,77,79,74,78,75,76,81,67,7,132701,Legends Pool 1
