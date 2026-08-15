@@ -62,10 +62,11 @@ class Shortlist:
         self.players.clear()
 
     def to_dict(self) -> dict:
+        import math
         def _clean(v):
             if v is None:
                 return None
-            if isinstance(v, float) and pd.isna(v):
+            if isinstance(v, float) and math.isnan(v):
                 return None
             return v
 
@@ -271,15 +272,18 @@ def load_preset(name_or_path: str | Path, presets_dir: Path | None = None) -> Sh
     p_dir = presets_dir or PRESETS_DIR
     p = Path(name_or_path)
     if not p.is_file():
-        # try as name in presets_dir
-        fname = sanitize_preset_filename(str(name_or_path)) + ".json"
-        p = p_dir / fname
-        if not p.is_file():
-            matches = list(p_dir.glob(f"*{sanitize_preset_filename(str(name_or_path))}*.json"))
-            if matches:
-                p = matches[0]
-            else:
-                raise FileNotFoundError(f"Preset '{name_or_path}' not found at {p}")
+        if (p_dir / p.name).is_file():
+            p = p_dir / p.name
+        else:
+            stem = p.stem if p.suffix == ".json" else str(name_or_path)
+            fname = sanitize_preset_filename(stem) + ".json"
+            p = p_dir / fname
+            if not p.is_file():
+                matches = list(p_dir.glob(f"*{sanitize_preset_filename(stem)}*.json"))
+                if matches:
+                    p = matches[0]
+                else:
+                    raise FileNotFoundError(f"Preset '{name_or_path}' not found in {p_dir}")
     return load_json(p)
 
 
