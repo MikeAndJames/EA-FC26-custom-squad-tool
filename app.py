@@ -712,6 +712,12 @@ def get_mini_me_engine() -> MiniMeEngine:
     return mini_me_engine
 
 
+POS_FILTER_OPTIONS = [
+    "SAME", "ANY", "SKIP", "GK", "CB", "LB", "RB", "LWB", "RWB",
+    "CDM", "CM", "CAM", "LM", "RM", "LW", "RW", "ST", "CF"
+]
+
+
 def open_mini_me_dialog() -> None:
     if not shortlist.players:
         ui.notify("Add some players to your squad basket first (e.g. Leeds Legends)!", type="warning")
@@ -719,41 +725,65 @@ def open_mini_me_dialog() -> None:
 
     engine = get_mini_me_engine()
 
-    state = {
+    # Per-player state: {pid: {"pos_filter": "SAME", "selected_clone_pid": int | None, "candidates": list}}
+    state: dict[str, Any] = {
         "handicap": 4,
         "target_team": 93,  # Ipswich Town
-        "clones": [],
+        "slots": {},
     }
 
-    dialog = ui.dialog().classes("w-full max-w-4xl")
-    with dialog, ui.card().classes("w-full p-4 gap-3"):
-        with ui.row().classes("w-full items-center justify-between"):
+    # Initialize slots for each player in basket
+    for p in shortlist.players:
+        pid = p.player_id
+        state["slots"][pid] = {
+            "source": p,
+            "pos_filter": "SAME",
+            "selected_clone_pid": None,
+            "candidates": [],
+        }
+
+    def compute_all_candidates():
+        used_pids = {p.player_id for p in shortlist.players}
+        for pid, slot in state["slots"].items():
+            pos_filter = slot["pos_filter"]
+            if pos_filter == "SKIP":
+                slot["candidates"] = []
+                slot["selected_clone_pid"] = None
+                continue
+
+            cands = engine.find_top_clones(
+                player_id=pid,
+                handicap_drop=state["handicap"],
+                drop_tolerance=2,
+                position_filter=pos_filter,
+                excluded_ids=used_pids,
+                same_gender=True,
+                top_n=3,
+            )
+            slot["candidates"] = cands
+            # If current selection not in candidates, select top candidate
+            cand_pids = [c["player_id"] for c in cands]
+            if slot["selected_clone_pid"] not in cand_pids:
+                slot["selected_clone_pid"] = cand_pids[0] if cand_pids else None
+
+    compute_all_candidates()
+
+    dialog = ui.dialog().classes("w-full max-w-5xl")
+    with dialog, ui.card().classes("w-full p-4 gap-3 max-h-[90vh] flex flex-col"):
+        with ui.row().classes("w-full items-center justify-between shrink-0"):
             with ui.row().classes("items-center gap-2"):
                 ui.icon("group_add", size="sm").classes("text-indigo-600 dark:text-indigo-400")
-                ui.label("👥 Create Mini-Me Opponent Squad").classes("text-lg font-bold")
+                ui.label("👥 Mini-Me Opponent Squad Builder (Pick 1 of 3 Suggestions)").classes("text-lg font-bold")
             ui.button(icon="close", on_click=dialog.close).props("flat round dense")
 
         ui.label(
-            "Matches every player on your team to a statistically similar player "
-            "(using 29-stat Self-Median DNA) at a reduced overall rating."
-        ).classes("text-xs text-gray-500")
+            "For each player on your team, choose a position filter or pick from 3 ranked statistical clones "
+            "at your chosen handicap level."
+        ).classes("text-xs text-gray-500 shrink-0")
 
-        def refresh_clones():
-            source_p = [asdict(p) for p in shortlist.players]
-            t_label = PRESET_TARGET_TEAMS.get(state["target_team"], f"Team {state['target_team']}")
-            t_name = t_label.split(" (")[0]
-            state["clones"] = engine.clone_squad(
-                source_p,
-                handicap_drop=state["handicap"],
-                target_team_id=state["target_team"],
-                target_team_name=t_name,
-            )
-            render_table.refresh()
-
-        with ui.row().classes("w-full items-center gap-4 bg-slate-100 dark:bg-slate-800 p-2 rounded"):
+        with ui.row().classes("w-full items-center gap-4 bg-slate-100 dark:bg-slate-800 p-2 rounded shrink-0"):
             def _on_team_change(e):
                 state["target_team"] = int(e.value)
-                refresh_clones()
 
             ui.select(
                 options=PRESET_TARGET_TEAMS,
@@ -764,7 +794,8 @@ def open_mini_me_dialog() -> None:
 
             def _on_handicap_change(e):
                 state["handicap"] = int(e.value)
-                refresh_clones()
+                compute_all_candidates()
+                render_slots.refresh()
 
             ui.select(
                 options={
@@ -782,83 +813,141 @@ def open_mini_me_dialog() -> None:
                 on_change=_on_handicap_change,
             ).classes("w-64").props("dense outlined")
 
-            ui.button("Regenerate", on_click=refresh_clones, icon="refresh").props("dense unelevated color=primary")
+            ui.button(
+                "Recalculate All",
+                on_click=lambda: [compute_all_candidates(), render_slots.refresh()],
+                icon="refresh",
+            ).props("dense unelevated color=primary")
 
         @ui.refreshable
-        def render_table():
-            if not state["clones"]:
-                ui.label("Generating clones...").classes("text-sm text-gray-400 italic")
-                return
+        def render_slots():
+            with ui.element("div").classes("w-full overflow-y-auto flex-grow max-h-[55vh] pr-1"):
+                with ui.column().classes("w-full gap-2"):
+                    for pid, slot in state["slots"].items():
+                        src = slot["source"]
+                        cands = slot["candidates"]
+                        cur_filter = slot["pos_filter"]
 
-            with ui.element("div").classes("w-full overflow-x-auto max-h-96 border rounded"):
-                with ui.column().classes("w-full gap-1 p-2 min-w-max"):
-                    # Header
-                    with ui.row().classes("w-full items-center py-1 px-2 bg-slate-200 dark:bg-slate-700 font-bold text-xs uppercase"):
-                        ui.label("YOUR PLAYER (DAD)").classes("w-44")
-                        ui.label("➔").classes("w-6 text-center")
-                        ui.label("MINI-ME CLONE (SON)").classes("w-44")
-                        ui.label("OVR DIFF").classes("w-20")
-                        ui.label("SHAPE MATCH").classes("w-24")
-                        ui.label("ORIGINAL CLUB").classes("w-36")
+                        with ui.card().classes("w-full p-2 bg-slate-50 dark:bg-slate-900 border"):
+                            with ui.row().classes("w-full items-center gap-3 no-wrap"):
+                                # 1. Dad Player Info
+                                with ui.row().classes("w-52 items-center gap-1 shrink-0"):
+                                    _render_pos(src)
+                                    ui.label(src.name).classes("font-bold text-xs truncate w-28").tooltip(src.name)
+                                    ui.badge(f"{src.overall or '?'}", color="blue-8").classes("text-xs font-bold")
 
-                    for c in state["clones"]:
-                        with ui.row().classes("w-full items-center py-1 px-2 border-b text-xs hover:bg-slate-50 dark:hover:bg-slate-800"):
-                            ui.label(f"{c['matched_to_name']} ({c['matched_to_ovr']} {c['target_position']})").classes("w-44 font-semibold truncate")
-                            ui.label("➔").classes("w-6 text-center text-gray-400")
-                            ui.label(f"{c['name']} ({c['overall']} {c['position']})").classes("w-44 font-bold text-indigo-600 dark:text-indigo-400 truncate")
-                            ui.badge(f"{c['ovr_diff']:+d} OVR", color="orange-8" if c['ovr_diff'] <= -4 else "amber-7").classes("w-16 justify-center")
-                            ui.badge(f"{c['similarity_pct']}", color="emerald-8").classes("w-20 justify-center")
-                            ui.label(f"{c['team']}").classes("w-36 truncate text-gray-500")
+                                ui.label("➔").classes("text-gray-400 font-bold shrink-0")
 
-        render_table()
-        refresh_clones()
+                                # 2. Position Filter Dropdown for this slot
+                                def _on_pos_change(e, s=slot, p_id=pid):
+                                    s["pos_filter"] = str(e.value)
+                                    used_pids = {p.player_id for p in shortlist.players}
+                                    if s["pos_filter"] == "SKIP":
+                                        s["candidates"] = []
+                                        s["selected_clone_pid"] = None
+                                    else:
+                                        s["candidates"] = engine.find_top_clones(
+                                            player_id=p_id,
+                                            handicap_drop=state["handicap"],
+                                            drop_tolerance=2,
+                                            position_filter=s["pos_filter"],
+                                            excluded_ids=used_pids,
+                                            same_gender=True,
+                                            top_n=3,
+                                        )
+                                        cand_pids = [c["player_id"] for c in s["candidates"]]
+                                        s["selected_clone_pid"] = cand_pids[0] if cand_pids else None
+                                    render_slots.refresh()
+
+                                pos_labels = {
+                                    "SAME": f"Same ({src.position or 'POS'})",
+                                    "ANY": "Any Position",
+                                    "SKIP": "🚫 SKIP Slot",
+                                }
+                                for p_code in POS_FILTER_OPTIONS:
+                                    if p_code not in pos_labels:
+                                        pos_labels[p_code] = p_code
+
+                                ui.select(
+                                    options=pos_labels,
+                                    value=cur_filter,
+                                    label="Search Role",
+                                    on_change=_on_pos_change,
+                                ).classes("w-36 text-xs shrink-0").props("dense outlined")
+
+                                # 3. Candidate Choices (Top 3 suggestions)
+                                if cur_filter == "SKIP":
+                                    ui.label("🚫 Skipped — will not clone this player.").classes("text-xs text-gray-400 italic flex-grow")
+                                elif not cands:
+                                    ui.label("No candidate found at this handicap.").classes("text-xs text-red-400 italic flex-grow")
+                                else:
+                                    cand_opts = {}
+                                    for idx, c in enumerate(cands, 1):
+                                        cand_opts[c["player_id"]] = (
+                                            f"#{idx}: {c['name']} (OVR {c['overall']} {c['ovr_diff']:+d}, {c['position']}) "
+                                            f"· {c['similarity_pct']} match · {c['team']}"
+                                        )
+
+                                    def _on_clone_select(e, s=slot):
+                                        s["selected_clone_pid"] = int(e.value)
+
+                                    ui.select(
+                                        options=cand_opts,
+                                        value=slot["selected_clone_pid"],
+                                        label="Pick Mini-Me Clone (Top 3 ranked)",
+                                        on_change=_on_clone_select,
+                                    ).classes("flex-grow text-xs").props("dense outlined")
+
+        render_slots()
 
         def do_add_to_basket():
             added_count = 0
-            for c in state["clones"]:
-                pid = c["player_id"]
-                p_rows = df[df["player_id"] == pid]
-                if not p_rows.empty:
-                    p_row = p_rows.iloc[0]
-                    sp = ShortlistPlayer(
-                        player_id=pid,
-                        name=c["name"],
-                        overall=c["overall"],
-                        position=c["position"],
-                        target_team=state["target_team"],
-                        wage_eur=p_row.get("wage_eur"),
-                        value_eur=p_row.get("value_eur"),
-                        pace=p_row.get("pace"),
-                        stamina=p_row.get("stamina"),
-                    )
-                    if shortlist.add(sp):
-                        added_count += 1
+            for pid, slot in state["slots"].items():
+                chosen_pid = slot["selected_clone_pid"]
+                if chosen_pid:
+                    p_rows = df[df["player_id"] == chosen_pid]
+                    if not p_rows.empty:
+                        p_row = p_rows.iloc[0]
+                        sp = ShortlistPlayer(
+                            player_id=chosen_pid,
+                            name=str(p_row.get("name", "")),
+                            overall=int(p_row["overall"]) if pd.notna(p_row.get("overall")) else None,
+                            position=str(p_row.get("position", "")),
+                            target_team=state["target_team"],
+                            wage_eur=p_row.get("wage_eur"),
+                            value_eur=p_row.get("value_eur"),
+                            pace=p_row.get("pace"),
+                            stamina=p_row.get("stamina"),
+                        )
+                        if shortlist.add(sp):
+                            added_count += 1
             render_basket.refresh()
             render_results.refresh()
             t_label = PRESET_TARGET_TEAMS.get(state["target_team"], f"Team {state['target_team']}")
-            ui.notify(f"Added {added_count} Mini-Me players to squad basket (Target: {t_label})", type="positive")
+            ui.notify(f"Added {added_count} Mini-Me clones to squad basket (Target: {t_label})", type="positive")
             dialog.close()
 
         def do_save_matchup_preset():
             dest_name = PRESET_TARGET_TEAMS.get(state['target_team'], 'Ipswich').split(' (')[0]
             preset_name = f"{shortlist.target_name} vs {dest_name} Derby"
-            for c in state["clones"]:
-                pid = c["player_id"]
-                p_rows = df[df["player_id"] == pid]
-                if not p_rows.empty:
-                    p_row = p_rows.iloc[0]
-                    sp = ShortlistPlayer(
-                        player_id=pid,
-                        name=c["name"],
-                        overall=c["overall"],
-                        position=c["position"],
-                        target_team=state["target_team"],
-                        wage_eur=p_row.get("wage_eur"),
-                        value_eur=p_row.get("value_eur"),
-                        pace=p_row.get("pace"),
-                        stamina=p_row.get("stamina"),
-                    )
-                    shortlist.add(sp)
+            for pid, slot in state["slots"].items():
+                chosen_pid = slot["selected_clone_pid"]
+                if chosen_pid:
+                    p_rows = df[df["player_id"] == chosen_pid]
+                    if not p_rows.empty:
+                        p_row = p_rows.iloc[0]
+                        sp = ShortlistPlayer(
+                            player_id=chosen_pid,
+                            name=str(p_row.get("name", "")),
+                            overall=int(p_row["overall"]) if pd.notna(p_row.get("overall")) else None,
+                            position=str(p_row.get("position", "")),
+                            target_team=state["target_team"],
+                            wage_eur=p_row.get("wage_eur"),
+                            value_eur=p_row.get("value_eur"),
+                            pace=p_row.get("pace"),
+                            stamina=p_row.get("stamina"),
+                        )
+                        shortlist.add(sp)
             path = save_preset(shortlist, preset_name)
             render_preset_selector.refresh()
             render_basket.refresh()
@@ -866,11 +955,11 @@ def open_mini_me_dialog() -> None:
             ui.notify(f"Saved matchup preset '{preset_name}' → {path.name}", type="positive")
             dialog.close()
 
-        with ui.row().classes("w-full justify-between items-center mt-2"):
+        with ui.row().classes("w-full justify-between items-center mt-2 shrink-0 border-t pt-2"):
             ui.button("Cancel", on_click=dialog.close).props("flat")
             with ui.row().classes("gap-2"):
                 ui.button("💾 Save Matchup Preset", on_click=do_save_matchup_preset, icon="save").props("unelevated color=secondary")
-                ui.button("➕ Add Clones to Basket", on_click=do_add_to_basket, icon="group_add").props("unelevated color=indigo-700 text-white font-bold")
+                ui.button("➕ Add Selected Clones to Basket", on_click=do_add_to_basket, icon="group_add").props("unelevated color=indigo-700 text-white font-bold")
 
     dialog.open()
 

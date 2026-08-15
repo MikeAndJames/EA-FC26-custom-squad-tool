@@ -73,19 +73,19 @@ class MiniMeEngine:
         self,
         player_id: int,
         handicap_drop: int = 4,
-        drop_tolerance: int = 1,
+        drop_tolerance: int = 2,
+        position_filter: str | None = None,
         excluded_ids: set[int] | None = None,
         same_gender: bool = True,
-        position_strict: bool = False,
     ) -> dict[str, Any] | None:
         """Find the single closest statistical Mini-Me clone for a player."""
         clones = self.find_top_clones(
             player_id=player_id,
             handicap_drop=handicap_drop,
             drop_tolerance=drop_tolerance,
+            position_filter=position_filter,
             excluded_ids=excluded_ids,
             same_gender=same_gender,
-            position_strict=position_strict,
             top_n=1,
         )
         return clones[0] if clones else None
@@ -94,10 +94,10 @@ class MiniMeEngine:
         self,
         player_id: int,
         handicap_drop: int = 4,
-        drop_tolerance: int = 1,
+        drop_tolerance: int = 2,
+        position_filter: str | None = None,
         excluded_ids: set[int] | None = None,
         same_gender: bool = True,
-        position_strict: bool = False,
         top_n: int = 3,
     ) -> list[dict[str, Any]]:
         """Find top N closest statistical clones for a player at a target handicap."""
@@ -107,12 +107,16 @@ class MiniMeEngine:
         t_idx = self.pid_to_idx[player_id]
         t_row = self.df.iloc[t_idx]
         t_ovr = int(t_row["overall"])
-        t_pos = str(t_row.get("position", "CM")).upper()
-        t_gender = str(t_row.get("gender", "M")).upper()
+        t_pos = str(t_row.get("position", "CM")).upper().strip()
+        t_gender = str(t_row.get("gender", "M")).upper().strip()
         t_vec = self.Z_unit[t_idx]
         
+        # Ensure candidate is strictly weaker than target
         min_ovr = max(45, t_ovr - handicap_drop - drop_tolerance)
-        max_ovr = min(99, t_ovr - handicap_drop + drop_tolerance)
+        max_ovr = min(t_ovr - 1, t_ovr - handicap_drop + drop_tolerance)
+        if min_ovr > max_ovr:
+            min_ovr = max(45, t_ovr - 8)
+            max_ovr = t_ovr - 1
         
         excluded = set(excluded_ids or ())
         excluded.add(player_id)
@@ -126,19 +130,26 @@ class MiniMeEngine:
         if not cand_indices:
             return []
             
-        # Position compatibility filtering
-        if position_strict:
-            cand_indices = [
-                idx for idx in cand_indices
-                if str(self.df.iloc[idx].get("position", "")).upper() == t_pos
-            ]
-        else:
-            allowed_pos = POSITION_GROUPS.get(t_pos, {t_pos})
-            cand_indices = [
-                idx for idx in cand_indices
-                if any(p in allowed_pos for p in str(self.df.iloc[idx].get("position", "")).upper().replace(",", " ").split())
-                or any(p in allowed_pos for p in str(self.df.iloc[idx].get("alt_positions", "")).upper().replace(",", " ").split())
-            ]
+        # Position filtering
+        pos_req = (position_filter or "AUTO").strip().upper()
+        if pos_req in ("AUTO", "SAME"):
+            pos_req = t_pos
+
+        if pos_req != "ANY":
+            # Match if target role matches primary or alternate positions
+            def _matches_pos(idx: int) -> bool:
+                p_main = str(self.df.iloc[idx].get("position", "")).upper()
+                p_alt = str(self.df.iloc[idx].get("alt_positions", "")).upper()
+                pos_tokens = set(p_main.replace(",", " ").split() + p_alt.replace(",", " ").split())
+                if pos_req in pos_tokens:
+                    return True
+                # If group match allowed when exact is scarce
+                group = POSITION_GROUPS.get(pos_req, {pos_req})
+                return bool(pos_tokens.intersection(group))
+
+            filtered_cand = [idx for idx in cand_indices if _matches_pos(idx)]
+            if filtered_cand:
+                cand_indices = filtered_cand
             
         if not cand_indices:
             return []
