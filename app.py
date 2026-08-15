@@ -1036,10 +1036,10 @@ def build_ui() -> None:
                         ["groq", "gemini"], value="groq", label="API"
                     ).classes("w-28")
                     model_sel = ui.select(
-                        ["qwen/qwen3.6-27b", "openai/gpt-oss-120b"],
-                        value="qwen/qwen3.6-27b",
+                        ["openai/gpt-oss-120b", "qwen/qwen3.6-27b"],
+                        value="openai/gpt-oss-120b",
                         label="Model",
-                    ).classes("w-40")
+                    ).classes("w-44")
                     ui.button("Ask AI", on_click=do_nl, icon="smart_toy").props(
                         "unelevated color=secondary"
                     )

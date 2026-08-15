@@ -126,6 +126,18 @@ Rules:
 
 
 def strip_code_fences(code: str) -> str:
+    # 1. Strip reasoning / thinking blocks (<think>...</think>)
+    code = re.sub(r"<think>.*?</think>", "", code, flags=re.DOTALL)
+
+    # 2. Extract from markdown python code blocks if present
+    blocks = re.findall(r"```(?:python)?\s*(.*?)\s*```", code, flags=re.DOTALL)
+    if blocks:
+        for b in reversed(blocks):
+            if "result" in b:
+                return b.strip()
+        return blocks[-1].strip()
+
+    # 3. Strip standalone backticks and whitespace
     code = code.strip()
     code = re.sub(r"^```(?:python)?\s*", "", code)
     code = re.sub(r"\s*```$", "", code)
@@ -151,9 +163,8 @@ def ask_groq(
         return None, "No Groq API key (set GROQ_API_KEY or pass key)"
     if requests is None:
         return None, "requests package not installed"
-    # Groq deprecated llama-3.3-70b-versatile. Recommended free-tier
-    # replacements: openai/gpt-oss-120b or qwen/qwen3.6-27b.
-    model = model or os.environ.get("GROQ_MODEL") or "qwen/qwen3.6-27b"
+    # Groq recommended free-tier models: openai/gpt-oss-120b (fast, clean) or qwen/qwen3.6-27b.
+    model = model or os.environ.get("GROQ_MODEL") or "openai/gpt-oss-120b"
     messages: list[dict[str, str]] = [
         {"role": "system", "content": build_system_prompt(df)},
     ]
