@@ -731,7 +731,6 @@ def open_mini_me_dialog() -> None:
 
     # Per-player state: {pid: {"pos_filter": str, "selected_clone_pid": int | None, "candidates": list}}
     state: dict[str, Any] = {
-        "handicap": 4,
         "target_team": 93,  # Ipswich Town
         "slots": {},
     }
@@ -740,9 +739,20 @@ def open_mini_me_dialog() -> None:
     for p in shortlist.players:
         pid = p.player_id
         clean_pos = str(p.position or "CM").split()[0].split("(")[0].strip().upper()
+        
+        # Lookup full position info
+        dad_alt = ""
+        p_match = df[df["player_id"] == pid]
+        if not p_match.empty:
+            dad_alt = str(p_match.iloc[0].get("alt_positions", "")).strip()
+        if dad_alt == "nan":
+            dad_alt = ""
+        dad_full_pos = f"{p.position} ({dad_alt})" if dad_alt else (p.position or "POS")
+
         state["slots"][pid] = {
             "source": p,
             "clean_pos": clean_pos,
+            "dad_full_pos": dad_full_pos,
             "pos_filter": f"SAME_{clean_pos}",
             "selected_clone_pid": None,
             "candidates": [],
@@ -761,8 +771,6 @@ def open_mini_me_dialog() -> None:
             req_role = "SAME" if pos_filter.startswith("SAME") else pos_filter
             cands = engine.find_top_clones(
                 player_id=pid,
-                handicap_drop=state["handicap"],
-                drop_tolerance=2,
                 position_filter=req_role,
                 excluded_ids=used_pids,
                 same_gender=True,
@@ -780,12 +788,12 @@ def open_mini_me_dialog() -> None:
         with ui.row().classes("w-full items-center justify-between shrink-0 border-b pb-2"):
             with ui.row().classes("items-center gap-2"):
                 ui.icon("group_add", size="md").classes("text-indigo-600 dark:text-indigo-400")
-                ui.label("👥 Mini-Me Opponent Squad Builder (Pick 1 of 3 Suggestions)").classes("text-xl font-bold")
+                ui.label("👥 Mini-Me Opponent Squad Builder (Closest Weaker Clones)").classes("text-xl font-bold")
             ui.button(icon="close", on_click=dialog.close).props("flat round dense")
 
         ui.label(
-            "Matches every player on your team to a weaker statistical clone (using 29-stat Self-Median DNA) "
-            "with strict position & flank integrity. Pick between the top 3 ranked suggestions or customize roles."
+            "Matches every player on your team to their 3 closest weaker statistical clones (using 29-stat Self-Median DNA). "
+            "All candidate playable positions are shown to guarantee perfect position and flank fits."
         ).classes("text-xs text-gray-500 shrink-0")
 
         with ui.row().classes("w-full items-center gap-4 bg-slate-100 dark:bg-slate-800 p-2 rounded shrink-0"):
@@ -797,27 +805,6 @@ def open_mini_me_dialog() -> None:
                 value=state["target_team"],
                 label="Mini-Me Destination Team",
                 on_change=_on_team_change,
-            ).classes("w-60").props("dense outlined")
-
-            def _on_handicap_change(e):
-                state["handicap"] = int(e.value)
-                compute_all_candidates()
-                render_slots.refresh()
-
-            ui.select(
-                options={
-                    1: "-1 OVR Weaker",
-                    2: "-2 OVR Weaker",
-                    3: "-3 OVR Weaker",
-                    4: "-4 OVR Weaker (Recommended)",
-                    5: "-5 OVR Weaker",
-                    6: "-6 OVR Weaker",
-                    7: "-7 OVR Weaker",
-                    8: "-8 OVR Weaker",
-                },
-                value=state["handicap"],
-                label="Handicap Level",
-                on_change=_on_handicap_change,
             ).classes("w-64").props("dense outlined")
 
             ui.button(
@@ -828,20 +815,23 @@ def open_mini_me_dialog() -> None:
 
         @ui.refreshable
         def render_slots():
-            with ui.element("div").classes("w-full overflow-y-auto flex-grow max-h-[62vh] pr-2"):
+            with ui.element("div").classes("w-full overflow-y-auto flex-grow max-h-[64vh] pr-2"):
                 with ui.column().classes("w-full gap-2"):
                     for pid, slot in state["slots"].items():
                         src = slot["source"]
                         cands = slot["candidates"]
                         cur_filter = slot["pos_filter"]
                         clean_p = slot["clean_pos"]
+                        dad_full_p = slot["dad_full_pos"]
 
                         with ui.card().classes("w-full p-2 bg-slate-50 dark:bg-slate-900 border shadow-sm"):
                             with ui.row().classes("w-full items-center gap-3 no-wrap"):
-                                # 1. Dad Player Info
-                                with ui.row().classes("w-60 items-center gap-2 shrink-0"):
+                                # 1. Dad Player Info (showing all positions)
+                                with ui.row().classes("w-64 items-center gap-2 shrink-0"):
                                     _render_pos(src)
-                                    ui.label(src.name).classes("font-bold text-xs truncate w-32").tooltip(src.name)
+                                    with ui.column().classes("gap-0 w-36 truncate"):
+                                        ui.label(src.name).classes("font-bold text-xs truncate").tooltip(src.name)
+                                        ui.label(dad_full_p).classes("text-[10px] text-gray-500 truncate").tooltip(f"All positions: {dad_full_p}")
                                     ui.badge(f"{src.overall or '?'}", color="blue-8").classes("text-xs font-bold")
 
                                 ui.label("➔").classes("text-gray-400 font-bold shrink-0")
@@ -857,8 +847,6 @@ def open_mini_me_dialog() -> None:
                                         req_r = "SAME" if s["pos_filter"].startswith("SAME") else s["pos_filter"]
                                         s["candidates"] = engine.find_top_clones(
                                             player_id=p_id,
-                                            handicap_drop=state["handicap"],
-                                            drop_tolerance=2,
                                             position_filter=req_r,
                                             excluded_ids=used_pids,
                                             same_gender=True,
@@ -885,16 +873,18 @@ def open_mini_me_dialog() -> None:
                                     on_change=_on_pos_change,
                                 ).classes("w-40 text-xs shrink-0").props("dense outlined")
 
-                                # 3. Candidate Choices (Top 3 suggestions)
+                                # 3. Candidate Choices (Top 3 suggestions with ALL positions displayed)
                                 if cur_filter == "SKIP":
                                     ui.label("🚫 Skipped — will not clone this player.").classes("text-xs text-gray-400 italic flex-grow")
                                 elif not cands:
-                                    ui.label("No candidate found at this handicap.").classes("text-xs text-red-400 italic flex-grow")
+                                    ui.label("No weaker candidate found for this position.").classes("text-xs text-red-400 italic flex-grow")
                                 else:
                                     cand_opts = {}
                                     for idx, c in enumerate(cands, 1):
+                                        c_alt = c.get("alt_positions", "").strip()
+                                        c_all_pos = f"{c['position']} ({c_alt})" if c_alt else c["position"]
                                         cand_opts[c["player_id"]] = (
-                                            f"#{idx}: {c['name']} (OVR {c['overall']} {c['ovr_diff']:+d}, {c['position']}) "
+                                            f"#{idx}: {c['name']} (OVR {c['overall']} {c['ovr_diff']:+d}, {c_all_pos}) "
                                             f"· {c['similarity_pct']} match · {c['team']}"
                                         )
 

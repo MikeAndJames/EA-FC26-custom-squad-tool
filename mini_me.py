@@ -96,14 +96,14 @@ class MiniMeEngine:
     def find_top_clones(
         self,
         player_id: int,
-        handicap_drop: int = 4,
+        handicap_drop: int | None = None,
         drop_tolerance: int = 2,
         position_filter: str | None = None,
         excluded_ids: set[int] | None = None,
         same_gender: bool = True,
         top_n: int = 3,
     ) -> list[dict[str, Any]]:
-        """Find top N closest statistical clones for a player at a target handicap."""
+        """Find top N closest statistical clones that are strictly weaker than target."""
         if player_id not in self.pid_to_idx:
             return []
 
@@ -115,9 +115,14 @@ class MiniMeEngine:
         t_gender = str(t_row.get("gender", "M")).upper().strip()
         t_vec = self.Z_unit[t_idx]
 
-        # Ensure candidate is strictly weaker than target
-        min_ovr = max(45, t_ovr - handicap_drop - drop_tolerance)
-        max_ovr = min(t_ovr - 1, t_ovr - handicap_drop + drop_tolerance)
+        # Strictly weaker players (OVR < t_ovr)
+        if handicap_drop is not None and handicap_drop > 0:
+            min_ovr = max(45, t_ovr - handicap_drop - drop_tolerance)
+            max_ovr = min(t_ovr - 1, t_ovr - handicap_drop + drop_tolerance)
+        else:
+            min_ovr = max(50, t_ovr - 18)
+            max_ovr = t_ovr - 1
+
         if min_ovr > max_ovr:
             min_ovr = max(45, t_ovr - 8)
             max_ovr = t_ovr - 1
@@ -170,6 +175,10 @@ class MiniMeEngine:
             idx = cand_indices[bi]
             cand_row = self.df.iloc[idx]
             sim_score = float(sims[bi])
+            c_pos = str(cand_row.get("position", "")).strip()
+            c_alt = str(cand_row.get("alt_positions", "")).strip()
+            if c_alt == "nan":
+                c_alt = ""
 
             results.append({
                 "target_player_id": player_id,
@@ -179,8 +188,8 @@ class MiniMeEngine:
                 "player_id": int(cand_row["player_id"]),
                 "name": str(cand_row["name"]),
                 "overall": int(cand_row["overall"]),
-                "position": str(cand_row.get("position", "")),
-                "alt_positions": str(cand_row.get("alt_positions", "")),
+                "position": c_pos,
+                "alt_positions": c_alt,
                 "team": str(cand_row.get("team", "")),
                 "similarity": sim_score,
                 "similarity_pct": f"{sim_score * 100:.1f}%",
