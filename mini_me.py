@@ -49,10 +49,8 @@ class MiniMeEngine:
     def __init__(self, df: pd.DataFrame):
         self.df = df.copy()
 
-        # Gather all valid numeric features present in df
-        self.feature_cols = [c for c in SUB_ATTRIBUTES if c in self.df.columns]
-        if len(self.feature_cols) < 6:
-            self.feature_cols = [c for c in CORE_ATTRIBUTES if c in self.df.columns]
+        # Core attributes are 100% populated for both Icons and Active squad players
+        self.feature_cols = [c for c in CORE_ATTRIBUTES if c in self.df.columns]
 
         for c in self.feature_cols:
             self.df[c] = pd.to_numeric(self.df[c], errors="coerce").fillna(50.0)
@@ -120,7 +118,7 @@ class MiniMeEngine:
             min_ovr = max(45, t_ovr - handicap_drop - drop_tolerance)
             max_ovr = min(t_ovr - 1, t_ovr - handicap_drop + drop_tolerance)
         else:
-            min_ovr = max(50, t_ovr - 18)
+            min_ovr = max(65, t_ovr - 10)
             max_ovr = t_ovr - 1
 
         if min_ovr > max_ovr:
@@ -168,7 +166,12 @@ class MiniMeEngine:
         cand_Z = self.Z_unit[cand_indices]
         sims = np.dot(cand_Z, t_vec)
 
-        best_local_indices = np.argsort(-sims)[:top_n]
+        # Score candidates with slight penalty for massive OVR drops to favor realistic close matches
+        cand_ovrs = self.df.loc[cand_indices, "overall"].values
+        ovr_penalties = (t_ovr - cand_ovrs) / 100.0
+        scores = sims - ovr_penalties
+
+        best_local_indices = np.argsort(-scores)[:top_n]
 
         results = []
         for bi in best_local_indices:
