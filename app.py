@@ -39,6 +39,8 @@ from shortlist import (
     save_preset,
 )
 from nl_query import ask_nl, run_filter_code, run_nl_query
+from mini_me import MiniMeEngine
+from dataclasses import asdict
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 # Leeds United — verified via find_sandbox_teams.py (Prem, roster ~26, letter L)
@@ -701,6 +703,178 @@ def render_basket() -> None:
             ).props("flat dense round color=negative").tooltip("Remove")
 
 
+mini_me_engine: MiniMeEngine | None = None
+
+def get_mini_me_engine() -> MiniMeEngine:
+    global mini_me_engine
+    if mini_me_engine is None:
+        mini_me_engine = MiniMeEngine(df)
+    return mini_me_engine
+
+
+def open_mini_me_dialog() -> None:
+    if not shortlist.players:
+        ui.notify("Add some players to your squad basket first (e.g. Leeds Legends)!", type="warning")
+        return
+
+    engine = get_mini_me_engine()
+
+    state = {
+        "handicap": 4,
+        "target_team": 93,  # Ipswich Town
+        "clones": [],
+    }
+
+    dialog = ui.dialog().classes("w-full max-w-4xl")
+    with dialog, ui.card().classes("w-full p-4 gap-3"):
+        with ui.row().classes("w-full items-center justify-between"):
+            with ui.row().classes("items-center gap-2"):
+                ui.icon("group_add", size="sm").classes("text-indigo-600 dark:text-indigo-400")
+                ui.label("👥 Create Mini-Me Opponent Squad").classes("text-lg font-bold")
+            ui.button(icon="close", on_click=dialog.close).props("flat round dense")
+
+        ui.label(
+            "Matches every player on your team to a statistically similar player "
+            "(using 29-stat Self-Median DNA) at a reduced overall rating."
+        ).classes("text-xs text-gray-500")
+
+        def refresh_clones():
+            source_p = [asdict(p) for p in shortlist.players]
+            t_label = PRESET_TARGET_TEAMS.get(state["target_team"], f"Team {state['target_team']}")
+            t_name = t_label.split(" (")[0]
+            state["clones"] = engine.clone_squad(
+                source_p,
+                handicap_drop=state["handicap"],
+                target_team_id=state["target_team"],
+                target_team_name=t_name,
+            )
+            render_table.refresh()
+
+        with ui.row().classes("w-full items-center gap-4 bg-slate-100 dark:bg-slate-800 p-2 rounded"):
+            def _on_team_change(e):
+                state["target_team"] = int(e.value)
+                refresh_clones()
+
+            ui.select(
+                options=PRESET_TARGET_TEAMS,
+                value=state["target_team"],
+                label="Mini-Me Destination Team",
+                on_change=_on_team_change,
+            ).classes("w-60").props("dense outlined")
+
+            def _on_handicap_change(e):
+                state["handicap"] = int(e.value)
+                refresh_clones()
+
+            ui.select(
+                options={
+                    1: "-1 OVR Weaker",
+                    2: "-2 OVR Weaker",
+                    3: "-3 OVR Weaker",
+                    4: "-4 OVR Weaker (Recommended)",
+                    5: "-5 OVR Weaker",
+                    6: "-6 OVR Weaker",
+                    7: "-7 OVR Weaker",
+                    8: "-8 OVR Weaker",
+                },
+                value=state["handicap"],
+                label="Handicap Level",
+                on_change=_on_handicap_change,
+            ).classes("w-64").props("dense outlined")
+
+            ui.button("Regenerate", on_click=refresh_clones, icon="refresh").props("dense unelevated color=primary")
+
+        @ui.refreshable
+        def render_table():
+            if not state["clones"]:
+                ui.label("Generating clones...").classes("text-sm text-gray-400 italic")
+                return
+
+            with ui.element("div").classes("w-full overflow-x-auto max-h-96 border rounded"):
+                with ui.column().classes("w-full gap-1 p-2 min-w-max"):
+                    # Header
+                    with ui.row().classes("w-full items-center py-1 px-2 bg-slate-200 dark:bg-slate-700 font-bold text-xs uppercase"):
+                        ui.label("YOUR PLAYER (DAD)").classes("w-44")
+                        ui.label("➔").classes("w-6 text-center")
+                        ui.label("MINI-ME CLONE (SON)").classes("w-44")
+                        ui.label("OVR DIFF").classes("w-20")
+                        ui.label("SHAPE MATCH").classes("w-24")
+                        ui.label("ORIGINAL CLUB").classes("w-36")
+
+                    for c in state["clones"]:
+                        with ui.row().classes("w-full items-center py-1 px-2 border-b text-xs hover:bg-slate-50 dark:hover:bg-slate-800"):
+                            ui.label(f"{c['matched_to_name']} ({c['matched_to_ovr']} {c['target_position']})").classes("w-44 font-semibold truncate")
+                            ui.label("➔").classes("w-6 text-center text-gray-400")
+                            ui.label(f"{c['name']} ({c['overall']} {c['position']})").classes("w-44 font-bold text-indigo-600 dark:text-indigo-400 truncate")
+                            ui.badge(f"{c['ovr_diff']:+d} OVR", color="orange-8" if c['ovr_diff'] <= -4 else "amber-7").classes("w-16 justify-center")
+                            ui.badge(f"{c['similarity_pct']}", color="emerald-8").classes("w-20 justify-center")
+                            ui.label(f"{c['team']}").classes("w-36 truncate text-gray-500")
+
+        render_table()
+        refresh_clones()
+
+        def do_add_to_basket():
+            added_count = 0
+            for c in state["clones"]:
+                pid = c["player_id"]
+                p_rows = df[df["player_id"] == pid]
+                if not p_rows.empty:
+                    p_row = p_rows.iloc[0]
+                    sp = ShortlistPlayer(
+                        player_id=pid,
+                        name=c["name"],
+                        overall=c["overall"],
+                        position=c["position"],
+                        target_team=state["target_team"],
+                        wage_eur=p_row.get("wage_eur"),
+                        value_eur=p_row.get("value_eur"),
+                        pace=p_row.get("pace"),
+                        stamina=p_row.get("stamina"),
+                    )
+                    if shortlist.add(sp):
+                        added_count += 1
+            render_basket.refresh()
+            render_results.refresh()
+            t_label = PRESET_TARGET_TEAMS.get(state["target_team"], f"Team {state['target_team']}")
+            ui.notify(f"Added {added_count} Mini-Me players to squad basket (Target: {t_label})", type="positive")
+            dialog.close()
+
+        def do_save_matchup_preset():
+            dest_name = PRESET_TARGET_TEAMS.get(state['target_team'], 'Ipswich').split(' (')[0]
+            preset_name = f"{shortlist.target_name} vs {dest_name} Derby"
+            for c in state["clones"]:
+                pid = c["player_id"]
+                p_rows = df[df["player_id"] == pid]
+                if not p_rows.empty:
+                    p_row = p_rows.iloc[0]
+                    sp = ShortlistPlayer(
+                        player_id=pid,
+                        name=c["name"],
+                        overall=c["overall"],
+                        position=c["position"],
+                        target_team=state["target_team"],
+                        wage_eur=p_row.get("wage_eur"),
+                        value_eur=p_row.get("value_eur"),
+                        pace=p_row.get("pace"),
+                        stamina=p_row.get("stamina"),
+                    )
+                    shortlist.add(sp)
+            path = save_preset(shortlist, preset_name)
+            render_preset_selector.refresh()
+            render_basket.refresh()
+            render_results.refresh()
+            ui.notify(f"Saved matchup preset '{preset_name}' → {path.name}", type="positive")
+            dialog.close()
+
+        with ui.row().classes("w-full justify-between items-center mt-2"):
+            ui.button("Cancel", on_click=dialog.close).props("flat")
+            with ui.row().classes("gap-2"):
+                ui.button("💾 Save Matchup Preset", on_click=do_save_matchup_preset, icon="save").props("unelevated color=secondary")
+                ui.button("➕ Add Clones to Basket", on_click=do_add_to_basket, icon="group_add").props("unelevated color=indigo-700 text-white font-bold")
+
+    dialog.open()
+
+
 def build_ui() -> None:
     global name_in, position_in, club_in, league_in, nation_in, playstyle_in, min_ovr, max_ovr, icons_only_in
     global max_wage, min_playstyles, extra_cols_sel, nl_in, provider_sel, model_sel
@@ -799,10 +973,13 @@ def build_ui() -> None:
                 ).classes("w-full").props("dense outlined")
                 ui.separator().classes("my-1")
                 render_basket()
-                with ui.row().classes("w-full gap-2 mt-2"):
+                with ui.row().classes("w-full gap-2 mt-2 items-center justify-between"):
                     ui.button("Clear", on_click=clear_basket, icon="delete").props(
                         "flat"
                     )
+                    ui.button("👥 Create Mini-Me Squad", on_click=open_mini_me_dialog, icon="group_add").props(
+                        "unelevated color=indigo-700 text-white font-bold"
+                    ).tooltip("Generate a balanced Mini-Me opponent squad for your son (e.g. Ipswich)")
 
 
 def main() -> None:
