@@ -737,16 +737,16 @@ def open_clone_dialog(mode: str = "weaker") -> None:
     is_stronger = mode.lower() in ("stronger", "better")
     title_text = "⭐ Better-Me Super Squad Builder (Stronger Upgrades)" if is_stronger else "👥 Mini-Me Opponent Squad Builder (Weaker Clones)"
     desc_text = (
-        "Matches every player on your team to their 3 closest STRONGER statistical upgrades (using authentic Self-Median DNA). "
-        "Pick legendary superstars or elite upgrades sharing the exact same playstyle profile!"
+        "Matches every player on your team to their 5 closest STRONGER statistical upgrades (ranked from high to low by similarity). "
+        "Pick legendary superstars or elite upgrades with the exact rating boost (+1 to +10) you want!"
         if is_stronger else
-        "Matches every player on your team to their 3 closest weaker statistical clones (using authentic Self-Median DNA). "
+        "Matches every player on your team to their 5 closest weaker statistical clones (ranked from high to low by similarity). "
         "All candidate playable positions are shown to guarantee perfect position and flank fits."
     )
     icon_name = "auto_awesome" if is_stronger else "group_add"
     icon_color = "text-amber-500 dark:text-amber-400" if is_stronger else "text-indigo-600 dark:text-indigo-400"
     btn_color = "amber-700" if is_stronger else "indigo-700"
-    pick_label = "Pick Better-Me Upgrade (Top 3 ranked)" if is_stronger else "Pick Mini-Me Clone (Top 3 ranked)"
+    pick_label = "Pick Better-Me Upgrade (Top 5 ranked by match)" if is_stronger else "Pick Mini-Me Clone (Top 5 ranked by match)"
     no_cand_msg = "No stronger upgrade found for this position." if is_stronger else "No weaker candidate found for this position."
 
     # Always ensure fresh engine with latest merged player data
@@ -798,7 +798,7 @@ def open_clone_dialog(mode: str = "weaker") -> None:
                 position_filter=req_role,
                 excluded_ids=used_pids,
                 same_gender=True,
-                top_n=3,
+                top_n=5,
             )
             slot["candidates"] = cands
             cand_pids = [c["player_id"] for c in cands]
@@ -873,7 +873,7 @@ def open_clone_dialog(mode: str = "weaker") -> None:
                                             position_filter=req_r,
                                             excluded_ids=used_pids,
                                             same_gender=True,
-                                            top_n=3,
+                                            top_n=5,
                                         )
                                         cand_pids = [c["player_id"] for c in s["candidates"]]
                                         s["selected_clone_pid"] = cand_pids[0] if cand_pids else None
