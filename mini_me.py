@@ -94,6 +94,7 @@ class MiniMeEngine:
     def find_top_clones(
         self,
         player_id: int,
+        mode: str = "weaker",
         handicap_drop: int | None = None,
         drop_tolerance: int = 2,
         position_filter: str | None = None,
@@ -101,7 +102,7 @@ class MiniMeEngine:
         same_gender: bool = True,
         top_n: int = 3,
     ) -> list[dict[str, Any]]:
-        """Find top N closest statistical clones that are strictly weaker than target."""
+        """Find top N closest statistical clones (weaker for Mini-Me, stronger for Better-Me)."""
         if player_id not in self.pid_to_idx:
             return []
 
@@ -113,17 +114,24 @@ class MiniMeEngine:
         t_gender = str(t_row.get("gender", "M")).upper().strip()
         t_vec = self.Z_unit[t_idx]
 
-        # Strictly weaker players (OVR < t_ovr)
-        if handicap_drop is not None and handicap_drop > 0:
-            min_ovr = max(45, t_ovr - handicap_drop - drop_tolerance)
-            max_ovr = min(t_ovr - 1, t_ovr - handicap_drop + drop_tolerance)
-        else:
-            min_ovr = max(65, t_ovr - 10)
-            max_ovr = t_ovr - 1
+        is_stronger = mode.lower() in ("stronger", "better")
 
-        if min_ovr > max_ovr:
-            min_ovr = max(45, t_ovr - 8)
-            max_ovr = t_ovr - 1
+        if is_stronger:
+            # Better-Me: strictly stronger players (OVR > t_ovr)
+            min_ovr = t_ovr + 1
+            max_ovr = min(99, t_ovr + 12)
+        else:
+            # Mini-Me: strictly weaker players (OVR < t_ovr)
+            if handicap_drop is not None and handicap_drop > 0:
+                min_ovr = max(45, t_ovr - handicap_drop - drop_tolerance)
+                max_ovr = min(t_ovr - 1, t_ovr - handicap_drop + drop_tolerance)
+            else:
+                min_ovr = max(65, t_ovr - 10)
+                max_ovr = t_ovr - 1
+
+            if min_ovr > max_ovr:
+                min_ovr = max(45, t_ovr - 8)
+                max_ovr = t_ovr - 1
 
         excluded = set(excluded_ids or ())
         excluded.add(player_id)
@@ -166,9 +174,12 @@ class MiniMeEngine:
         cand_Z = self.Z_unit[cand_indices]
         sims = np.dot(cand_Z, t_vec)
 
-        # Score candidates with slight penalty for massive OVR drops to favor realistic close matches
+        # Score candidates with slight penalty for massive OVR jumps/drops to favor realistic close matches
         cand_ovrs = self.df.loc[cand_indices, "overall"].values
-        ovr_penalties = (t_ovr - cand_ovrs) / 100.0
+        if is_stronger:
+            ovr_penalties = (cand_ovrs - t_ovr) / 100.0
+        else:
+            ovr_penalties = (t_ovr - cand_ovrs) / 100.0
         scores = sims - ovr_penalties
 
         best_local_indices = np.argsort(-scores)[:top_n]

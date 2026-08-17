@@ -722,16 +722,39 @@ POS_FILTER_OPTIONS = [
 
 
 def open_mini_me_dialog() -> None:
+    open_clone_dialog(mode="weaker")
+
+
+def open_better_me_dialog() -> None:
+    open_clone_dialog(mode="stronger")
+
+
+def open_clone_dialog(mode: str = "weaker") -> None:
     if not shortlist.players:
         ui.notify("Add some players to your squad basket first (e.g. Leeds Legends)!", type="warning")
         return
+
+    is_stronger = mode.lower() in ("stronger", "better")
+    title_text = "⭐ Better-Me Super Squad Builder (Stronger Upgrades)" if is_stronger else "👥 Mini-Me Opponent Squad Builder (Weaker Clones)"
+    desc_text = (
+        "Matches every player on your team to their 3 closest STRONGER statistical upgrades (using authentic Self-Median DNA). "
+        "Pick legendary superstars or elite upgrades sharing the exact same playstyle profile!"
+        if is_stronger else
+        "Matches every player on your team to their 3 closest weaker statistical clones (using authentic Self-Median DNA). "
+        "All candidate playable positions are shown to guarantee perfect position and flank fits."
+    )
+    icon_name = "auto_awesome" if is_stronger else "group_add"
+    icon_color = "text-amber-500 dark:text-amber-400" if is_stronger else "text-indigo-600 dark:text-indigo-400"
+    btn_color = "amber-700" if is_stronger else "indigo-700"
+    pick_label = "Pick Better-Me Upgrade (Top 3 ranked)" if is_stronger else "Pick Mini-Me Clone (Top 3 ranked)"
+    no_cand_msg = "No stronger upgrade found for this position." if is_stronger else "No weaker candidate found for this position."
 
     # Always ensure fresh engine with latest merged player data
     engine = MiniMeEngine(df)
 
     # Per-player state: {pid: {"pos_filter": str, "selected_clone_pid": int | None, "candidates": list}}
     state: dict[str, Any] = {
-        "target_team": 93,  # Ipswich Town
+        "target_team": 93,  # Ipswich Town default
         "slots": {},
     }
 
@@ -771,6 +794,7 @@ def open_mini_me_dialog() -> None:
             req_role = "SAME" if pos_filter.startswith("SAME") else pos_filter
             cands = engine.find_top_clones(
                 player_id=pid,
+                mode=mode,
                 position_filter=req_role,
                 excluded_ids=used_pids,
                 same_gender=True,
@@ -787,23 +811,21 @@ def open_mini_me_dialog() -> None:
     with dialog, ui.card().classes("w-[95vw] max-w-[1300px] h-[90vh] p-4 gap-3 flex flex-col"):
         with ui.row().classes("w-full items-center justify-between shrink-0 border-b pb-2"):
             with ui.row().classes("items-center gap-2"):
-                ui.icon("group_add", size="md").classes("text-indigo-600 dark:text-indigo-400")
-                ui.label("👥 Mini-Me Opponent Squad Builder (Closest Weaker Clones)").classes("text-xl font-bold")
+                ui.icon(icon_name, size="md").classes(icon_color)
+                ui.label(title_text).classes("text-xl font-bold")
             ui.button(icon="close", on_click=dialog.close).props("flat round dense")
 
-        ui.label(
-            "Matches every player on your team to their 3 closest weaker statistical clones (using 29-stat Self-Median DNA). "
-            "All candidate playable positions are shown to guarantee perfect position and flank fits."
-        ).classes("text-xs text-gray-500 shrink-0")
+        ui.label(desc_text).classes("text-xs text-gray-500 shrink-0")
 
         with ui.row().classes("w-full items-center gap-4 bg-slate-100 dark:bg-slate-800 p-2 rounded shrink-0"):
             def _on_team_change(e):
                 state["target_team"] = int(e.value)
 
+            dest_label = "Better-Me Destination Team" if is_stronger else "Mini-Me Destination Team"
             ui.select(
                 options=PRESET_TARGET_TEAMS,
                 value=state["target_team"],
-                label="Mini-Me Destination Team",
+                label=dest_label,
                 on_change=_on_team_change,
             ).classes("w-64").props("dense outlined")
 
@@ -811,7 +833,7 @@ def open_mini_me_dialog() -> None:
                 "Recalculate All",
                 on_click=lambda: [compute_all_candidates(), render_slots.refresh()],
                 icon="refresh",
-            ).props("dense unelevated color=primary")
+            ).props(f"dense unelevated color={'amber-700' if is_stronger else 'primary'}")
 
         @ui.refreshable
         def render_slots():
@@ -826,7 +848,7 @@ def open_mini_me_dialog() -> None:
 
                         with ui.card().classes("w-full p-2 bg-slate-50 dark:bg-slate-900 border shadow-sm"):
                             with ui.row().classes("w-full items-center gap-3 no-wrap"):
-                                # 1. Dad Player Info (showing all positions)
+                                # 1. Source Player Info (showing all positions)
                                 with ui.row().classes("w-64 items-center gap-2 shrink-0"):
                                     _render_pos(src)
                                     with ui.column().classes("gap-0 w-36 truncate"):
@@ -847,6 +869,7 @@ def open_mini_me_dialog() -> None:
                                         req_r = "SAME" if s["pos_filter"].startswith("SAME") else s["pos_filter"]
                                         s["candidates"] = engine.find_top_clones(
                                             player_id=p_id,
+                                            mode=mode,
                                             position_filter=req_r,
                                             excluded_ids=used_pids,
                                             same_gender=True,
@@ -877,7 +900,7 @@ def open_mini_me_dialog() -> None:
                                 if cur_filter == "SKIP":
                                     ui.label("🚫 Skipped — will not clone this player.").classes("text-xs text-gray-400 italic flex-grow")
                                 elif not cands:
-                                    ui.label("No weaker candidate found for this position.").classes("text-xs text-red-400 italic flex-grow")
+                                    ui.label(no_cand_msg).classes("text-xs text-red-400 italic flex-grow")
                                 else:
                                     cand_opts = {}
                                     for idx, c in enumerate(cands, 1):
@@ -894,7 +917,7 @@ def open_mini_me_dialog() -> None:
                                     ui.select(
                                         options=cand_opts,
                                         value=slot["selected_clone_pid"],
-                                        label="Pick Mini-Me Clone (Top 3 ranked)",
+                                        label=pick_label,
                                         on_change=_on_clone_select,
                                     ).classes("flex-grow text-xs").props("dense outlined")
 
@@ -924,12 +947,14 @@ def open_mini_me_dialog() -> None:
             render_basket.refresh()
             render_results.refresh()
             t_label = PRESET_TARGET_TEAMS.get(state["target_team"], f"Team {state['target_team']}")
-            ui.notify(f"Added {added_count} Mini-Me clones to squad basket (Target: {t_label})", type="positive")
+            clone_type = "Better-Me" if is_stronger else "Mini-Me"
+            ui.notify(f"Added {added_count} {clone_type} players to squad basket (Target: {t_label})", type="positive")
             dialog.close()
 
         def do_save_matchup_preset():
             dest_name = PRESET_TARGET_TEAMS.get(state['target_team'], 'Ipswich').split(' (')[0]
-            preset_name = f"{shortlist.target_name} vs {dest_name} Derby"
+            prefix = "Better-Me" if is_stronger else "Mini-Me"
+            preset_name = f"{shortlist.target_name} vs {dest_name} {prefix} Derby"
             for pid, slot in state["slots"].items():
                 chosen_pid = slot["selected_clone_pid"]
                 if chosen_pid:
@@ -959,7 +984,8 @@ def open_mini_me_dialog() -> None:
             ui.button("Cancel", on_click=dialog.close).props("flat")
             with ui.row().classes("gap-2"):
                 ui.button("💾 Save Matchup Preset", on_click=do_save_matchup_preset, icon="save").props("unelevated color=secondary")
-                ui.button("➕ Add Selected Clones to Basket", on_click=do_add_to_basket, icon="group_add").props("unelevated color=indigo-700 text-white font-bold")
+                add_title = "⭐ Add Better-Me Clones" if is_stronger else "➕ Add Mini-Me Clones"
+                ui.button(add_title, on_click=do_add_to_basket, icon=icon_name).props(f"unelevated color={btn_color} text-white font-bold")
 
     dialog.open()
 
@@ -1062,13 +1088,17 @@ def build_ui() -> None:
                 ).classes("w-full").props("dense outlined")
                 ui.separator().classes("my-1")
                 render_basket()
-                with ui.row().classes("w-full gap-2 mt-2 items-center justify-between"):
+                with ui.row().classes("w-full gap-2 mt-2 items-center justify-between flex-wrap"):
                     ui.button("Clear", on_click=clear_basket, icon="delete").props(
                         "flat"
                     )
-                    ui.button("👥 Create Mini-Me Squad", on_click=open_mini_me_dialog, icon="group_add").props(
-                        "unelevated color=indigo-700 text-white font-bold"
-                    ).tooltip("Generate a balanced Mini-Me opponent squad for your son (e.g. Ipswich)")
+                    with ui.row().classes("gap-1 items-center"):
+                        ui.button("👥 Mini-Me", on_click=open_mini_me_dialog, icon="group_add").props(
+                            "unelevated color=indigo-700 text-white font-bold"
+                        ).tooltip("Generate a weaker balanced clone squad (e.g. for Ipswich)")
+                        ui.button("⭐ Better-Me", on_click=open_better_me_dialog, icon="auto_awesome").props(
+                            "unelevated color=amber-700 text-white font-bold"
+                        ).tooltip("Generate an upgraded stronger clone squad (higher OVR)")
 
 
 def main() -> None:
