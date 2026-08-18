@@ -99,8 +99,7 @@ PRESET_TARGET_TEAMS: dict[int, str] = {
     68: "AS Monaco (UCL)",
 
     # --- World Cup 2026 / International Teams ---
-    1317: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England (Men's National Team)",
-    113001: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England Lionesses (Women's National Team)",
+    1317: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England (National Team)",
     1334: "🇫🇷 France (National Team)",
     1368: "🇦🇷 Argentina (National Team)",
     1369: "🇧🇷 Brazil (National Team)",
