@@ -456,6 +456,8 @@ def filter_players(
     max_value: float | None = None,
     min_height: int | None = None,
     max_height: int | None = None,
+    min_age: int | None = None,
+    max_age: int | None = None,
     gender: str | None = "M",
     limit: int = 100,
 ) -> pd.DataFrame:
@@ -524,6 +526,10 @@ def filter_players(
         out = out[out["height"] >= min_height]
     if max_height is not None and "height" in out.columns:
         out = out[out["height"] <= max_height]
+    if min_age is not None and "age" in out.columns:
+        out = out[out["age"].notna() & (out["age"] >= min_age)]
+    if max_age is not None and "age" in out.columns:
+        out = out[out["age"].notna() & (out["age"] <= max_age)]
     if "overall" in out.columns:
         out = out.sort_values("overall", ascending=False)
     return out.head(limit)

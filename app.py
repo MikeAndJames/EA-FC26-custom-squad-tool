@@ -74,7 +74,7 @@ PRESET_TARGET_TEAMS: dict[int, str] = {
     93: "Ipswich (Prem)",
     105: "Sunderland (Prem)",
 
-    # --- Champions League Group 1 / Elite ---
+    # --- Champions League / Elite Clubs ---
     242: "Real Madrid (UCL)",
     240: "FC Barcelona (UCL)",
     20: "FC Bayern München (UCL)",
@@ -97,6 +97,34 @@ PRESET_TARGET_TEAMS: dict[int, str] = {
     77: "Celtic (UCL)",
     324: "Galatasaray (UCL)",
     68: "AS Monaco (UCL)",
+
+    # --- World Cup 2026 / International Teams ---
+    1317: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England (Men's National Team)",
+    113001: "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England Lionesses (Women's National Team)",
+    1334: "🇫🇷 France (National Team)",
+    1368: "🇦🇷 Argentina (National Team)",
+    1369: "🇧🇷 Brazil (National Team)",
+    1361: "🇪🇸 Spain (National Team)",
+    1336: "🇩🇪 Germany (National Team)",
+    1353: "🇵🇹 Portugal (National Team)",
+    1342: "🇮🇹 Italy (National Team)",
+    1324: "🇧🇪 Belgium (National Team)",
+    1327: "🇭🇷 Croatia (National Team)",
+    1330: "🇩🇰 Denmark (National Team)",
+    1351: "🇳🇴 Norway (National Team)",
+    1352: "🇵🇱 Poland (National Team)",
+    1358: "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland (National Team)",
+    1366: "🏴󠁧󠁢󠁷󠁬󠁳󠁿 Wales (National Team)",
+    1354: "🇮🇪 Republic of Ireland (National Team)",
+    1363: "🇨🇭 Switzerland (National Team)",
+    1364: "🇹🇷 Turkey (National Team)",
+    1365: "🇺🇦 Ukraine (National Team)",
+    1386: "🇺🇸 USA (National Team)",
+    1385: "🇲🇽 Mexico (National Team)",
+    1376: "🇺🇾 Uruguay (National Team)",
+    1374: "🇵🇾 Paraguay (National Team)",
+    1410: "🇯🇵 Japan (National Team)",
+    1414: "🇦🇺 Australia (National Team)",
 }
 
 # ── app state (process-local; single-user POC) ──────────────────────────
@@ -109,7 +137,7 @@ nl_chat_history: list[dict[str, str]] = []
 
 # widget refs filled in build_ui()
 name_in = position_in = club_in = league_in = nation_in = playstyle_in = icons_only_in = None
-min_ovr = max_ovr = max_wage = min_playstyles = None
+min_ovr = max_ovr = max_wage = min_playstyles = min_age = max_age = None
 extra_cols_sel = None
 nl_in = provider_sel = model_sel = None
 target_team_sel = None
@@ -340,6 +368,14 @@ def do_search() -> None:
         min_ps = int(min_playstyles.value) if min_playstyles and min_playstyles.value not in (None, "") else None
     except (TypeError, ValueError):
         min_ps = None
+    try:
+        min_a = int(min_age.value) if min_age and min_age.value not in (None, "") else None
+    except (TypeError, ValueError):
+        min_a = None
+    try:
+        max_a = int(max_age.value) if max_age and max_age.value not in (None, "") else None
+    except (TypeError, ValueError):
+        max_a = None
 
     icons_only = bool(icons_only_in.value) if icons_only_in else False
 
@@ -353,6 +389,8 @@ def do_search() -> None:
         icons_only=icons_only,
         min_ovr=min_o,
         max_ovr=max_o,
+        min_age=min_a,
+        max_age=max_a,
         playstyle=ps or None,
         min_playstyles=min_ps,
         max_wage=max_w,
@@ -992,7 +1030,7 @@ def open_clone_dialog(mode: str = "weaker") -> None:
 
 def build_ui() -> None:
     global name_in, position_in, club_in, league_in, nation_in, playstyle_in, min_ovr, max_ovr, icons_only_in
-    global max_wage, min_playstyles, extra_cols_sel, nl_in, provider_sel, model_sel
+    global max_wage, min_playstyles, min_age, max_age, extra_cols_sel, nl_in, provider_sel, model_sel
     global target_team_sel
 
     ui.page_title("FC 26 Team Builder")
@@ -1000,7 +1038,7 @@ def build_ui() -> None:
 
     with ui.header().classes("items-center justify-between bg-neutral-900 p-2"):
         ui.label("⚽ FC 26 Custom Team Builder").classes("text-base font-bold text-white")
-        ui.label("→ Premier League & Champions League Teams · OFFLINE Kick Off only").classes(
+        ui.label("→ Premier League, Champions League & World Cup National Teams · OFFLINE Kick Off only").classes(
             "text-xs text-white opacity-80"
         )
 
@@ -1023,13 +1061,17 @@ def build_ui() -> None:
                 club_in.on("keydown.enter", lambda: do_search())
                 league_in = ui.input("League", placeholder="Premier League…").classes("w-36")
                 league_in.on("keydown.enter", lambda: do_search())
-                nation_in = ui.input("Nationality", placeholder="Spain, Brazil…").classes("w-32")
+                nation_in = ui.input("Nationality", placeholder="England, Spain…").classes("w-32")
                 nation_in.on("keydown.enter", lambda: do_search())
                 playstyle_in = ui.input(
                     "PlayStyle", placeholder="Finesse, Rapid…"
                 ).classes("w-32")
                 min_ovr = ui.number("Min OVR", value=None, min=40, max=99).classes("w-20")
                 max_ovr = ui.number("Max OVR", value=None, min=40, max=99).classes("w-20")
+                min_age = ui.number("Min Age", value=None, min=15, max=45).classes("w-20")
+                min_age.on("keydown.enter", lambda: do_search())
+                max_age = ui.number("Max Age", value=None, min=15, max=45).classes("w-20")
+                max_age.on("keydown.enter", lambda: do_search())
                 min_playstyles = ui.number("Min playstyles", value=None, min=0, max=20).classes("w-24")
                 max_wage = ui.number("Max wage €", value=None).classes("w-28")
                 icons_only_in = ui.checkbox("⭐ Icons Only", value=False).classes("self-center text-xs font-bold text-amber-600 dark:text-amber-400 mb-1")
