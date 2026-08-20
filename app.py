@@ -41,6 +41,7 @@ from shortlist import (
 from nl_query import ask_nl, run_filter_code, run_nl_query
 from mini_me import MiniMeEngine
 from dataclasses import asdict
+from sabotage_draft_ui import init_draft_routes
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 # Leeds United — verified via find_sandbox_teams.py (Prem, roster ~26, letter L)
@@ -1133,6 +1134,9 @@ def build_ui() -> None:
                     ui.button("Clear", on_click=clear_basket, icon="delete").props(
                         "flat"
                     )
+                    ui.button("Draft Mode", on_click=lambda: ui.navigate.to('/draft/setup'), icon="style").props(
+                        "flat color=purple"
+                    )
                     with ui.row().classes("gap-1 items-center"):
                         ui.button("👥 Mini-Me", on_click=open_mini_me_dialog, icon="group_add").props(
                             "unelevated color=indigo-700 text-white font-bold"
@@ -1147,7 +1151,12 @@ def main() -> None:
     df = load_players()
     results_df = df.head(0)
     status_msg = f"Loaded {len(df)} players — try a search"
-    build_ui()
+    
+    @ui.page('/')
+    def index():
+        build_ui()
+        
+    init_draft_routes()
     ui.run(
         title="FC 26 Team Builder",
         host="127.0.0.1",

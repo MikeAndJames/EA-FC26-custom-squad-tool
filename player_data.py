@@ -194,9 +194,9 @@ def save_merged(merged: pd.DataFrame, csv_path: Path = MERGED_CSV, json_path: Pa
     cols = [
         c for c in (
             "player_id", "name", "overall", "pace", "shooting", "passing",
-            "dribbling", "defending", "physical", "position", "age", "height",
+            "dribbling", "defending", "physical", "position", "alt_positions", "age", "height",
             "nation", "league", "team", "play_styles", "wage_eur", "value_eur",
-            "potential", "preferred_foot", "skill_moves", "weak_foot",
+            "potential", "preferred_foot", "skill_moves", "weak_foot", "gender",
         ) if c in merged.columns
     ]
     slim = merged[cols].copy()
