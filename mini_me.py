@@ -228,7 +228,6 @@ class MiniMeEngine:
                 drop_tolerance=drop_tolerance,
                 excluded_ids=used_pids,
                 same_gender=True,
-                position_strict=False,
             )
             if clone:
                 used_pids.add(clone["player_id"])

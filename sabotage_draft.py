@@ -29,7 +29,7 @@ def get_all_icons():
     return _cached_icons
 
 class DraftSession:
-    def __init__(self, team_a_name, team_b_name, min_ovr, max_ovr, allow_legends, cards_per_round, opponent_blocks_first):
+    def __init__(self, team_a_name, team_b_name, min_ovr, max_ovr, allow_legends, cards_per_round, opponent_blocks_first, allow_blocking=True):
         self.team_a_name = team_a_name
         self.team_b_name = team_b_name
         self.min_ovr = min_ovr or 0
@@ -37,17 +37,20 @@ class DraftSession:
         self.allow_legends = allow_legends
         self.cards_per_round = cards_per_round
         self.opponent_blocks_first = opponent_blocks_first
+        self.allow_blocking = allow_blocking
         
         self.team_a_squad = []
         self.team_b_squad = []
         
         self.round_number = 1
         self.max_rounds = 10
-        self.state = "INIT" # INIT, BAN, PICK, LEFTOVER, FINISHED
+        self.state = "INIT" # INIT, BAN, PICK, LEFTOVER, PICK_1, PICK_2, FINISHED
         self.current_board = []
         self.banned_idx = None
         self.picked_idx = None
         self.leftover_idx = None
+        self.first_picked_idx = None
+        self.second_picked_idx = None
         
         self._build_pool()
         self.start_new_round()
@@ -78,10 +81,16 @@ class DraftSession:
             self.assign_goalkeepers()
             return
 
-        self.state = "BAN"
         self.banned_idx = None
         self.picked_idx = None
         self.leftover_idx = None
+        self.first_picked_idx = None
+        self.second_picked_idx = None
+
+        if self.allow_blocking:
+            self.state = "BAN"
+        else:
+            self.state = "PICK_1"
         
         # Pop cards from pool
         self.current_board = []
@@ -91,60 +100,87 @@ class DraftSession:
                 
     def get_turn_info(self):
         # Determine roles based on round and config
-        # Round 1 (odd): 
-        #   If opponent_blocks_first (Player B blocks): B bans, A picks, B leftovers
-        #   Else (Player A blocks): A bans, B picks, A leftovers
-        # Round 2 (even): reversed.
-        
         is_odd = (self.round_number % 2 != 0)
         
         if self.opponent_blocks_first:
-            blocker = "Team B" if is_odd else "Team A"
-            picker = "Team A" if is_odd else "Team B"
+            first_team = "Team B" if is_odd else "Team A"
+            second_team = "Team A" if is_odd else "Team B"
         else:
-            blocker = "Team A" if is_odd else "Team B"
-            picker = "Team B" if is_odd else "Team A"
+            first_team = "Team A" if is_odd else "Team B"
+            second_team = "Team B" if is_odd else "Team A"
             
-        if self.state == "BAN":
-            return blocker, "BAN"
-        elif self.state == "PICK":
-            return picker, "PICK"
-        elif self.state == "LEFTOVER":
-            return blocker, "LEFTOVER"
+        if self.allow_blocking:
+            blocker = first_team
+            picker = second_team
+            if self.state == "BAN":
+                return blocker, "BAN"
+            elif self.state == "PICK":
+                return picker, "PICK"
+            elif self.state == "LEFTOVER":
+                return blocker, "LEFTOVER"
+        else:
+            if self.state == "PICK_1":
+                return first_team, "PICK"
+            elif self.state == "PICK_2":
+                return second_team, "PICK"
         return None, None
 
     def take_action(self, card_idx):
         if card_idx < 0 or card_idx >= len(self.current_board):
             return False
             
-        if card_idx == self.banned_idx or card_idx == self.picked_idx:
-            return False # already used
+        if self.allow_blocking:
+            if card_idx in (self.banned_idx, self.picked_idx, self.leftover_idx):
+                return False # already used
+        else:
+            if card_idx in (self.first_picked_idx, self.second_picked_idx):
+                return False # already used
             
         active_team, action_type = self.get_turn_info()
         card = self.current_board[card_idx]
         
-        if self.state == "BAN":
-            self.banned_idx = card_idx
-            self.state = "PICK"
-            
-        elif self.state == "PICK":
-            self.picked_idx = card_idx
-            if active_team == "Team A":
-                self.team_a_squad.append(card)
-            else:
-                self.team_b_squad.append(card)
-            self.state = "LEFTOVER"
-            
-        elif self.state == "LEFTOVER":
-            self.leftover_idx = card_idx
-            if active_team == "Team A":
-                self.team_a_squad.append(card)
-            else:
-                self.team_b_squad.append(card)
-            
-            # End of round!
-            self.round_number += 1
-            self.start_new_round()
+        if self.allow_blocking:
+            if self.state == "BAN":
+                self.banned_idx = card_idx
+                self.state = "PICK"
+                
+            elif self.state == "PICK":
+                self.picked_idx = card_idx
+                if active_team == "Team A":
+                    self.team_a_squad.append(card)
+                else:
+                    self.team_b_squad.append(card)
+                self.state = "LEFTOVER"
+                
+            elif self.state == "LEFTOVER":
+                self.leftover_idx = card_idx
+                if active_team == "Team A":
+                    self.team_a_squad.append(card)
+                else:
+                    self.team_b_squad.append(card)
+                
+                # End of round!
+                self.round_number += 1
+                self.start_new_round()
+        else:
+            if self.state == "PICK_1":
+                self.first_picked_idx = card_idx
+                if active_team == "Team A":
+                    self.team_a_squad.append(card)
+                else:
+                    self.team_b_squad.append(card)
+                self.state = "PICK_2"
+                
+            elif self.state == "PICK_2":
+                self.second_picked_idx = card_idx
+                if active_team == "Team A":
+                    self.team_a_squad.append(card)
+                else:
+                    self.team_b_squad.append(card)
+                
+                # End of round!
+                self.round_number += 1
+                self.start_new_round()
             
         self._save_backup()
         return True

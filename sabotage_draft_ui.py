@@ -62,15 +62,21 @@ def draft_setup_page():
                 max_ovr = ui.number("Max OVR (0=No max)", value=92, format="%.0f").classes("flex-1")
                 
             allow_legends = ui.checkbox("Include Legends / Icons", value=True).classes("mt-4")
-            cards_per_round = ui.number("Cards per Round", value=5, min=3, max=7, format="%.0f").classes("w-full mt-4")
-            opponent_blocks_first = ui.checkbox("Opponent Blocks First (Round 1)", value=True).classes("mt-4")
+            
+            with ui.row().classes("w-full gap-4 mt-2"):
+                cards_per_round = ui.number("Cards per Round", value=5, min=2, max=7, format="%.0f").classes("flex-1")
+                blocks_per_round = ui.number("Blocks per Round (0 = No Bans / Pure Draft)", value=1, min=0, max=1, format="%.0f").classes("flex-1")
+                
+            opponent_first = ui.checkbox("Opponent Goes First (Round 1)", value=True).classes("mt-2")
             
             def start_draft():
+                num_blocks = int(blocks_per_round.value or 0)
                 sabotage_draft.active_draft = DraftSession(
                     team_a.value, team_b.value,
-                    int(min_ovr.value), int(max_ovr.value),
-                    allow_legends.value, int(cards_per_round.value),
-                    opponent_blocks_first.value
+                    int(min_ovr.value or 0), int(max_ovr.value or 0),
+                    allow_legends.value, int(cards_per_round.value or 5),
+                    opponent_first.value,
+                    allow_blocking=(num_blocks > 0)
                 )
                 ui.navigate.to('/draft/board')
                 
@@ -118,7 +124,7 @@ def draft_board_page():
                     
                     for idx, p in enumerate(draft.current_board):
                         is_banned = (idx == draft.banned_idx)
-                        is_picked = (idx == draft.picked_idx)
+                        is_picked = (idx == draft.picked_idx) or (idx == draft.first_picked_idx) or (idx == draft.second_picked_idx)
                         
                         card = ui.card().classes("w-32 items-center cursor-pointer")
                         if is_banned:
