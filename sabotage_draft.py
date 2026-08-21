@@ -28,6 +28,22 @@ def get_all_icons():
             _cached_icons = []
     return _cached_icons
 
+def resolve_team_id(team_name: str, default_id: int) -> int:
+    name = (team_name or "").lower().strip()
+    if "liverpool" in name: return 8
+    if "man" in name and ("utd" in name or "united" in name): return 10
+    if "man" in name and "city" in name: return 9
+    if "leeds" in name: return 7
+    if "ipswich" in name: return 93
+    if "arsenal" in name: return 0
+    if "chelsea" in name: return 4
+    if "real" in name: return 242
+    if "barca" in name or "barcelona" in name: return 240
+    if "bayern" in name or "munich" in name or "münchen" in name: return 20
+    if "dortmund" in name: return 21
+    if "psg" in name or "paris" in name: return 72
+    return default_id
+
 class DraftSession:
     def __init__(self, team_a_name, team_b_name, min_ovr, max_ovr, allow_legends, cards_per_round, opponent_blocks_first, allow_blocking=True):
         self.team_a_name = team_a_name
@@ -226,17 +242,20 @@ class DraftSession:
                 target_team=t_id
             ))
 
-        # Team A -> Leeds (7)
+        tid_a = resolve_team_id(self.team_a_name, 8)
+        tid_b = resolve_team_id(self.team_b_name, 10)
+
+        # Team A -> Liverpool (8) by default
         if getattr(self, 'team_a_gk', None):
-            add_player(self.team_a_gk, 7)
+            add_player(self.team_a_gk, tid_a)
         for p in self.team_a_squad:
-            add_player(p, 7)
+            add_player(p, tid_a)
             
-        # Team B -> Ipswich (93)
+        # Team B -> Man Utd (10) by default
         if getattr(self, 'team_b_gk', None):
-            add_player(self.team_b_gk, 93)
+            add_player(self.team_b_gk, tid_b)
         for p in self.team_b_squad:
-            add_player(p, 93)
+            add_player(p, tid_b)
             
         try:
             save_preset(sl, "temp_draft")

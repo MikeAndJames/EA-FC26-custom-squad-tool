@@ -54,8 +54,8 @@ def draft_setup_page():
         with ui.card().classes("w-full max-w-xl mx-auto p-4"):
             ui.label("Teams & Rules").classes("text-h6")
             
-            team_a = ui.input("Team A Name (You)", value="Leeds United").classes("w-full")
-            team_b = ui.input("Team B Name (Opponent)", value="Ipswich Town").classes("w-full")
+            team_a = ui.input("Team A Name (You)", value="Liverpool").classes("w-full")
+            team_b = ui.input("Team B Name (Opponent)", value="Man Utd").classes("w-full")
             
             with ui.row().classes("w-full gap-4"):
                 min_ovr = ui.number("Min OVR (0=No min)", value=80, format="%.0f").classes("flex-1")
@@ -223,17 +223,21 @@ def draft_summary_page():
                         target_team=t_id
                     ))
 
-                # Team A -> Leeds (7)
+                from sabotage_draft import resolve_team_id
+                tid_a = resolve_team_id(draft.team_a_name, 8)
+                tid_b = resolve_team_id(draft.team_b_name, 10)
+
+                # Team A -> Liverpool (8) by default
                 if draft.team_a_gk:
-                    add_player(draft.team_a_gk, 7)
+                    add_player(draft.team_a_gk, tid_a)
                 for p in draft.team_a_squad:
-                    add_player(p, 7)
+                    add_player(p, tid_a)
                     
-                # Team B -> Ipswich (93)
+                # Team B -> Man Utd (10) by default
                 if draft.team_b_gk:
-                    add_player(draft.team_b_gk, 93)
+                    add_player(draft.team_b_gk, tid_b)
                 for p in draft.team_b_squad:
-                    add_player(p, 93)
+                    add_player(p, tid_b)
                     
                 save_preset(sl, "draft")
                 ui.notify("Successfully exported both teams to draft.json!", type='positive')
